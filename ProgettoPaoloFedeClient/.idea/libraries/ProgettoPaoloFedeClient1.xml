@@ -1,7 +1,7 @@
 <component name="libraryTable">
   <library name="ProgettoPaoloFedeClient1">
     <CLASSES>
-      <root url="jar://$PROJECT_DIR$/dist/run2126304496/ProgettoPaoloFedeClient.jar!/" />
+      <root url="jar://$PROJECT_DIR$/dist/ProgettoPaoloFedeClient.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
