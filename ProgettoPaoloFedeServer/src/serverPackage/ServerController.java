@@ -1,19 +1,11 @@
 package serverPackage;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonArray;
-import com.google.gson.JsonElement;
-import com.google.gson.JsonParser;
-import com.google.gson.stream.JsonReader;
-import comunication.Email;
 import comunication.EmailHandler;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -22,8 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-
-import static serverPackage.FileEditor.saveToJson;
 
 public class ServerController implements Initializable {
 
@@ -64,7 +54,7 @@ public class ServerController implements Initializable {
                                 if(e!=null){
                                     FileEditor.saveToJson(e.getEmail());
                                 }
-                              //  textArea.setText(e.getEmail().toString()+e.getAction());
+                                textArea.setText(e.getEmail().toString()+e.getAction());
          
                                 /*
                                 Qua vado a leggere cosa mi ha inviato e in base al msg ricevuto il server decide un po

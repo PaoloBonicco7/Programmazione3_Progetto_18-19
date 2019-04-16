@@ -1,17 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package comunication;
 
 import java.io.Serializable;
-
-/**
- *
- * @author gniammo
- */
 
 //tipi di azione:
 /*
@@ -24,21 +13,28 @@ import java.io.Serializable;
 
 
 public class EmailHandler implements Serializable {
+
     private Email email;
     private String action;
-    
+
     public EmailHandler(Email email,String action) {
         this.email = email;
         this.action = action;
     }
 
-   public Email getEmail(){
+    public Email getEmail() {
        return email;
-   }
-   public String getAction(){
+    }
+
+    public void setEmail(Email email) {
+        this.email = email;
+    }
+
+    public String getAction() {
        return action;
    }
-   
-    
-    
+
+    public void setAction(String action) {
+        this.action = action;
+    }
 }

@@ -21,7 +21,7 @@ public class FileEditor {
      * Crea o controlla l'esistenza di un file json
      */
     public static void newFile() {
-        String path = "/home/gniammo/Scrivania/file.json";
+        String path = "file.json";
         try {
             File file = new File(path);
 
@@ -37,27 +37,10 @@ public class FileEditor {
         }
     }
 
-    /**
-     * @param list Quando il server verra disconesso questa metodo salvera
-     * tutti i dentro un file .json
-     * @throws IOException
-     */
-    /*
-    public static void saveToJson(ArrayList<Email> list){
-        Gson gson;
-        newFile();
-        try (Writer writer = new FileWriter("file.json")) {
-            gson = new GsonBuilder().create();
-            gson.toJson(list, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-    */
      public static void saveToJson(Email email){
         Gson gson;
         newFile();
-        try (Writer writer = new FileWriter("/home/gniammo/Scrivania/file.json",true)) {
+        try (Writer writer = new FileWriter("file.json",true)) {
             gson = new GsonBuilder().create();
             gson.toJson(email, writer);
         } catch (IOException e) {
