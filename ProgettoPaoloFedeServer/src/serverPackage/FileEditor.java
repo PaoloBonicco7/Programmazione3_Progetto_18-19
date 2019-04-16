@@ -3,7 +3,6 @@ package serverPackage;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.google.gson.stream.JsonReader;
 import comunication.Email;
 
 import java.io.*;
@@ -48,19 +47,10 @@ public class FileEditor {
      * @throws FileNotFoundException
      */
     public static ArrayList<Email> loadFromJson() throws FileNotFoundException {
-        /*
         Gson gson = new Gson();
         BufferedReader br = new BufferedReader(new FileReader("file.json"));
         Type type = new TypeToken<ArrayList<Email>>(){}.getType();
-        ArrayList<Email> list = gson.fromJson(br, type);
-        return list;
-        */
-
-        final Type REVIEW_TYPE = new TypeToken<ArrayList<Email>>() {
-        }.getType();
-        Gson gson = new Gson();
-        JsonReader reader = new JsonReader(new FileReader("file.json"));
-        return gson.fromJson(reader, REVIEW_TYPE);
+        return gson.fromJson(br, type);
     }
 
     /**
