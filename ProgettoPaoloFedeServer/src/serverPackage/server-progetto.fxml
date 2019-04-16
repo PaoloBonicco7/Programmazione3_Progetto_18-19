@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.layout.AnchorPane?>
 <AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="serverPackage.ServerController">
    <children>
-      <Button fx:id="button" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="189.0" text="Button" />
+      <Button fx:id="button1" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#handleButtonAction"
+              prefHeight="25.0" prefWidth="189.0" text="ReadToJson"/>
       <Label fx:id="label" layoutX="26.0" layoutY="125.0" prefHeight="33.0" prefWidth="227.0" text="Label" />
       <TextArea fx:id="textArea" layoutX="20.0" layoutY="213.0" prefHeight="200.0" prefWidth="200.0" />
       <TextArea layoutX="317.0" layoutY="213.0" prefHeight="200.0" prefWidth="200.0" />

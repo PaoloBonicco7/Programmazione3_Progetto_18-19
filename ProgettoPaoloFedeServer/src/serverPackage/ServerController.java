@@ -1,19 +1,21 @@
 package serverPackage;
 
+import comunication.Email;
 import comunication.EmailHandler;
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ServerController implements Initializable {
@@ -29,10 +31,17 @@ public class ServerController implements Initializable {
     @FXML
     private Button bottoneLeggi; //bottone che se cliccato fa leggere al server il file json
 
+
     @FXML
-    private void handleButtonAction(ActionEvent event) { //bottone inutile
-        System.out.println("DO NOTHING!");
-        label.setText("DO NOTHING");
+    private void handleButtonAction() { // Lettura dal file Json
+        try {
+            ArrayList<Email> list = FileEditor.loadFromJson();
+            for (Email ist : list) {
+                System.out.println(ist.toString());
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML
