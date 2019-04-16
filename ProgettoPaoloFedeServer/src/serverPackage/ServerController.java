@@ -45,13 +45,13 @@ public class ServerController implements Initializable {
                     while (true){
                         Socket incoming = s.accept(); // si mette in attesa di richiesta di connessione e la apre
                         ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
-                        EmailHandler e = (EmailHandler)in.readObject();//UPCAST perchè soche riceverò ogg Email
+                        EmailHandler e = (EmailHandler)in.readObject(); // UPCAST perchè so che riceverò ogg Email
                         Platform.runLater(new Runnable() {
                             @Override
                             public void run() {
                                 //CODICE PER LEGGERE MSG INVIATI
                                 FileEditor.newFile();
-                                if(e!=null){
+                                if(e != null){
                                     FileEditor.saveToJson(e.getEmail());
                                 }
                                 textArea.setText(e.getEmail().toString()+e.getAction());

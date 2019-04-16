@@ -4,8 +4,6 @@
     <list default="true" id="7f0365ba-473a-465d-8bce-74e951bb6158" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../ProgettoPaoloFedeClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProgettoPaoloFedeClient/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../ProgettoPaoloFedeClient/out/production/ProgettoPaoloFedeClient/progettopaolofede/ClientController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ProgettoPaoloFedeClient/out/production/ProgettoPaoloFedeClient/progettopaolofede/ClientController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProgettoPaoloFedeClient/out/production/ProgettoPaoloFedeClient/progettopaolofede/FXMLDocument.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProgettoPaoloFedeClient/out/production/ProgettoPaoloFedeClient/progettopaolofede/FXMLDocument.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProgettoPaoloFedeClient/src/comunication/EmailHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProgettoPaoloFedeClient/src/comunication/EmailHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/FileEditor$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/FileEditor$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/FileEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/FileEditor.class" afterDir="false" />
@@ -13,10 +11,8 @@
       <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/ServerController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/ServerController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/ServerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/ServerController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/server-progetto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/server-progetto.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/desktop.ini" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverPackage/FileEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverPackage/FileEditor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/comunication/EmailHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/comunication/EmailHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/serverPackage/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverPackage/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/serverPackage/server-progetto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/serverPackage/server-progetto.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,11 +35,34 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/serverPackage/ServerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
+            <state relative-caret-position="752">
+              <caret line="47" selection-start-line="47" selection-end-line="47" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/comunication/EmailHandler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+              <folding>
+                <element signature="e#1119#1120#0" expanded="true" />
+                <element signature="e#1163#1164#0" expanded="true" />
+                <element signature="e#1199#1200#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/comunication/Email.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="64">
+              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -52,12 +71,12 @@
         <entry file="file://$PROJECT_DIR$/file.json">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="140" lean-forward="true" selection-start-column="140" selection-end-column="140" />
+              <caret column="140" selection-start-column="140" selection-end-column="140" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/serverPackage/server-progetto.fxml">
           <provider editor-type-id="JavaFX-Scene-Builder" />
           <provider selected="true" editor-type-id="text-editor">
@@ -70,8 +89,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/serverPackage/FileEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-532">
-              <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+            <state relative-caret-position="48">
+              <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -86,8 +105,9 @@
       <list>
         <option value="$PROJECT_DIR$/file.json" />
         <option value="$PROJECT_DIR$/src/serverPackage/FileEditor.java" />
-        <option value="$PROJECT_DIR$/src/serverPackage/ServerController.java" />
         <option value="$PROJECT_DIR$/src/serverPackage/server-progetto.fxml" />
+        <option value="$PROJECT_DIR$/src/serverPackage/ServerController.java" />
+        <option value="$PROJECT_DIR$/src/comunication/EmailHandler.java" />
       </list>
     </option>
   </component>
@@ -109,7 +129,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -138,14 +158,15 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555355761976" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1555396386970" />
     <property name="create.test.in.the.same.root" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ProgettoPaoloFedeClient" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -192,17 +213,19 @@
       <option name="presentableId" value="Default" />
       <updated>1555354677074</updated>
       <workItem from="1555354680147" duration="1085000" />
-      <workItem from="1555395178824" duration="655000" />
+      <workItem from="1555395178824" duration="788000" />
+      <workItem from="1555396000714" duration="374000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1740000" />
+    <option name="totallyTimeSpent" value="2247000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1368" y="83" width="1376" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23784195" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22720365" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -211,7 +234,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32924694" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.32903227" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -249,24 +272,7 @@
     <entry file="file://$PROJECT_DIR$/file.json">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="140" lean-forward="true" selection-start-column="140" selection-end-column="140" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/serverPackage/FileEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-532">
-          <caret line="3" column="35" lean-forward="true" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/serverPackage/ServerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <caret column="140" selection-start-column="140" selection-end-column="140" />
         </state>
       </provider>
     </entry>
@@ -275,6 +281,42 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/serverPackage/FileEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="48">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/serverPackage/ServerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="752">
+          <caret line="47" selection-start-line="47" selection-end-line="47" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/comunication/Email.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/comunication/EmailHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="40" column="39" selection-start-line="40" selection-start-column="39" selection-end-line="40" selection-end-column="39" />
+          <folding>
+            <element signature="e#1119#1120#0" expanded="true" />
+            <element signature="e#1163#1164#0" expanded="true" />
+            <element signature="e#1199#1200#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
