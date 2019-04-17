@@ -7,6 +7,8 @@ import comunication.Email;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.util.HashMap;
+import java.util.Map;
 
 public class FileEditor {
 
@@ -30,14 +32,12 @@ public class FileEditor {
         }
     }
 
-    public static void saveToJson(Email email) {
+    public static void saveToJson(Map<Integer, Email> list) throws IOException {
         Gson gson;
         newFile();
-        try (Writer writer = new FileWriter("file.json",true)) {
+        try (Writer writer = new FileWriter("file.json")) {
             gson = new GsonBuilder().create();
-            gson.toJson(email, writer);
-        } catch (IOException e) {
-            e.printStackTrace();
+            gson.toJson(list, writer);
         }
     }
 
@@ -45,13 +45,15 @@ public class FileEditor {
      * @return un arraylist che estrae i dati da un file.json
      * @throws FileNotFoundException
      */
-    public static Email loadFromJson() throws FileNotFoundException {
+    public static HashMap<Integer, Email> loadFromJson() throws FileNotFoundException {
         Gson gson = new Gson();
+
         BufferedReader br = new BufferedReader(new FileReader("file.json"));
-        Type type = new TypeToken<Email>() {
+
+        Type type = new TypeToken<HashMap<Integer, Email>>() {
         }.getType();
 
-        return gson.fromJson(br, Email.class);
+        return gson.fromJson(br, type);
     }
 
     /**

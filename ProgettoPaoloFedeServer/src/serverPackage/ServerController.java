@@ -15,6 +15,7 @@ import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.ResourceBundle;
 
 public class ServerController implements Initializable {
@@ -34,8 +35,18 @@ public class ServerController implements Initializable {
     @FXML
     private void handleButtonAction() { // Lettura dal file Json
         try {
-            Email list = FileEditor.loadFromJson();
+            HashMap<Integer, Email> list = FileEditor.loadFromJson();
             System.out.println(list.toString());
+
+            //TODO   Bisogna riuscire a leggere più mail e cercare di capire come accedere ad un singolo campo della classe
+            // ad esempio se vogliamo solo il testo della mail ecc.
+            /*
+             * Adesso leggiamo un oggetto di tipo email dal file json, se però proviamo a mandare più
+             * email restituisce un errore perchè (penso) lui si aspetta un oggetto di tipo Email e invece si trova
+             * una cazzo di stringa senza senso lunghissima, ma nei porssimi giorni dovrei riuscire a sistemare anche
+             * questa cosa.
+             * */
+
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -59,7 +70,13 @@ public class ServerController implements Initializable {
                         String act;
 
                         if (e != null) {
-                            FileEditor.saveToJson(e.getEmail());
+                            HashMap<Integer, Email> map = new HashMap<>();
+                            map.put(1, e.getEmail());
+                            try {
+                                FileEditor.saveToJson(map);
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
                             act = e.getAction();
 
                             /*
