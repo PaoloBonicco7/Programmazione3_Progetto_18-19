@@ -46,11 +46,14 @@ public class FileEditor {
      * @return un arraylist che estrae i dati da un file.json
      * @throws FileNotFoundException
      */
-    public static ArrayList<Email> loadFromJson() throws FileNotFoundException {
+    public static Email loadFromJson() throws FileNotFoundException {
         Gson gson = new Gson();
         BufferedReader br = new BufferedReader(new FileReader("file.json"));
         Type type = new TypeToken<ArrayList<Email>>(){}.getType();
-        return gson.fromJson(br, type);
+
+        Email l = gson.fromJson(br, type);
+
+        return l;
     }
 
     /**

@@ -15,7 +15,6 @@ import java.io.ObjectInputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ServerController implements Initializable {
@@ -35,10 +34,8 @@ public class ServerController implements Initializable {
     @FXML
     private void handleButtonAction() { // Lettura dal file Json
         try {
-            ArrayList<Email> list = FileEditor.loadFromJson();
-            for (Email ist : list) {
-                System.out.println(ist.toString());
-            }
+            Email list = FileEditor.loadFromJson();
+            System.out.println(list.toString());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
