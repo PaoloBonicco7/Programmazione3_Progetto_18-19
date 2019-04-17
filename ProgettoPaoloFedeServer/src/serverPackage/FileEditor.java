@@ -7,7 +7,6 @@ import comunication.Email;
 
 import java.io.*;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 
 public class FileEditor {
 
@@ -31,7 +30,7 @@ public class FileEditor {
         }
     }
 
-     public static void saveToJson(Email email){
+    public static void saveToJson(Email email) {
         Gson gson;
         newFile();
         try (Writer writer = new FileWriter("file.json",true)) {
@@ -49,11 +48,10 @@ public class FileEditor {
     public static Email loadFromJson() throws FileNotFoundException {
         Gson gson = new Gson();
         BufferedReader br = new BufferedReader(new FileReader("file.json"));
-        Type type = new TypeToken<ArrayList<Email>>(){}.getType();
+        Type type = new TypeToken<Email>() {
+        }.getType();
 
-        Email l = gson.fromJson(br, type);
-
-        return l;
+        return gson.fromJson(br, Email.class);
     }
 
     /**
