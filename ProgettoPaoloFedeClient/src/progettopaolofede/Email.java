@@ -1,24 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package progettopaolofede;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
+import javafx.beans.property.*;
 
-/**
- *
- * @author gniammo
- */
+import java.io.Serializable;
+import java.util.List;
+
 public class Email implements Serializable {
 
     private final IntegerProperty ID = new SimpleIntegerProperty();
@@ -35,6 +21,7 @@ public class Email implements Serializable {
         this.IDProperty().set(ID);
     }
 
+
     private final StringProperty mittente = new SimpleStringProperty();
 
     public final StringProperty mittenteProperty() {
@@ -48,19 +35,22 @@ public class Email implements Serializable {
     public final void setMittente(final String mittente) {
         this.mittenteProperty().set(mittente);
     }
-   //destinatario
+
+
     private final ListProperty<String> destinatari = new SimpleListProperty<String>();
     
     public final ListProperty<String> destinatariProperty(){
         return this.destinatari;
     }
+
     public final List<String> getDestinatari(){
         return this.destinatariProperty().get();
     }
+
     public final void setDestinatari(ListProperty<String> destinatari){ //dubbio
         this.destinatariProperty().set(destinatari);
     }
-    
+
 
     private final StringProperty argomento = new SimpleStringProperty();
 
@@ -76,6 +66,7 @@ public class Email implements Serializable {
         this.argomentoProperty().set(argomento);
     }
 
+
     private final StringProperty testo = new SimpleStringProperty();
 
     public final StringProperty testoProperty() {
@@ -90,6 +81,7 @@ public class Email implements Serializable {
         this.testoProperty().set(testo);
     }
 
+
     private final StringProperty data = new SimpleStringProperty();
 
     public final StringProperty dataProperty() {
@@ -103,8 +95,9 @@ public class Email implements Serializable {
     public final void setData(final String data) {
         this.dataProperty().set(data);
     }
-    
-    public Email(int ID, ListProperty<String> destinatari,String argomento, String testo, String data){
+
+
+    public Email(int ID, ListProperty<String> destinatari, String argomento, String testo, String data) {
         setID(ID);
         setDestinatari(destinatari);
         setArgomento(argomento);
