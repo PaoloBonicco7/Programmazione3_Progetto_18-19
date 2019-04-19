@@ -5,7 +5,7 @@
  */
 package progettopaolofede;
 
-import comunication.Email;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -48,9 +48,9 @@ public class ListController {
                 if (empty) {
                     setText(null);
                 } else { //VEDERE
-                    //setText(email.getFirstName() + " " + person.getLastName());
+                    setText(email.getID() + " " +email.getDestinatari().toString() + "" + email.getMittente() + " " + email.getArgomento() + " " + email.getData() + " " + email.getTesto());
                     System.out.println("TODO");
-                }
+                } 
             }
         });
     }
