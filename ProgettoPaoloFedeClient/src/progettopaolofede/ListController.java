@@ -1,5 +1,6 @@
 package progettopaolofede;
 
+import comunication.Email;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
@@ -18,6 +19,8 @@ public class ListController {
         }
 
         this.model = model;
+        model.loadData(null);
+
         listView.setItems(model.getEmailList());
 
         listView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection)
@@ -37,10 +40,10 @@ public class ListController {
                 super.updateItem(email, empty);
                 if (empty) {
                     setText(null);
-                } else { //VEDERE
-                    setText(email.getID() + " " +email.getDestinatari().toString() + "" + email.getMittente() + " " + email.getArgomento() + " " + email.getData() + " " + email.getTesto());
-                    System.out.println("TODO");
-                } 
+                } else {
+                    setText(email.getID() + " " + email.getDestinatari() + "" + email.getMittente()
+                            + " " + email.getArgomento() + " " + email.getData() + " " + email.getTesto());
+                }
             }
         });
     }

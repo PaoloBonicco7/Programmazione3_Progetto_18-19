@@ -1,77 +1,107 @@
 package comunication;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 import java.io.Serializable;
-import java.util.ArrayList;
 
-public class Email implements Serializable{
-    private int ID;
-    private String mittente;
-    private ArrayList<String> destinatario;
-    private String argomento;
-    private String testo;
-    private String data;
+public class Email implements Serializable {
 
-    public Email(int ID, String mittente, ArrayList<String> destinatario, String argomento, String testo, String data) {
-        this.ID = ID;
-        this.mittente = mittente;
-        this.destinatario = destinatario;
-        this.argomento = argomento;
-        this.testo = testo;
-        this.data = data;
+    //  TODO --> DESTINATARI è UNA STRINGA !!
+
+    //  ID
+    private final IntegerProperty ID = new SimpleIntegerProperty();
+    //  MITTENTE
+    private final StringProperty mittente = new SimpleStringProperty();
+    //  DESTINATARI
+    private final StringProperty destinatari = new SimpleStringProperty();
+    //  ARGOMENTO
+    private final StringProperty argomento = new SimpleStringProperty();
+    //  TESTO
+    private final StringProperty testo = new SimpleStringProperty();
+    //  DATA
+    private final StringProperty data = new SimpleStringProperty();
+
+    public Email(int ID, String mittente, String destinatari, String argomento, String testo, String data) {
+        setID(ID);
+        setMittente(mittente);
+        setDestinatari(destinatari);
+        setArgomento(argomento);
+        setTesto(testo);
+        setData(data);
     }
 
-    @Override
-    public String toString(){
-        return "id:"+ID+"\nmittente: "+mittente+"\ndestinatario: "+destinatario+"\nargomento: "
-                +argomento+"\ntesto: "+testo+"\ndata "+data;
-
+    public final IntegerProperty IDProperty() {
+        return this.ID;
     }
 
-    public int getID() {
-        return ID;
+    public final int getID() {
+        return this.IDProperty().get();
     }
 
-    public String getMittente() {
-        return mittente;
+    public final void setID(final int ID) {
+        this.IDProperty().set(ID);
     }
 
-    public ArrayList<String> getDestinatario() {
-        return destinatario;
+    public final StringProperty mittenteProperty() {
+        return this.mittente;
     }
 
-    public String getArgomento() {
-        return argomento;
+    public final String getMittente() {
+        return this.mittenteProperty().get();
     }
 
-    public String getTesto() {
-        return testo;
+    public final void setMittente(final String mittente) {
+        this.mittenteProperty().set(mittente);
     }
 
-    public String getData() {
-        return data;
+    public final StringProperty destinatariProperty() {
+        return this.destinatari;
     }
 
-    public void setID(int ID) {
-        this.ID = ID;
+    public final String getDestinatari() {
+        return this.destinatariProperty().get();
     }
 
-    public void setMittente(String mittente) {
-        this.mittente = mittente;
+    public final void setDestinatari(final String destinatari) {
+        this.mittenteProperty().set(destinatari);
     }
 
-    public void setDestinatario(ArrayList<String> destinatario) {
-        this.destinatario = destinatario;
+    public final StringProperty argomentoProperty() {
+        return this.argomento;
     }
 
-    public void setArgomento(String argomento) {
-        this.argomento = argomento;
+    public final String getArgomento() {
+        return this.argomentoProperty().get();
     }
 
-    public void setTesto(String testo) {
-        this.testo = testo;
+    public final void setArgomento(final String argomento) {
+        this.argomentoProperty().set(argomento);
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public final StringProperty testoProperty() {
+        return this.testo;
+    }
+
+    public final String getTesto() {
+        return this.testoProperty().get();
+    }
+
+    public final void setTesto(final String testo) {
+        this.testoProperty().set(testo);
+    }
+
+    public final StringProperty dataProperty() {
+        return this.data;
+    }
+
+    public final String getData() {
+        return this.dataProperty().get();
+    }
+
+    public final void setData(final String data) {
+        this.dataProperty().set(data);
     }
 }

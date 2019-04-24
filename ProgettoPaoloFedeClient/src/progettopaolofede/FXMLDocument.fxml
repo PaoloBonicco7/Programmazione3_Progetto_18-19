@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.text.*?>
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 <AnchorPane id="AnchorPane" prefHeight="607.0" prefWidth="672.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="progettopaolofede.ClientController">
     <children>
         <Button fx:id="button" layoutX="506.0" layoutY="87.0" mnemonicParsing="false" onAction="#writeMsg" text="Invia msg" />
         <Label fx:id="labelMsg" layoutX="336.0" layoutY="26.0" prefHeight="15.0" prefWidth="116.0" text="Messaggio" />
         <TextField fx:id="clientMsgTextField" layoutX="452.0" layoutY="21.0" />
         <TextField fx:id="clientDestTextField" layoutX="452.0" layoutY="54.0" />
-        <Label fx:id="labelDest" layoutX="338.0" layoutY="59.0" prefHeight="15.0" prefWidth="105.0" text="destinatario" />
+        <Label fx:id="labelDest" layoutX="338.0" layoutY="59.0" prefHeight="15.0" prefWidth="105.0" text="Mittente"/>
       <Text fx:id="risposta" layoutX="318.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="334.0" />
       <ListView fx:id="listview" layoutY="-2.0" prefHeight="607.0" prefWidth="316.0" />
       <Separator layoutX="315.0" orientation="VERTICAL" prefHeight="607.0" prefWidth="0.0" />
       <Separator layoutX="321.0" layoutY="272.0" prefHeight="15.0" prefWidth="342.0" />
+        <TextField fx:id="clientTextField1" layoutX="46.0" layoutY="54.0"/>
+        <TextField fx:id="clientTextField2" layoutX="46.0" layoutY="139.0"/>
+        <Label fx:id="labelMsg1" layoutX="100.0" layoutY="21.0" prefHeight="15.0" prefWidth="116.0" text="Messaggio"/>
+        <Label fx:id="labelDest1" layoutX="106.0" layoutY="106.0" prefHeight="15.0" prefWidth="105.0" text="Mittente"/>
     </children>
 </AnchorPane>

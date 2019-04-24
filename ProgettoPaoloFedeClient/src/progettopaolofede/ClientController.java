@@ -2,13 +2,6 @@ package progettopaolofede;
 
 import comunication.Email;
 import comunication.EmailHandler;
-import java.io.*;
-import java.net.Socket;
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.List;
-import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -16,6 +9,15 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class ClientController implements Initializable {
 
@@ -35,8 +37,7 @@ public class ClientController implements Initializable {
         System.out.println("You clicked me!");
         String messaggio = clientMsgTextField.getText();
 
-        ArrayList<String> destinatario = null;
-        destinatario.add(clientMsgTextField.getText());
+        String destinatario = clientMsgTextField.getText();
 
         Email email = new Email(0, "utente0", destinatario, "argomento", clientMsgTextField.getText(), "today");
 
@@ -61,10 +62,11 @@ public class ClientController implements Initializable {
                  */
 
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
-                ArrayList<String> destinatario = new ArrayList<>();
-                destinatario.add(clientMsgTextField.getText());
+                String destinatario = clientMsgTextField.getText();
+
                 Email email = new Email(0, "utente0", destinatario, "argomento", clientMsgTextField.getText(), cal.getTime().toString());
                 EmailHandler emailHandler= new EmailHandler(email,"WRITE");
+
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(emailHandler);
                 out.close();
