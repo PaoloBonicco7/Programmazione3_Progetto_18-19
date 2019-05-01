@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="progettopaolofede.ClientController">
+   <children>
+      <Button fx:id="newButton" layoutX="25.0" layoutY="45.0" mnemonicParsing="false" text="new" />
+      <Button fx:id="replyButton" layoutX="91.0" layoutY="45.0" mnemonicParsing="false" text="reply" />
+      <Button fx:id="replyAllButton" layoutX="160.0" layoutY="45.0" mnemonicParsing="false" text="reply all" />
+      <TextArea fx:id="textArea" layoutX="25.0" layoutY="82.0" prefHeight="131.0" prefWidth="538.0" />
+      <TextField fx:id="textFieldTo" layoutX="100.0" layoutY="242.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField fx:id="textFieldFrom" layoutX="100.0" layoutY="284.0" prefHeight="25.0" prefWidth="241.0" />
+      <TextField fx:id="textFieldObject" layoutX="100.0" layoutY="326.0" prefHeight="25.0" prefWidth="241.0" />
+      <Button fx:id="sendButton" layoutX="263.0" layoutY="45.0" mnemonicParsing="false" text="send" />
+      <Label layoutX="25.0" layoutY="247.0" text="TO" />
+      <Label layoutX="17.0" layoutY="289.0" text="FROM" />
+      <Label layoutX="18.0" layoutY="331.0" text="OBJECT" />
+   </children>
+</AnchorPane>
