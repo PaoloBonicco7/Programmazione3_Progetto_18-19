@@ -108,9 +108,9 @@ public class ClientController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        
     }
-
+    @FXML
     private void sendMsg(ActionEvent event) {
         try {
             Socket s = new Socket("localhost", 5000); //localhost
@@ -126,8 +126,10 @@ public class ClientController implements Initializable {
 
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
 
-                Email email = new Email(0, textFieldFrom.getText(), textFieldTo.getText(), textFieldObject.getText(), textArea.getText(), cal.getTime().toString());
-                //           EmailHandler emailHandler= new EmailHandler(email,"WRITE");
+                //Email email = new Email(0, textFieldFrom.getText(), textFieldTo.getText(), textFieldObject.getText(), textArea.getText(), cal.getTime().toString());
+                //
+                Email email = new Email(0,"PROVA","PROVA","PROVA","PROVA","PROVA");
+               // EmailHandler emailHandler= new EmailHandler(email,"WRITE");
                 EmailManager emailManager = new EmailManager(email, "SEND");
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(emailManager);
