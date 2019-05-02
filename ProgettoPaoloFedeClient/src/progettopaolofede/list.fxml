@@ -7,9 +7,8 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="progettopaolofede.ListController" >
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="progettopaolofede.ListController">
    <children>
-      <ListView fx:id="listView" layoutY="94.0" prefHeight="298.0" prefWidth="200.0" />
+      <ListView fx:id="listView" layoutX="7.0" layoutY="25.0" prefHeight="347.0" prefWidth="200.0" />
    </children>
 </AnchorPane>
