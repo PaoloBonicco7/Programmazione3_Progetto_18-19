@@ -18,7 +18,7 @@ import javafx.scene.control.TextField;
 
 /* 
  public class ClientController implements Initializable {
- //ATTENZIONE QUANDO SCOMMENTI, CONTROLLA PEZZO X PEZZO CHE NON INCASINI LE COSE
+
  private List<String> listaMsg = new ArrayList<String>(); // lista msg
 
  ObservableList<String> observableList; // per listView
@@ -84,6 +84,7 @@ import javafx.scene.control.TextField;
 
  }
  */
+
 public class ClientController implements Initializable, Serializable {
 
     private DataModel model; //model del client
@@ -122,7 +123,7 @@ public class ClientController implements Initializable, Serializable {
 
     @FXML
     private void modifyList(ActionEvent event) {
-        //  Email e=new Email(0,"provo","provo","provo","provo","provo");
+        //  Email e = new Email(0,"provo","provo","provo","provo","provo");
         Calendar cal = Calendar.getInstance();
         Email email = new Email(0, textFieldFrom.getText(), new ArrayList<String>() {
             {
@@ -133,19 +134,35 @@ public class ClientController implements Initializable, Serializable {
     }
 
     @FXML
+    private void writeMsg(ActionEvent event) {
+        try {
+            Socket s = new Socket("localhost", 5000); //localhost
+            try {
+                Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
+
+                String destinatario = textFieldTo.getText();
+
+                Email email = new Email(0, "utente0", destinatario, "argomento", textFieldTo.getText(), cal.getTime().toString());
+                EmailManager emailHandler= new EmailManager(email,"WRITE");
+
+                ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
+                out.writeObject(emailHandler);
+                out.close();
+            } finally {
+                s.close();
+            }
+        } catch (IOException e) {
+            System.out.println("ERRORE");
+            e.printStackTrace();
+        }
+    }
+
+    /*
+    @FXML
     private void sendMsg(ActionEvent event) {
         try {
             Socket s = new Socket("localhost", 5000); //localhost
             try {
-                //               
-                //                 InputStream inStream = s.getInputStream(); //flusso in uscita da server a client
-                //                 OutputStream outStream = s.getOutputStream();//flusso in uscita da client a server
-                //                 PrintWriter out = new PrintWriter(outStream, true); //oggetto per inviare oggetti a server da client..
-                //                 Scanner in = new Scanner(inStream); //oggetto per prendere oggetti inviati da server a client
-                //
-                //                 out.println("client scrive a server");
-                //                 
-
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
 
 //                Email email = new Email(0, textFieldFrom.getText(), new ArrayList<String>() {
@@ -174,4 +191,5 @@ public class ClientController implements Initializable, Serializable {
         }
 
     }
+    */
 }

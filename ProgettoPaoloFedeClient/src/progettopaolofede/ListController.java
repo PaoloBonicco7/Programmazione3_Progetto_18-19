@@ -1,18 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package progettopaolofede;
 
 import comunication.Email;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
-/**
- *
- * @authorgniammo
- */
 /**
  *
  * Il controller lega i dati mostrati nella GUI dalla lista ai dati presenti nel
