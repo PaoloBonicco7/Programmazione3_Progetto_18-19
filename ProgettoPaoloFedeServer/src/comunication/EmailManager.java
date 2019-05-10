@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package progettopaolofede;
+package comunication;
 
 import java.io.Serializable;
 

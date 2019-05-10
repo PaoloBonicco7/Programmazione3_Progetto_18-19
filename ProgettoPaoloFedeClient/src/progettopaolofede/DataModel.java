@@ -1,19 +1,13 @@
 package progettopaolofede;
 
-import java.io.File;
 import java.io.Serializable;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import javafx.beans.Observable;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+
+import comunication.Email;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-/**
- *
- * @author gniammo
- */
+
 public class DataModel implements Serializable{
 
     private ObservableList<Email> emailList = FXCollections.observableArrayList();
@@ -35,13 +29,16 @@ public class DataModel implements Serializable{
         currentEmailProperty().set(email);
     }
 */
+
     public ObservableList<Email> getEmailList() {
         return emailList;
     }
+
     public void modifyEmailList(Email e){
        // emailList.setAll(e);
         emailList.add(e);
     }
+
 //ListProperty destinatario
     /*
      public void loadData(File file) { //per avere dei msg iniziali
@@ -67,9 +64,7 @@ public class DataModel implements Serializable{
      add("Destinatario3");
      }
      }, "argomento3", "testo3", "dataOggi"));
-        
-                
-                
+
      }
      */
 
