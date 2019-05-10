@@ -104,7 +104,7 @@ public class ServerController implements Initializable {
                                 // Ad esempio il salvataggio delle informazioni in json
                                 // o l'aggiornamento di una textArea
 
-                                //       textArea.setText(e.getEmail().toString() + e.getAction());
+                                textArea.setText(e.getEmail().toString() + e.getAction());
                                 break;
                         }
                         //  }

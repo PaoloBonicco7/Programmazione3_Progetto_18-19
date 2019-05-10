@@ -134,15 +134,16 @@ public class ClientController implements Initializable, Serializable {
     }
 
     @FXML
-    private void writeMsg(ActionEvent event) {
+    private void sendMsg(ActionEvent event) {
         try {
             Socket s = new Socket("localhost", 5000); //localhost
             try {
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
 
-                String destinatario = textFieldTo.getText();
+                ArrayList<String> destinatari = new ArrayList<>();
+                destinatari.add(textFieldTo.getText());
 
-                Email email = new Email(0, "utente0", destinatario, "argomento", textFieldTo.getText(), cal.getTime().toString());
+                Email email = new Email(0, "utente0", destinatari, "argomento", textFieldTo.getText(), cal.getTime().toString());
                 EmailManager emailHandler= new EmailManager(email,"WRITE");
 
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
