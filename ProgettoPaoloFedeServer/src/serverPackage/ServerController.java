@@ -76,6 +76,10 @@ public class ServerController implements Initializable {
                         //       e1.printStackTrace();
                         //   }
                         act = e.getAction();
+
+                        String mail = "Email da: " + e.getEmail().getMittente() + " a " + e.getEmail().getDestinatario();
+                        mail = mail + "\n il contenuto della mail è " + e.getEmail().getArgomento() + " e il testo è " + e.getEmail().getTesto() +
+                                " ricevuta in data " + e.getEmail().getData();
                         /*                      
                          *   WRITE = il server quando riceve scrive su json e poi va informato il client destinatario del msg (observable?)
                          *   WRITEALL= direi che possiamo usare solo write e aggiornare piu' client, no?
@@ -86,25 +90,27 @@ public class ServerController implements Initializable {
                         switch (act) {
                             case "SEND":
                                 // TODO writeHandler
-                                textArea.setText(e.getEmail().toString() + e.getAction());
-
+                                //textArea.setText(e.getEmail().toString() + e.getAction());
                                 break;
 
                             case "REMOVE":
                                 // TODO removeHandler
                                 break;
+
                             case "REPLY":
                                 // TODO replyHandler
                                 break;
+
                             case "REPLYALL":
                                 // TODO replyAllHandler
                                 break;
+
                             default:
                                 // TODO Inserire azioni di default
                                 // Ad esempio il salvataggio delle informazioni in json
                                 // o l'aggiornamento di una textArea
 
-                                textArea.setText(e.getEmail().toString() + e.getAction());
+                                textArea.setText(mail);
                                 break;
                         }
                         //  }

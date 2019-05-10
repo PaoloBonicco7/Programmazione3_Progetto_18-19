@@ -140,10 +140,18 @@ public class ClientController implements Initializable, Serializable {
             try {
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
 
+                String mittente = textArea.getText();
+
                 ArrayList<String> destinatari = new ArrayList<>();
                 destinatari.add(textFieldTo.getText());
 
-                Email email = new Email(0, "utente0", destinatari, "argomento", textFieldTo.getText(), cal.getTime().toString());
+                String object = textFieldObject.getText();
+
+                String text = textArea.getText();
+
+                String time = cal.getTime().toString();
+
+                Email email = new Email(0, mittente, destinatari, object, text, time);
                 EmailManager emailHandler= new EmailManager(email,"WRITE");
 
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
@@ -157,40 +165,4 @@ public class ClientController implements Initializable, Serializable {
             e.printStackTrace();
         }
     }
-
-    /*
-    @FXML
-    private void sendMsg(ActionEvent event) {
-        try {
-            Socket s = new Socket("localhost", 5000); //localhost
-            try {
-                Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
-
-//                Email email = new Email(0, textFieldFrom.getText(), new ArrayList<String>() {
-//                    {
-//                        add(textFieldTo.getText());
-//                    }
-//                }, textFieldObject.getText(), textArea.getText(), cal.getTime().toString());
-                //
-                Email email = new Email(0, "PROVA", new ArrayList<String>() {
-                    {
-                        add("PROVA");
-                    }
-                }, "PROVA", "PROVA", "PROVA");
-                // EmailHandler emailHandler= new EmailHandler(email,"WRITE");
-                EmailManager emailManager = new EmailManager(email, "SEND");
-                ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
-
-                out.writeObject(emailManager);
-                out.close();
-            } finally {
-                s.close();
-            }
-        } catch (IOException e) {
-            System.out.println("ERRORE");
-            e.printStackTrace();
-        }
-
-    }
-    */
 }
