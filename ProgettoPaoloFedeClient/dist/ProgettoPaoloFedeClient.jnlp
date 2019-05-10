@@ -8,7 +8,11 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+<<<<<<< HEAD
     <jar href="ProgettoPaoloFedeClient.jar" size="16323" download="eager" />
+=======
+    <jar href="ProgettoPaoloFedeClient.jar" size="7927" download="eager" />
+>>>>>>> refs/remotes/origin/master
   </resources>
 <security>
   <all-permissions/>

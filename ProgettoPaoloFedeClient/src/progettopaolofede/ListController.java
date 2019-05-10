@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,10 +7,16 @@
 package progettopaolofede;
 
 import java.util.ArrayList;
+=======
+package progettopaolofede;
+
+import comunication.Email;
+>>>>>>> refs/remotes/origin/master
 import javafx.fxml.FXML;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
 
+<<<<<<< HEAD
 /**
  *
  * @authorgniammo
@@ -20,10 +27,13 @@ import javafx.scene.control.ListView;
  * model e assicura che l'oggetto currentEmail del model sia sempre l'oggetto
  * selezionato nella lista
  */
+=======
+>>>>>>> refs/remotes/origin/master
 public class ListController {
 
     @FXML
     private ListView<Email> listView;
+<<<<<<< HEAD
     @FXML
     private ListView<Email> testListView;
 
@@ -90,4 +100,44 @@ public class ListController {
         testListView.setItems(model.getEmailList());
     }
     
+=======
+
+    private DataModel model;
+
+    public void initModel(DataModel model) {
+        // ensure model is only set once:
+        if (this.model != null) {
+            throw new IllegalStateException("Model can only be initialized once");
+        }
+
+        this.model = model;
+        model.loadData(null);
+
+        listView.setItems(model.getEmailList());
+
+        listView.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection)
+                -> model.setCurrentEmail(newSelection));
+
+        model.currentEmailProperty().addListener((obs, oldEmail, newEmail) -> {
+            if (newEmail == null) {
+                listView.getSelectionModel().clearSelection();
+            } else {
+                listView.getSelectionModel().select(newEmail);
+            }
+        });
+
+        listView.setCellFactory(lv -> new ListCell<Email>() {
+            @Override
+            public void updateItem(Email email, boolean empty) {
+                super.updateItem(email, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    setText(email.getID() + " " + email.getDestinatari() + "" + email.getMittente()
+                            + " " + email.getArgomento() + " " + email.getData() + " " + email.getTesto());
+                }
+            }
+        });
+    }
+>>>>>>> refs/remotes/origin/master
 }

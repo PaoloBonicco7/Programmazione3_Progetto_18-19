@@ -3,6 +3,10 @@ package serverPackage;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+<<<<<<< HEAD
+=======
+import comunication.Email;
+>>>>>>> refs/remotes/origin/master
 
 import java.io.*;
 import java.lang.reflect.Type;
