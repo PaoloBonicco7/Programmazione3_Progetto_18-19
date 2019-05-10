@@ -8,6 +8,7 @@ package progettopaolofede;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+
 public class Email implements Serializable {
 
     private int ID;
