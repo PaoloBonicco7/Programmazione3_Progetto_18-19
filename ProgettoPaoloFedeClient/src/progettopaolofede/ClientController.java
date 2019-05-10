@@ -86,7 +86,7 @@ import javafx.scene.layout.VBox;
 
  }
  */
-public class ClientController implements Initializable {
+public class ClientController implements Initializable, Serializable {
 
     private DataModel model; //model del client
 
@@ -105,11 +105,35 @@ public class ClientController implements Initializable {
     private Button replyButton; //bottone reply msg
     @FXML
     private Button newButton; //bottone new msg
+    @FXML
+    private Button testButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
     }
+
+    @FXML
+    public void initModel(DataModel model) {
+        if (this.model != null) {
+            throw new IllegalStateException("Model can only be initialized once");
+        }
+        this.model = model;
+        model.loadData();
+    }
+
+    @FXML
+    private void modifyList(ActionEvent event) {
+        //  Email e=new Email(0,"provo","provo","provo","provo","provo");
+        Calendar cal = Calendar.getInstance();
+        Email email = new Email(0, textFieldFrom.getText(), new ArrayList<String>() {
+            {
+                add(textFieldTo.getText());
+            }
+        }, textFieldObject.getText(), textArea.getText(), cal.getTime().toString());
+        model.modifyEmailList(email);
+    }
+
     @FXML
     private void sendMsg(ActionEvent event) {
         try {
@@ -126,12 +150,21 @@ public class ClientController implements Initializable {
 
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
 
-                //Email email = new Email(0, textFieldFrom.getText(), textFieldTo.getText(), textFieldObject.getText(), textArea.getText(), cal.getTime().toString());
+//                Email email = new Email(0, textFieldFrom.getText(), new ArrayList<String>() {
+//                    {
+//                        add(textFieldTo.getText());
+//                    }
+//                }, textFieldObject.getText(), textArea.getText(), cal.getTime().toString());
                 //
-                Email email = new Email(0,"PROVA","PROVA","PROVA","PROVA","PROVA");
-               // EmailHandler emailHandler= new EmailHandler(email,"WRITE");
+                Email email = new Email(0, "PROVA", new ArrayList<String>() {
+                    {
+                        add("PROVA");
+                    }
+                }, "PROVA", "PROVA", "PROVA");
+                // EmailHandler emailHandler= new EmailHandler(email,"WRITE");
                 EmailManager emailManager = new EmailManager(email, "SEND");
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
+
                 out.writeObject(emailManager);
                 out.close();
             } finally {
@@ -141,5 +174,6 @@ public class ClientController implements Initializable {
             System.out.println("ERRORE");
             e.printStackTrace();
         }
+
     }
 }

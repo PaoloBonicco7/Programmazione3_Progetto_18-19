@@ -14,6 +14,10 @@ import java.util.Scanner;
  *
  * @author gniammo
  */
+public class ThreadedEchoHandler{
+    
+}
+/*
 public class ThreadedEchoHandler implements Runnable {
 
     private Socket incoming;
@@ -44,3 +48,4 @@ public class ThreadedEchoHandler implements Runnable {
 
     }
 }
+*/

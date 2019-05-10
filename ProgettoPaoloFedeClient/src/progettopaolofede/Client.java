@@ -1,5 +1,6 @@
 package progettopaolofede;
 //ss
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,10 +14,14 @@ public class Client extends Application {
     public void start(Stage primaryStage) throws Exception {
         BorderPane root = new BorderPane();
         FXMLLoader listLoader = new FXMLLoader(getClass().getResource("list.fxml"));
-        root.setCenter(listLoader.load());
+        root.setLeft(listLoader.load());
+        FXMLLoader sendLoader = new FXMLLoader(getClass().getResource("send.fxml"));
+        root.setRight(sendLoader.load());
+        ClientController clientController = sendLoader.getController();
         ListController listController = listLoader.getController();
-        //  Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         DataModel model = new DataModel();
+        clientController.initModel(model);
         listController.initModel(model);
         Scene scene = new Scene(root);
         //stage.setScene(scene);
@@ -33,4 +38,3 @@ public class Client extends Application {
     }
 
 }
-

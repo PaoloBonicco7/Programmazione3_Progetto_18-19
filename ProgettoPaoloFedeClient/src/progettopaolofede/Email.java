@@ -7,18 +7,94 @@ package progettopaolofede;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleListProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 
+public class Email implements Serializable {
+
+    private int ID;
+    private String mittente;
+    private ArrayList<String> destinatario;
+    private String argomento;
+    private String testo;
+    private String data;
+
+    public Email(int ID, String mittente, ArrayList<String> destinatario, String argomento, String testo, String data) {
+        this.ID = ID;
+        this.mittente = mittente;
+        this.destinatario = destinatario;
+        this.argomento = argomento;
+        this.testo = testo;
+        this.data = data;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public String getMittente() {
+        return mittente;
+    }
+
+    public ArrayList<String> getDestinatario() {
+        return destinatario;
+    }
+
+    public String getArgomento() {
+        return argomento;
+    }
+
+    public String getTesto() {
+        return testo;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setID(int ID) {
+        this.ID = ID;
+    }
+
+    public void setMittente(String mittente) {
+        this.mittente = mittente;
+    }
+
+    public void setDestinatario(ArrayList<String> destinatario) {
+        this.destinatario = destinatario;
+    }
+
+    public void setArgomento(String argomento) {
+        this.argomento = argomento;
+    }
+
+    public void setTesto(String testo) {
+        this.testo = testo;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String toString() {
+        return getID() + " " + getMittente() + " " + getDestinatario() + " " + getArgomento() + " " + getTesto() + "" + getData();
+    }
+}
+
+//CLASSE EMAIL CON PROPERTIES
+
+
+//import java.util.ArrayList;
+//import java.util.List;
+//import javafx.beans.property.IntegerProperty;
+//import javafx.beans.property.ListProperty;
+//import javafx.beans.property.SimpleIntegerProperty;
+//import javafx.beans.property.SimpleListProperty;
+//import javafx.beans.property.SimpleStringProperty;
+//import javafx.beans.property.StringProperty;
 /**
  *
  * @author gniammo
  */
+/*
 public class Email implements Serializable {
     
 //ID
@@ -51,21 +127,21 @@ public class Email implements Serializable {
     }
 
     //TODO -> convertire String in ListProperty
-    /*
-//destinatario
-    private final ListProperty<String> destinatari = new SimpleListProperty<String>();
-    
-    public final ListProperty<String> destinatariProperty(){
-        return this.destinatari;
-    }
-    public final List<String> getDestinatari(){
-        return this.destinatariProperty().get();
-    }
-    public final void setDestinatari(ListProperty<String> destinatari){ //dubbio
-        this.destinatariProperty().set(destinatari);
-    }
+//    
+////destinatario
+//    private final ListProperty<String> destinatari = new SimpleListProperty<String>();
+//    
+//    public final ListProperty<String> destinatariProperty(){
+//        return this.destinatari;
+//    }
+//    public final List<String> getDestinatari(){
+//        return this.destinatariProperty().get();
+//    }
+//    public final void setDestinatari(ListProperty<String> destinatari){ //dubbio
+//        this.destinatariProperty().set(destinatari);
+//    }
 
-    */
+    
 //destinatario STRING
     
      private final StringProperty destinatario = new SimpleStringProperty();
@@ -133,4 +209,9 @@ public class Email implements Serializable {
         setTesto(testo);
         setData(data);
     }
+
+    public String toString(){
+        return getID()+" "+getMittente()+" "+ getDestinatario()+" "+getArgomento()+" "+getTesto()+""+getData();
+    }
 }
+*/

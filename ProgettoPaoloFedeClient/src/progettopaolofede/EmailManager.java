@@ -42,6 +42,9 @@ public class EmailManager implements Serializable {
     public void setAction(String action) {
         this.action = action;
     }
+    public String toString(){
+        return "";
+    }
     
     
 }
