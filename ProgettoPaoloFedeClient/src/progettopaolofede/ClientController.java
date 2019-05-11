@@ -87,6 +87,8 @@ import javafx.scene.control.TextField;
 
 public class ClientController implements Initializable, Serializable {
 
+    public int i = 0;
+
     private DataModel model; //model del client
 
     private String Action; //rappresenta azione da eseguire
@@ -135,6 +137,7 @@ public class ClientController implements Initializable, Serializable {
 
     @FXML
     private void sendMsg(ActionEvent event) {
+
         try {
             Socket s = new Socket("localhost", 5000); //localhost
             try {
@@ -151,8 +154,10 @@ public class ClientController implements Initializable, Serializable {
 
                 String time = cal.getTime().toString();
 
-                Email email = new Email(0, mittente, destinatari, object, text, time);
+                Email email = new Email(i, mittente, destinatari, object, text, time);
                 EmailManager emailHandler= new EmailManager(email,"WRITE");
+
+                i++;
 
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(emailHandler);

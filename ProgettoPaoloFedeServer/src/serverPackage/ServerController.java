@@ -66,40 +66,16 @@ public class ServerController implements Initializable {
 
                     Platform.runLater(() -> {
 
-                        //  Inserimento delle email nel file Json con indice ID
-                        /*
-                        int i = e.getEmail().getID();
-
-                        Map<Integer, Email> map = new HashMap<Integer, Email>();
-                        map.put(i, e.getEmail());
-
-                        Email[] emails = new Email[] { (1, "Mike"), new User(2, "Tom") };
-                        gson.toJson(users, new FileWriter(filePath));
-                        */
-
-                        Gson gson = new Gson();
-                        String emailJson = gson.toJson(e.getEmail());
-
-                        try {
-                            File fileJson = new File("File.json");
-                            FileWriter fw = new FileWriter(fileJson);
-                            BufferedWriter bw = new BufferedWriter(fw);
-                            bw.write(emailJson);
-                            bw.flush();
-                            bw.close();
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-
-                        textAreaJson.setText(emailJson);
+                        textAreaJson.setText("Bello sto progetto mamma mia");
 
                         if (e != null) {
-                            HashMap<Integer, Email> map = new HashMap<>();
-                            map.put(1, e.getEmail());
                             try {
-                            FileEditor.saveToJson(map);
+                                HashMap<Integer, Email> map = new HashMap<>();
+                                map = FileEditor.loadFromJson();
+                                map.put(e.getEmail().getID(), e.getEmail());
+                                FileEditor.saveToJson(map);
                             } catch (IOException e1) {
-                               e1.printStackTrace();
+                                e1.printStackTrace();
                             }
 
                             String act = e.getAction();

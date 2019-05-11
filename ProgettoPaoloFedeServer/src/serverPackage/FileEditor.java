@@ -55,13 +55,4 @@ public class FileEditor {
 
         return gson.fromJson(br, type);
     }
-
-    /**
-     * @param args
-     * @throws IOException
-     */
-    public static void main(String[] args) throws IOException {
-        System.out.println(loadFromJson().toString());
-    }
-
 }
