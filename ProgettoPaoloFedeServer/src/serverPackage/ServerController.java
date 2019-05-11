@@ -1,8 +1,6 @@
 package serverPackage;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.ObjectInputStream;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
@@ -79,11 +77,19 @@ public class ServerController implements Initializable {
                         gson.toJson(users, new FileWriter(filePath));
                         */
 
-                        File fileJson = new File("File.json");
-                        FileEditor.newFile();
-
                         Gson gson = new Gson();
                         String emailJson = gson.toJson(e.getEmail());
+
+                        try {
+                            File fileJson = new File("File.json");
+                            FileWriter fw = new FileWriter(fileJson);
+                            BufferedWriter bw = new BufferedWriter(fw);
+                            bw.write(emailJson);
+                            bw.flush();
+                            bw.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
+                        }
 
                         textAreaJson.setText(emailJson);
 
@@ -101,6 +107,7 @@ public class ServerController implements Initializable {
 
                             String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
                             email = email + "\nOGGETTO: " + mail.getArgomento() + "\n" + mail.getTesto() + "\nData: " + mail.getData();
+
                             /*
                              *   WRITE = il server quando riceve scrive su json e poi va informato il client destinatario del msg (observable?)
                              *   WRITEALL= direi che possiamo usare solo write e aggiornare piu' client, no?
@@ -108,6 +115,7 @@ public class ServerController implements Initializable {
                              *   REPLY = viene creato un oggetto email copiandolo da quelli che vede il cliente e lo spedice al mittente , server fa come write
                              *   REPLY ALL = come reply ma a tutti
                              */
+
                             switch (act) {
                                 case "SEND":
                                     // TODO writeHandler

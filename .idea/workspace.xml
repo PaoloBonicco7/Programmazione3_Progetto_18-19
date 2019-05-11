@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="4bcafdb0-2ce3-4211-a7d9-6125e6f2ecb3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/server-progetto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/server-progetto.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/ServerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/ServerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/server-progetto.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/server-progetto.fxml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,15 +15,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/comunication/Email.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/Client.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -38,8 +27,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="145" column="45" selection-start-line="145" selection-start-column="45" selection-end-line="145" selection-end-column="45" />
+            <state relative-caret-position="235">
+              <caret line="138" selection-start-line="138" selection-end-line="138" />
             </state>
           </provider>
         </entry>
@@ -59,7 +48,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/Server.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="64">
@@ -68,11 +57,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="102" column="85" selection-start-line="102" selection-start-column="85" selection-end-line="102" selection-end-column="85" />
+            <state relative-caret-position="221">
+              <caret line="90" column="49" lean-forward="true" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/file.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret column="136" selection-start-column="136" selection-end-column="136" />
             </state>
           </provider>
         </entry>
@@ -123,6 +121,7 @@
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/Client.java" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/server-progetto.fxml" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" />
+        <option value="$PROJECT_DIR$/file.json" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" />
       </list>
     </option>
@@ -179,7 +178,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557564085023" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557565133085" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Materiale Progetto Prog3/1_VecchioProgetto_ConProperty" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -245,7 +244,7 @@
       <option name="presentableId" value="Default" />
       <updated>1557495329931</updated>
       <workItem from="1557495333086" duration="6018000" />
-      <workItem from="1557559691719" duration="4367000" />
+      <workItem from="1557559691719" duration="5626000" />
     </task>
     <task id="LOCAL-00001" summary="FIRST COMMIT PRIMA FA TUTTO SCHIFO">
       <created>1557495428384</created>
@@ -275,11 +274,27 @@
       <option name="project" value="LOCAL" />
       <updated>1557499901753</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Sto andando verso la scrittura in Json facendo varie prove.">
+      <created>1557564167546</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1557564167546</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10385000" />
+    <option name="totallyTimeSpent" value="11644000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
@@ -298,10 +313,10 @@
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32924694" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32924694" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32924694" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32924694" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -326,7 +341,8 @@
     <MESSAGE value="Ho spostato nel package comunication la classe email e la classe emailHandler sostituendoli con i precedenti file omonimi con le property" />
     <MESSAGE value="Sto provando a far comunicare server e client come prima, madonna troppo figo emailManager come nome mi fa sentire figo" />
     <MESSAGE value="Sono riuscito a far comunicare in maniera molto basilare il client e il server, con nessun magheggio ho semplicemente adattato il codice che avevamo già scritto al nuovo codice che avevi scritto. Ora mi focalizzo sull'implementare la comunicazione in maniera un poco più bella." />
-    <option name="LAST_COMMIT_MESSAGE" value="Sono riuscito a far comunicare in maniera molto basilare il client e il server, con nessun magheggio ho semplicemente adattato il codice che avevamo già scritto al nuovo codice che avevi scritto. Ora mi focalizzo sull'implementare la comunicazione in maniera un poco più bella." />
+    <MESSAGE value="Sto andando verso la scrittura in Json facendo varie prove." />
+    <option name="LAST_COMMIT_MESSAGE" value="Sto andando verso la scrittura in Json facendo varie prove." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/desktop.ini">
@@ -373,13 +389,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/DataModel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="912">
@@ -391,13 +400,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="32">
           <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/Server.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -420,17 +422,38 @@
       <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="145" column="45" selection-start-line="145" selection-start-column="45" selection-end-line="145" selection-end-column="45" />
+        <state relative-caret-position="221">
+          <caret line="90" column="49" lean-forward="true" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java">
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="102" column="85" selection-start-line="102" selection-start-column="85" selection-end-line="102" selection-end-column="85" />
+        <state relative-caret-position="235">
+          <caret line="138" selection-start-line="138" selection-end-line="138" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="136" selection-start-column="136" selection-end-column="136" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/Server.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="64">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
       </provider>
     </entry>

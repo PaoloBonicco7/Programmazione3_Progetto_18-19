@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="serverPackage.ServerController">
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="544.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="serverPackage.ServerController">
    <children>
-      <Button fx:id="button1" layoutX="14.0" layoutY="65.0" mnemonicParsing="false" onAction="#handleButtonAction" prefHeight="25.0" prefWidth="189.0" text="ReadToJson" />
-      <TextArea fx:id="textArea" layoutX="15.0" layoutY="194.0" prefHeight="200.0" prefWidth="579.0" />
-      <Button fx:id="accept" layoutX="15.0" layoutY="26.0" mnemonicParsing="false" onAction="#handleConnection" prefHeight="25.0" prefWidth="189.0" text="accettaConnessione" />
-      <Button fx:id="bottoneScrivi" layoutX="15.0" layoutY="100.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="189.0" text="scrivi su txt" /> <!--onAction="#readFromJsn" -->
+      <Button fx:id="readFromJson" layoutX="15.0" layoutY="146.0" mnemonicParsing="false" onAction="#readJson" prefHeight="25.0" prefWidth="189.0" text="ReadFromJson" />
+      <TextArea fx:id="textAreaMail" layoutX="11.0" layoutY="272.0" prefHeight="200.0" prefWidth="579.0" />
+      <Button fx:id="accept" layoutX="15.0" layoutY="80.0" mnemonicParsing="false" onAction="#handleConnection" prefHeight="25.0" prefWidth="189.0" text="AcceptConnection" />
+      <Button fx:id="buttonWrite" layoutX="15.0" layoutY="207.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="189.0" text="WriteOnJson" />
+      <TextArea fx:id="textAreaJson" layoutX="214.0" layoutY="80.0" prefHeight="171.0" prefWidth="376.0" />
+      <TextArea fx:id="JsonTitle" layoutX="306.0" layoutY="14.0" prefHeight="17.0" prefWidth="192.0" text="Contenuto file Json" /> <!--onAction="#readFromJsn" -->
    </children>
 </AnchorPane>
