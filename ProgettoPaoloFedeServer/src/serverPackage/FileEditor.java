@@ -36,7 +36,7 @@ public class FileEditor {
         Gson gson;
         newFile();
         try (Writer writer = new FileWriter("file.json")) {
-            gson = new GsonBuilder().create();
+            gson = new GsonBuilder().setPrettyPrinting().create();
             gson.toJson(list, writer);
         }
     }
