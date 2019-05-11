@@ -1,6 +1,6 @@
 package serverPackage;
 
-
+import java.io.File;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.ServerSocket;
@@ -9,6 +9,7 @@ import java.net.URL;
 import java.util.HashMap;
 import java.util.ResourceBundle;
 
+import com.google.gson.Gson;
 import comunication.Email;
 import comunication.EmailManager;
 import javafx.application.Platform;
@@ -20,17 +21,20 @@ import javafx.scene.control.TextArea;
 public class ServerController implements Initializable {
 
     @FXML
-    private TextArea textArea;
+    private TextArea textAreaMail;
+    @FXML
+    private TextArea textAreaJson;
     @FXML
     private Button accept; //bottone per avviare connessione
     @FXML
     private Button bottoneScrivi; //bottone che se cliccato il server scrive su json
     @FXML
     private Button bottoneLeggi; //bottone che se cliccato fa leggere al server il file json
+
     Socket incoming = null;
 
     @FXML
-    private void handleButtonAction() { // Lettura dal file Json
+    private void readJson() { // Lettura dal file Json
         try {
             HashMap<Integer, Email> list = FileEditor.loadFromJson();
             System.out.println(list.toString());
@@ -58,62 +62,79 @@ public class ServerController implements Initializable {
 
                 while (true) {
                     incoming = s.accept(); // In attesa di connessione
-                    textArea.setText("COLLEGATO AL CLIENT\n");
 
                     ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
                     EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
 
                     Platform.runLater(() -> {
-                        // FileEditor.newFile();
-                        String act;
 
-                        //if (e != null) {
-                        //    HashMap<Integer, Email> map = new HashMap<>();
-                        //    map.put(1, e.getEmail());
-                        //    try {
-                        //       FileEditor.saveToJson(map);
-                        //    } catch (IOException e1) {
-                        //       e1.printStackTrace();
-                        //   }
-                        act = e.getAction();
+                        //  Inserimento delle email nel file Json con indice ID
+                        /*
+                        int i = e.getEmail().getID();
 
-                        String mail = "Email da: " + e.getEmail().getMittente() + " a " + e.getEmail().getDestinatario();
-                        mail = mail + "\n il contenuto della mail è " + e.getEmail().getArgomento() + " e il testo è " + e.getEmail().getTesto() +
-                                " ricevuta in data " + e.getEmail().getData();
-                        /*                      
-                         *   WRITE = il server quando riceve scrive su json e poi va informato il client destinatario del msg (observable?)
-                         *   WRITEALL= direi che possiamo usare solo write e aggiornare piu' client, no?
-                         *   REMOVE = il server riceve l'email, la cercanel json e la rimuove
-                         *   REPLY = viene creato un oggetto email copiandolo da quelli che vede il cliente e lo spedice al mittente , server fa come write
-                         *   REPLY ALL = come reply ma a tutti
-                         */
-                        switch (act) {
-                            case "SEND":
-                                // TODO writeHandler
-                                //textArea.setText(e.getEmail().toString() + e.getAction());
-                                break;
+                        Map<Integer, Email> map = new HashMap<Integer, Email>();
+                        map.put(i, e.getEmail());
 
-                            case "REMOVE":
-                                // TODO removeHandler
-                                break;
+                        Email[] emails = new Email[] { (1, "Mike"), new User(2, "Tom") };
+                        gson.toJson(users, new FileWriter(filePath));
+                        */
 
-                            case "REPLY":
-                                // TODO replyHandler
-                                break;
+                        File fileJson = new File("File.json");
+                        FileEditor.newFile();
 
-                            case "REPLYALL":
-                                // TODO replyAllHandler
-                                break;
+                        Gson gson = new Gson();
+                        String emailJson = gson.toJson(e.getEmail());
 
-                            default:
-                                // TODO Inserire azioni di default
-                                // Ad esempio il salvataggio delle informazioni in json
-                                // o l'aggiornamento di una textArea
+                        textAreaJson.setText(emailJson);
 
-                                textArea.setText(mail);
-                                break;
+                        if (e != null) {
+                            HashMap<Integer, Email> map = new HashMap<>();
+                            map.put(1, e.getEmail());
+                            try {
+                            FileEditor.saveToJson(map);
+                            } catch (IOException e1) {
+                               e1.printStackTrace();
+                            }
+
+                            String act = e.getAction();
+                            Email mail = e.getEmail();
+
+                            String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
+                            email = email + "\nOGGETTO: " + mail.getArgomento() + "\n" + mail.getTesto() + "\nData: " + mail.getData();
+                            /*
+                             *   WRITE = il server quando riceve scrive su json e poi va informato il client destinatario del msg (observable?)
+                             *   WRITEALL= direi che possiamo usare solo write e aggiornare piu' client, no?
+                             *   REMOVE = il server riceve l'email, la cercanel json e la rimuove
+                             *   REPLY = viene creato un oggetto email copiandolo da quelli che vede il cliente e lo spedice al mittente , server fa come write
+                             *   REPLY ALL = come reply ma a tutti
+                             */
+                            switch (act) {
+                                case "SEND":
+                                    // TODO writeHandler
+                                    //textArea.setText(e.getEmail().toString() + e.getAction());
+                                    break;
+
+                                case "REMOVE":
+                                    // TODO removeHandler
+                                    break;
+
+                                case "REPLY":
+                                    // TODO replyHandler
+                                    break;
+
+                                case "REPLYALL":
+                                    // TODO replyAllHandler
+                                    break;
+
+                                default:
+                                    // TODO Inserire azioni di default
+                                    // Ad esempio il salvataggio delle informazioni in json
+                                    // o l'aggiornamento di una textArea
+
+                                    textAreaMail.setText(email);
+                                    break;
+                            }
                         }
-                        //  }
                     });
                 }
 
@@ -129,6 +150,11 @@ public class ServerController implements Initializable {
 
         };
         new Thread(run).start();
+    }
+
+    @FXML
+    public void writeJson(){
+
     }
 
     @Override

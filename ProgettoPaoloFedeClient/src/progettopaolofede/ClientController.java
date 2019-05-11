@@ -140,10 +140,10 @@ public class ClientController implements Initializable, Serializable {
             try {
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
 
-                String mittente = textArea.getText();
+                String mittente = textFieldTo.getText();
 
                 ArrayList<String> destinatari = new ArrayList<>();
-                destinatari.add(textFieldTo.getText());
+                destinatari.add(textFieldFrom.getText());
 
                 String object = textFieldObject.getText();
 
