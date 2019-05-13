@@ -118,7 +118,7 @@ public class ClientController implements Initializable, Serializable {
             throw new IllegalStateException("Model can only be initialized once");
         }
         this.model = model;
-        //model.loadData();
+        model.loadData();
     }
 
     @FXML

@@ -7,6 +7,7 @@ import comunication.Email;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,7 +43,7 @@ public class FileEditor {
     }
 
     /**
-     * @return un arraylist che estrae i dati da un file.json
+     * @return un HashMap che estrae i dati da un file.json
      * @throws FileNotFoundException
      */
     public static Map<String, Map<String, Email>> loadFromJson() throws FileNotFoundException {
@@ -53,17 +54,26 @@ public class FileEditor {
         Type type = new TypeToken<Map<String, Map<String, Email>>>() {
         }.getType();
 
-        Map map = gson.fromJson(br, type);
+        Map<String, Map<String, Email>> map = gson.fromJson(br, type);
+
+
+        ArrayList<String> c = new ArrayList<>();
+        c.add("Federico");
+        Email e = new Email("Paolo", "mittente0", c, "argomento0", "testo0", "dataOggi");
 
         if(map != null){
             return map;
         } else {
             map = new HashMap<String, Map<String, Email>>();
-            map.put("Paolo", null);
-            map.put("Federico", null);
-            map.put("Felice", null);
+            Map<String, Email> map2 = new HashMap<String, Email>();
+            map2.put("Paolo", e);
+            map2.put("Federico", e);
+            map2.put("Felice", e);
+
+            map.put("Paolo", map2);
+            map.put("Federico", map2);
+            map.put("Felice", map2);
             return map;
         }
-
     }
 }

@@ -77,6 +77,22 @@ public class ServerController implements Initializable {
                                 e1.printStackTrace();
                             }
 
+                            /*
+                            * catch (NullPointerException e2) {
+                                Map map = new HashMap<String, HashMap<String, Email>>();
+                                Map map2 = new HashMap<String, Email>();
+                                map2.put("Paolo", null);
+                                map2.put("Federico", null);
+                                map2.put("Felice", null);
+
+                                map.put("Paolo", map2);
+                                map.put("Federico", map2);
+                                map.put("Felice", map2);
+
+                                map.get(destinatario).put(mittente, mail);
+                            }
+                            * */
+
                             String act = e.getAction();
 
                             String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
