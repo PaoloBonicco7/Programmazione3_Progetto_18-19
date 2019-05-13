@@ -45,7 +45,7 @@ public class FileEditor {
      * @return un arraylist che estrae i dati da un file.json
      * @throws FileNotFoundException
      */
-    public static HashMap<Integer, Email> loadFromJson() throws FileNotFoundException {
+    public static Map<Integer, Email> loadFromJson() throws FileNotFoundException {
         Gson gson = new Gson();
 
         BufferedReader br = new BufferedReader(new FileReader("file.json"));
