@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -34,7 +35,7 @@ public class ServerController implements Initializable {
 
     @FXML
     private void readJson() { // Lettura dal file Json
-        Map<Integer, Email> list;
+        Map<String, Map<String, Email>> list;
         try {
             list = FileEditor.loadFromJson();
             Email e = (Email) list.get(0);
@@ -60,22 +61,23 @@ public class ServerController implements Initializable {
 
                     ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
                     EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
+                    Email mail = e.getEmail();
+
+                    ArrayList<String> destinatario = mail.getDestinatario();
+                    String mittente = mail.getMittente();
 
                     Platform.runLater(() -> {
-
-                        textAreaJson.setText("Bello sto progetto mamma mia");
-
+                        //  Gestisco la ricezione della mail e la salvo nel posto "giusto"
                         if (e != null) {
                             try {
-                                Map<Integer, Email> map = FileEditor.loadFromJson();
-                                map.put(e.getEmail().getID(), e.getEmail());
+                                Map<String, Map<String, Email>> map = FileEditor.loadFromJson();
+                                map.get(destinatario).put(mittente, mail);
                                 FileEditor.saveToJson(map);
                             } catch (IOException e1) {
                                 e1.printStackTrace();
                             }
 
                             String act = e.getAction();
-                            Email mail = e.getEmail();
 
                             String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
                             email = email + "\nOGGETTO: " + mail.getArgomento() + "\n" + mail.getTesto() + "\nData: " + mail.getData();
@@ -134,6 +136,6 @@ public class ServerController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO
+        //  TODO
     }
 }

@@ -87,8 +87,6 @@ import javafx.scene.control.TextField;
 
 public class ClientController implements Initializable, Serializable {
 
-    public int i = 0;
-
     private DataModel model; //model del client
 
     private String Action; //rappresenta azione da eseguire
@@ -120,14 +118,13 @@ public class ClientController implements Initializable, Serializable {
             throw new IllegalStateException("Model can only be initialized once");
         }
         this.model = model;
-        model.loadData();
+        //model.loadData();
     }
 
     @FXML
     private void modifyList(ActionEvent event) {
-        //  Email e = new Email(0,"provo","provo","provo","provo","provo");
         Calendar cal = Calendar.getInstance();
-        Email email = new Email(0, textFieldFrom.getText(), new ArrayList<String>() {
+        Email email = new Email(textFieldFrom.getText(), textFieldFrom.getText(), new ArrayList<String>() {
             {
                 add(textFieldTo.getText());
             }
@@ -154,10 +151,8 @@ public class ClientController implements Initializable, Serializable {
 
                 String time = cal.getTime().toString();
 
-                Email email = new Email(i, mittente, destinatari, object, text, time);
-                EmailManager emailHandler= new EmailManager(email,"WRITE");
-
-                i++;
+                Email email = new Email(textFieldFrom.getText(), mittente, destinatari, object, text, time);
+                EmailManager emailHandler= new EmailManager(email,"SEND");
 
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(emailHandler);

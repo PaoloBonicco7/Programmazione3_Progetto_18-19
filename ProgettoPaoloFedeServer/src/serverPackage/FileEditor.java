@@ -32,7 +32,7 @@ public class FileEditor {
         }
     }
 
-    public static void saveToJson(Map<Integer, Email> list) throws IOException {
+    public static void saveToJson(Map<String, Map<String, Email>> list) throws IOException {
         Gson gson;
         newFile();
         try (Writer writer = new FileWriter("file.json")) {
@@ -45,14 +45,25 @@ public class FileEditor {
      * @return un arraylist che estrae i dati da un file.json
      * @throws FileNotFoundException
      */
-    public static Map<Integer, Email> loadFromJson() throws FileNotFoundException {
+    public static Map<String, Map<String, Email>> loadFromJson() throws FileNotFoundException {
         Gson gson = new Gson();
 
         BufferedReader br = new BufferedReader(new FileReader("file.json"));
 
-        Type type = new TypeToken<HashMap<Integer, Email>>() {
+        Type type = new TypeToken<Map<String, Map<String, Email>>>() {
         }.getType();
 
-        return gson.fromJson(br, type);
+        Map map = gson.fromJson(br, type);
+
+        if(map != null){
+            return map;
+        } else {
+            map = new HashMap<String, Map<String, Email>>();
+            map.put("Paolo", null);
+            map.put("Federico", null);
+            map.put("Felice", null);
+            return map;
+        }
+
     }
 }

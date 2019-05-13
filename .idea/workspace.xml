@@ -3,8 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="4bcafdb0-2ce3-4211-a7d9-6125e6f2ecb3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/comunication/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/comunication/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/DataModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/DataModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/comunication/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/comunication/Email.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/DataModel$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/DataModel$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/DataModel$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/DataModel$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/DataModel$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/DataModel$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/DataModel$4.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/DataModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/DataModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/FileEditor$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/FileEditor.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/ServerController.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +30,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+            <state relative-caret-position="16">
+              <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="111">
+              <caret line="120" column="10" selection-start-line="120" selection-start-column="10" selection-end-line="120" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -27,8 +48,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="493">
-              <caret line="54" column="17" lean-forward="true" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
+            <state relative-caret-position="111">
+              <caret line="73" selection-start-line="73" selection-end-line="73" />
             </state>
           </provider>
         </entry>
@@ -36,8 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="624">
-              <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+            <state relative-caret-position="283">
+              <caret line="60" column="12" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
             </state>
           </provider>
         </entry>
@@ -45,8 +66,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/comunication/Email.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state relative-caret-position="2992">
+              <caret line="212" selection-start-line="212" selection-end-line="212" />
             </state>
           </provider>
         </entry>
@@ -66,6 +87,24 @@
           <provider editor-type-id="JavaFX-Scene-Builder" />
         </entry>
       </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/DataModel.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="603">
+              <caret line="55" column="59" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ListController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="976">
+              <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="Git.Settings">
@@ -75,18 +114,18 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/EmailManager.java" />
-        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/DataModel.java" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/Email.java" />
-        <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/comunication/Email.java" />
-        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/comunication/Email.java" />
-        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ListController.java" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/list.fxml" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/Client.java" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/server-progetto.fxml" />
-        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" />
         <option value="$PROJECT_DIR$/file.json" />
-        <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java" />
+        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/comunication/Email.java" />
+        <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/comunication/Email.java" />
+        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" />
+        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ListController.java" />
+        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/DataModel.java" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" />
+        <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java" />
       </list>
     </option>
   </component>
@@ -142,7 +181,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557758539072" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557764432384" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Materiale Progetto Prog3/1_VecchioProgetto_ConProperty" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -319,7 +358,7 @@
       <updated>1557495329931</updated>
       <workItem from="1557495333086" duration="6018000" />
       <workItem from="1557559691719" duration="9143000" />
-      <workItem from="1557756572255" duration="2569000" />
+      <workItem from="1557756572255" duration="6528000" />
     </task>
     <task id="LOCAL-00001" summary="FIRST COMMIT PRIMA FA TUTTO SCHIFO">
       <created>1557495428384</created>
@@ -377,11 +416,18 @@
       <option name="project" value="LOCAL" />
       <updated>1557568040150</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="JSON LETTURA COMPLETATA.&#10;Sono riuscito a leggere dal file json, banale e easy niente di complicato. Ora però la situa si complica un po' perchè:&#10;1. Dobbiamo implementare un thread che ogni tot sec va a salvare tutto sl file json (una sorta di backup in caso di guasti)&#10;2. Cambiare la struttura del file json e non farlo di HashMap&lt;Integer, Email&gt; ma farlo tipo HashMap&lt; U, HashMap&lt; U, Email&gt;&gt; dove U rappresenta la chiave dell'hashmap, ad esempio possiamo utilizzare gli utenti, 3 a caso tipo Paolo Federico e Felice che saranno poi i tre che utilizzeranno il client.&#10;Così che uno quando vuole leggere / mandare una mail lo fa grazie alla chiave che rappresenta un utente.&#10;Se non sono staro chiaro ricordati di chiedermelo meglio e te lo spiego.">
+      <created>1557759441466</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1557759441466</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17730000" />
+    <option name="totallyTimeSpent" value="21689000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -394,9 +440,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24939272" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24939272" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -406,7 +451,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32924694" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32924694" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39929947" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32924694" />
@@ -441,7 +486,8 @@
     <MESSAGE value="Sto provando a fare la parte di json, la strategia che voglio provare ad applicare adesso è quella di caricare il file json prima di fare qualsiasi altra operazione e di salvarmi quello che c'è dentro, questo perchè ogni volta che vado a scriverci dentro, o almeno ci scrivo con il metodo che ho trovato su internet, vado a sovrascrivere il file ogni volta, quindi salvando il contenuto posso andare poi a &quot;riscriverlo&quot; dentro durante la prima scrittura. Rimane ancora il problema di riuscire ad estrapolare le singole informazioni riguardanti le email (tipo mittente e testo) e di trovare un modo di organizzare le mail (magari secondo una hashmap governata da degli integer che corrispondono all'id della mail, che id conseguenza deve essere unico." />
     <MESSAGE value="SITUAZIONE JSON:&#10;Allora adesso riesco a non perdere le info che c'erano prima sul file json dopo la scrittura, ho implementato un sistema stupido con un contatore &quot;i&quot; che viene incrementato ogni volta e salva le mail nell'hashmap secondo questo ordine, solo che quando riavvii il programma succede che le mail iniziano a sovrascrivere le precedenti partendo da zero, il problema è facilemnte risolvibile ma non so se ne vale la pena perchè magari il sistema non ha senso, dobbiamo capire cosa vogliamo e cosa vogliamo farne del file json e come usarlo. Con Gson però tutto è una stronzata." />
     <MESSAGE value="PORCACCIO.&#10;Sono riuscito a stampare il json non tutto su una riga, come? aggiungendo &quot;.setPrettyPrinting()&quot; a &quot;Gson gson=new GsonBuilder().setPrettyPrinting().create();&quot; ninete sta cosa non cambia un cazzo ma almeno è figa ciao." />
-    <option name="LAST_COMMIT_MESSAGE" value="PORCACCIO.&#10;Sono riuscito a stampare il json non tutto su una riga, come? aggiungendo &quot;.setPrettyPrinting()&quot; a &quot;Gson gson=new GsonBuilder().setPrettyPrinting().create();&quot; ninete sta cosa non cambia un cazzo ma almeno è figa ciao." />
+    <MESSAGE value="JSON LETTURA COMPLETATA.&#10;Sono riuscito a leggere dal file json, banale e easy niente di complicato. Ora però la situa si complica un po' perchè:&#10;1. Dobbiamo implementare un thread che ogni tot sec va a salvare tutto sl file json (una sorta di backup in caso di guasti)&#10;2. Cambiare la struttura del file json e non farlo di HashMap&lt;Integer, Email&gt; ma farlo tipo HashMap&lt; U, HashMap&lt; U, Email&gt;&gt; dove U rappresenta la chiave dell'hashmap, ad esempio possiamo utilizzare gli utenti, 3 a caso tipo Paolo Federico e Felice che saranno poi i tre che utilizzeranno il client.&#10;Così che uno quando vuole leggere / mandare una mail lo fa grazie alla chiave che rappresenta un utente.&#10;Se non sono staro chiaro ricordati di chiedermelo meglio e te lo spiego." />
+    <option name="LAST_COMMIT_MESSAGE" value="JSON LETTURA COMPLETATA.&#10;Sono riuscito a leggere dal file json, banale e easy niente di complicato. Ora però la situa si complica un po' perchè:&#10;1. Dobbiamo implementare un thread che ogni tot sec va a salvare tutto sl file json (una sorta di backup in caso di guasti)&#10;2. Cambiare la struttura del file json e non farlo di HashMap&lt;Integer, Email&gt; ma farlo tipo HashMap&lt; U, HashMap&lt; U, Email&gt;&gt; dove U rappresenta la chiave dell'hashmap, ad esempio possiamo utilizzare gli utenti, 3 a caso tipo Paolo Federico e Felice che saranno poi i tre che utilizzeranno il client.&#10;Così che uno quando vuole leggere / mandare una mail lo fa grazie alla chiave che rappresenta un utente.&#10;Se non sono staro chiaro ricordati di chiedermelo meglio e te lo spiego." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/desktop.ini">
@@ -481,10 +527,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/comunication/Email.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1952">
-          <caret line="136" selection-start-line="136" selection-end-line="137" selection-end-column="9" />
+        <state relative-caret-position="208">
+          <caret line="14" column="46" selection-end-line="212" />
         </state>
       </provider>
     </entry>
@@ -492,31 +538,34 @@
       <provider selected="true" editor-type-id="text-editor" />
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/comunication/Email.java">
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="16">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/DataModel.java">
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="64" column="6" selection-start-line="64" selection-start-column="6" selection-end-line="64" selection-end-column="6" />
+        <state relative-caret-position="111">
+          <caret line="120" column="10" selection-start-line="120" selection-start-column="10" selection-end-line="120" selection-end-column="10" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ListController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="32">
-          <caret line="2" column="7" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        <state relative-caret-position="976">
+          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/Server.java">
+    <entry file="file://$PROJECT_DIR$/file.json">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/DataModel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="603">
+          <caret line="55" column="59" selection-start-line="55" selection-start-column="59" selection-end-line="55" selection-end-column="59" />
         </state>
       </provider>
     </entry>
@@ -528,27 +577,24 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/file.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/comunication/Email.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+        <state relative-caret-position="2992">
+          <caret line="212" selection-start-line="212" selection-end-line="212" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="493">
-          <caret line="54" column="17" lean-forward="true" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
+        <state relative-caret-position="111">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="624">
-          <caret line="47" column="31" selection-start-line="47" selection-start-column="31" selection-end-line="47" selection-end-column="31" />
+        <state relative-caret-position="283">
+          <caret line="60" column="12" lean-forward="true" selection-start-line="60" selection-start-column="12" selection-end-line="60" selection-end-column="12" />
         </state>
       </provider>
     </entry>
