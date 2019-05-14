@@ -5,7 +5,12 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ListController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/list.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/send.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/send.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/ListController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/list.fxml" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,16 +33,16 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="319">
-              <caret line="141" column="13" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
+            <state relative-caret-position="111">
+              <caret line="83" column="12" lean-forward="true" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="487">
+            <state relative-caret-position="1015">
               <caret line="118" column="37" lean-forward="true" selection-start-line="118" selection-start-column="37" selection-end-line="118" selection-end-column="37" />
             </state>
           </provider>
@@ -46,8 +51,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="338">
-              <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+            <state relative-caret-position="79">
+              <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
             </state>
           </provider>
         </entry>
@@ -62,22 +67,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/send.fxml">
-          <provider editor-type-id="text-editor" />
-          <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/list.fxml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
-            </state>
-          </provider>
-          <provider editor-type-id="JavaFX-Scene-Builder" />
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="864">
@@ -86,7 +75,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/file.json">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -107,13 +96,13 @@
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/comunication/Email.java" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ListController.java" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/DataModel.java" />
-        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/send.fxml" />
         <option value="$PROJECT_DIR$/file.json" />
-        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/list.fxml" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java" />
-        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/Client.java" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" />
+        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/list.fxml" />
+        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/send.fxml" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" />
+        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/Client.java" />
       </list>
     </option>
   </component>
@@ -156,6 +145,12 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="comunication" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="ProgettoPorg3" type="b2602c69:ProjectViewProjectNode" />
+              <item name="ProgettoPaoloFedeServer" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="serverPackage" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -167,7 +162,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557842815357" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557844074566" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Materiale Progetto Prog3/1_VecchioProgetto_ConProperty" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -186,7 +181,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/send.fxml</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -294,7 +289,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="Application.Client">
     <configuration name="Client" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="progettopaolofede.Client" />
       <module name="ProgettoPaoloFedeClient" />
@@ -327,8 +322,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
         <item itemvalue="Application.Client" />
+        <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
   </component>
@@ -462,7 +457,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38093000" />
+    <option name="totallyTimeSpent" value="39270000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -475,6 +470,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="704" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2534413" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -485,7 +481,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32924694" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.32924694" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49959514" weight="0.32924694" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39929947" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -493,7 +489,7 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32924694" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="9" weight="0.32924694" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32924694" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.50040483" side_tool="true" weight="0.32924694" />
       <window_info anchor="bottom" id="Messages" order="11" weight="0.32924694" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -605,21 +601,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/file.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/FXMLDocument.fxml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/send.fxml">
-      <provider editor-type-id="text-editor" />
-      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/Server.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="864">
+          <caret line="63" column="35" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -631,13 +623,6 @@
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="63" column="35" selection-start-line="63" selection-start-column="30" selection-end-line="63" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/comunication/Email.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="64">
@@ -645,26 +630,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/Client.java">
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/FXMLDocument.fxml">
+      <provider editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/send.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="26" column="5" lean-forward="true" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+        <state relative-caret-position="16">
+          <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1015">
+          <caret line="118" column="37" lean-forward="true" selection-start-line="118" selection-start-column="37" selection-end-line="118" selection-end-column="37" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="141" column="13" selection-start-line="141" selection-start-column="13" selection-end-line="141" selection-end-column="13" />
+        <state relative-caret-position="111">
+          <caret line="83" column="12" lean-forward="true" selection-start-line="83" selection-start-column="12" selection-end-line="83" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java">
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/Client.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="487">
-          <caret line="118" column="37" lean-forward="true" selection-start-line="118" selection-start-column="37" selection-end-line="118" selection-end-column="37" />
+        <state relative-caret-position="79">
+          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file.json">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
   <component name="masterDetails">
