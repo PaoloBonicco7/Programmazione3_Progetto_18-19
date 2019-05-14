@@ -38,7 +38,7 @@ public class ServerController implements Initializable {
         Map<String, Map<String, Email>> list;
         try {
             list = FileEditor.loadFromJson();
-            Email e = (Email) list.get(0);
+            Email e = list.get("Paolo").get("Paolo");
             String s = e.getTesto();
             textAreaMail.setText(s);
         } catch (FileNotFoundException e) {
@@ -90,6 +90,12 @@ public class ServerController implements Initializable {
                              *   REPLY ALL = come reply ma a tutti
                              */
 
+                            try {
+                                incoming.close();
+                            } catch (IOException e1) {
+                                e1.printStackTrace();
+                            }
+
                             switch (act) {
                                 case "SEND":
                                     // TODO writeHandler
@@ -135,7 +141,6 @@ public class ServerController implements Initializable {
                         }
                     });
                 }
-
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             } finally {

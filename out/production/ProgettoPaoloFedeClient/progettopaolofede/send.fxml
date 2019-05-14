@@ -16,7 +16,6 @@
         <TextField fx:id="textFieldFrom" layoutX="350.0" layoutY="277.0" prefHeight="25.0" prefWidth="241.0" text="Federico" />
         <TextField fx:id="textFieldObject" layoutX="350.0" layoutY="319.0" prefHeight="25.0" prefWidth="241.0" text="Oggetto" />
         <Button fx:id="sendButton" layoutX="541.0" layoutY="361.0" mnemonicParsing="false" onAction="#sendMsg" text="send" />
-        <Button fx:id="testButton" layoutX="264.0" layoutY="45.0" mnemonicParsing="false" onAction="#modifyList" text="test listview" />
         <Label layoutX="312.0" layoutY="240.0" text="TO" />
         <Label layoutX="293.0" layoutY="282.0" text="FROM" />
         <Label layoutX="288.0" layoutY="324.0" text="OBJECT" />
