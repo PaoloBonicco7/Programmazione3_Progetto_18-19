@@ -77,22 +77,6 @@ public class ServerController implements Initializable {
                                 e1.printStackTrace();
                             }
 
-                            /*
-                            * catch (NullPointerException e2) {
-                                Map map = new HashMap<String, HashMap<String, Email>>();
-                                Map map2 = new HashMap<String, Email>();
-                                map2.put("Paolo", null);
-                                map2.put("Federico", null);
-                                map2.put("Felice", null);
-
-                                map.put("Paolo", map2);
-                                map.put("Federico", map2);
-                                map.put("Felice", map2);
-
-                                map.get(destinatario).put(mittente, mail);
-                            }
-                            * */
-
                             String act = e.getAction();
 
                             String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
@@ -110,6 +94,21 @@ public class ServerController implements Initializable {
                                 case "SEND":
                                     // TODO writeHandler
                                     //textArea.setText(e.getEmail().toString() + e.getAction());
+                                    try {
+                                        Socket s1 = new Socket("localhost", 5000); //localhost
+
+                                        ObjectOutputStream out = new ObjectOutputStream(s1.getOutputStream());
+                                        out.writeObject(e);
+                                        out.close();
+                                    } catch (IOException e1) {
+                                        e1.printStackTrace();
+                                    } finally {
+                                        try {
+                                            s.close();
+                                        } catch (IOException e1) {
+                                            e1.printStackTrace();
+                                        }
+                                    }
                                     break;
 
                                 case "REMOVE":

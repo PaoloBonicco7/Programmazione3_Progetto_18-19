@@ -19,6 +19,7 @@ public class Client extends Application {
         ListController listController = listLoader.getController();
         DataModel model = new DataModel();
         clientController.initModel(model);
+        clientController.start();   // THREAD CHE SI METTE IN ATTESA DI RICEVERE MAIL DAL SERVER
         listController.initModel(model);
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);

@@ -1,6 +1,7 @@
 package progettopaolofede;
 
 import java.io.*;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -106,10 +108,33 @@ public class ClientController implements Initializable, Serializable {
     private Button newButton; //bottone new msg
     @FXML
     private Button testButton;
+    @FXML
+    private TextArea textArea2; // Dove arriva il mex dal server
+
+    Socket incoming = null;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
+    }
+
+    public void start() {
+        Thread clientThread = new Thread(() -> {
+            try {
+                ServerSocket s = new ServerSocket(5000);
+
+                while(true) {
+                    ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
+                    EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
+                    Email mail = e.getEmail();
+
+                    textArea2.setText(mail.getTesto());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+        clientThread.start();
     }
 
     @FXML
