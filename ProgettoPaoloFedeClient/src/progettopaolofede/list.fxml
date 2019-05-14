@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -7,6 +8,7 @@
    <children>
       <ListView fx:id="listView" layoutX="7.0" layoutY="25.0" prefHeight="347.0" prefWidth="219.0" />
       <ListView fx:id="testListView" layoutX="248.0" layoutY="25.0" prefHeight="347.0" prefWidth="73.0" />
-      <Button fx:id="testButton" layoutX="240.0" layoutY="2.0" mnemonicParsing="false" onAction="#testModel" text="testListView" /> <!-- onAction="#testModel" -->
+      <Button fx:id="testButton" layoutX="240.0" layoutY="2.0" mnemonicParsing="false" onAction="#testModel" text="testListView" />
+      <Button fx:id="deleteButton" layoutX="67.0" layoutY="2.0" mnemonicParsing="false" onAction="#removeMsg" text="delete" />
    </children>
 </AnchorPane>

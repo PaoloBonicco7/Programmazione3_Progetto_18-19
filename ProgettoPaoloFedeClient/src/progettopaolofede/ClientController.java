@@ -170,4 +170,11 @@ public class ClientController implements Initializable, Serializable {
             e.printStackTrace();
         }
     }
+    
+    @FXML
+    public void replyMsg(ActionEvent event){
+        
+        
+    }
+    
 }

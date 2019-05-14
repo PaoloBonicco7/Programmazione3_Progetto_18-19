@@ -1,6 +1,8 @@
 package progettopaolofede;
 
 import comunication.Email;
+import comunication.EmailManager;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 
@@ -62,7 +64,7 @@ public class ListController {
             throw new IllegalStateException("Model can only be initialized once");
         }
         model.loadData();// inizializzo il model con alcune email per poterci lavorare.
-        this.model=model;
+        this.model = model;
         listView.setItems(model.getEmailList());
         /* model.emailList.addListener((obs,oldEmail,newEmail)-> {
          if(newEmail == null)
@@ -79,5 +81,17 @@ public class ListController {
         System.out.println("voglio vedere se il model è stato modificato\n");
         testListView.setItems(model.getEmailList());
     }
-    
+
+    @FXML
+    private void removeMsg(ActionEvent event) {
+        Email item = listView.getSelectionModel().getSelectedItem();
+        // listView.getItems().remove(item); //oggetto rimosso , solo da listview
+        model.getEmailList().remove(item); //oggetto rimosso dal model->si propaga sulla listview
+        EmailManager emailManager = new EmailManager(item, "REMOVE");
+
+ //TODO       
+        //aprire connessione con server
+        //invio oggetto emailManager
+    }
+
 }
