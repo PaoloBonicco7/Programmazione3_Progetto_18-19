@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-
-<AnchorPane id="AnchorPane" prefHeight="283.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="progettopaolofede.ClientController">
+<!--ciao-->
+<AnchorPane id="AnchorPane" prefHeight="283.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="progettopaolofede.ClientController">
     <children>
         <Button fx:id="newButton" layoutX="390.0" layoutY="45.0" mnemonicParsing="false" text="new" />
         <Button fx:id="replyButton" layoutX="455.0" layoutY="45.0" mnemonicParsing="false" text="reply" />
@@ -16,9 +19,13 @@
         <TextField fx:id="textFieldFrom" layoutX="350.0" layoutY="277.0" prefHeight="25.0" prefWidth="241.0" text="Federico" />
         <TextField fx:id="textFieldObject" layoutX="350.0" layoutY="319.0" prefHeight="25.0" prefWidth="241.0" text="Oggetto" />
         <Button fx:id="sendButton" layoutX="541.0" layoutY="361.0" mnemonicParsing="false" onAction="#sendMsg" text="send" />
+        <Button fx:id="testButton" layoutX="264.0" layoutY="45.0" mnemonicParsing="false" onAction="#modifyList" text="test listview" />
         <Label layoutX="312.0" layoutY="240.0" text="TO" />
         <Label layoutX="293.0" layoutY="282.0" text="FROM" />
         <Label layoutX="288.0" layoutY="324.0" text="OBJECT" />
+        <ListView fx:id="listView" layoutX="7.0" layoutY="45.0" prefHeight="150.0" prefWidth="200.0" />
+        <Button fx:id="deleteButton" layoutX="70.0" layoutY="14.0" mnemonicParsing="false" text="delete" onAction="#removeMsg" />
+        <TextArea layoutX="7.0" layoutY="215.0" prefHeight="150.0" prefWidth="200.0" promptText="Hola" />
      
     </children>
 </AnchorPane>
