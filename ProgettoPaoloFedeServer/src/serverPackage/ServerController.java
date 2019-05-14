@@ -71,7 +71,7 @@ public class ServerController implements Initializable {
                         if (e != null) {
                             try {
                                 Map<String, Map<String, Email>> map = FileEditor.loadFromJson();
-                                map.get(destinatario).put(mittente, mail);
+                                map.get(mittente).put(String.valueOf(destinatario), mail);
                                 FileEditor.saveToJson(map);
                             } catch (IOException e1) {
                                 e1.printStackTrace();

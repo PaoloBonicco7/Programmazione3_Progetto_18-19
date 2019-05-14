@@ -56,19 +56,20 @@ public class FileEditor {
 
         Map<String, Map<String, Email>> map = gson.fromJson(br, type);
 
-
+        /*
         ArrayList<String> c = new ArrayList<>();
         c.add("Federico");
         Email e = new Email("Paolo", "mittente0", c, "argomento0", "testo0", "dataOggi");
+        */
 
         if(map != null){
             return map;
         } else {
-            map = new HashMap<String, Map<String, Email>>();
-            Map<String, Email> map2 = new HashMap<String, Email>();
-            map2.put("Paolo", e);
-            map2.put("Federico", e);
-            map2.put("Felice", e);
+            map = new HashMap<>();
+            Map<String, Email> map2 = new HashMap<>();
+            map2.put("Paolo", null);
+            map2.put("Federico", null);
+            map2.put("Felice", null);
 
             map.put("Paolo", map2);
             map.put("Federico", map2);
