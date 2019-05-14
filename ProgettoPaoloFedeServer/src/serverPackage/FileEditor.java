@@ -48,7 +48,7 @@ public class FileEditor {
      */
     public static Map<String, Map<String, Email>> loadFromJson() throws FileNotFoundException {
         Gson gson = new Gson();
-
+        newFile();
         BufferedReader br = new BufferedReader(new FileReader("file.json"));
 
         Type type = new TypeToken<Map<String, Map<String, Email>>>() {
