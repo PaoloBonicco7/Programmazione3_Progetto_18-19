@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane id="AnchorPane" prefHeight="363.0" prefWidth="252.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="progettopaolofede.ListController">
+<AnchorPane id="AnchorPane" prefHeight="426.0" prefWidth="506.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="progettopaolofede.ListController">
    <children>
-      <ListView fx:id="listView" layoutX="7.0" layoutY="25.0" prefHeight="347.0" prefWidth="219.0" />
-      <ListView fx:id="testListView" layoutX="248.0" layoutY="25.0" prefHeight="347.0" prefWidth="73.0" />
-      <Button fx:id="testButton" layoutX="240.0" layoutY="2.0" mnemonicParsing="false" onAction="#testModel" text="testListView" /> <!-- onAction="#testModel" -->
+      <ListView fx:id="listView" layoutX="12.0" layoutY="43.0" prefHeight="65.0" prefWidth="316.0" />
+      <ListView fx:id="testListView" layoutX="344.0" layoutY="43.0" prefHeight="65.0" prefWidth="155.0" />
+      <Button fx:id="testButton" layoutX="240.0" layoutY="2.0" mnemonicParsing="false" onAction="#testModel" text="testListView" />
+      <TextArea fx:id="textArea" layoutX="15.0" layoutY="185.0" prefHeight="218.0" prefWidth="477.0" text="Holaaa" />
+      <TextArea fx:id="textArea1" layoutX="12.0" layoutY="117.0" prefHeight="59.0" prefWidth="316.0" text="QUA ARRIVANO I MEX DAL SERVER" /> <!-- onAction="#testModel" -->
    </children>
 </AnchorPane>

@@ -94,6 +94,7 @@ public class ServerController implements Initializable {
                                 case "SEND":
                                     // TODO writeHandler
                                     //textArea.setText(e.getEmail().toString() + e.getAction());
+                                    /*
                                     try {
                                         Socket s1 = new Socket("localhost", 5000); //localhost
 
@@ -110,7 +111,7 @@ public class ServerController implements Initializable {
                                         }
                                     }
                                     break;
-
+                                    */
                                 case "REMOVE":
                                     // TODO removeHandler
                                     break;

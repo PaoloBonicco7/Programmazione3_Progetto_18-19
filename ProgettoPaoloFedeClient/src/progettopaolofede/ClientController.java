@@ -118,6 +118,7 @@ public class ClientController implements Initializable, Serializable {
 
     }
 
+    /*
     public void start() {
         Thread clientThread = new Thread(() -> {
             try {
@@ -136,6 +137,7 @@ public class ClientController implements Initializable, Serializable {
         });
         clientThread.start();
     }
+    */
 
     @FXML
     public void initModel(DataModel model) {
