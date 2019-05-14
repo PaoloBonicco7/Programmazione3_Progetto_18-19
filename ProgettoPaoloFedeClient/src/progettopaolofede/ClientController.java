@@ -137,7 +137,7 @@ public class ClientController implements Initializable, Serializable {
          });
          */
     
-
+//comm
     /*
      public void start() {
      Thread clientThread = new Thread(() -> {
