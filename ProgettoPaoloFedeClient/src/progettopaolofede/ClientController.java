@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import jdk.nashorn.internal.objects.NativeUint8Array;
 
 /* 
  public class ClientController implements Initializable {
@@ -86,12 +87,12 @@ import javafx.scene.control.TextField;
 
  }
  */
+
 public class ClientController implements Initializable, Serializable {
 
     private DataModel model; //model del client
+
     private String Action; //rappresenta azione da eseguire
-    @FXML
-    private ListView<Email> listView;
     @FXML
     private TextField textFieldTo; //campo destinatario
     @FXML
@@ -110,8 +111,6 @@ public class ClientController implements Initializable, Serializable {
     private Button testButton;
     @FXML
     private TextArea textArea2; // Dove arriva il mex dal server
-    @FXML
-    private Button deleteButton;
 
     Socket incoming = null;
 
@@ -119,45 +118,41 @@ public class ClientController implements Initializable, Serializable {
     public void initialize(URL url, ResourceBundle rb) {
 
     }
+
+    public void start() {
+        Thread clientThread = new Thread(() -> {
+            try {
+                ServerSocket s = new ServerSocket(5001);
+
+                while(true) {
+                    incoming = s.accept();
+
+                    ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
+                    EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
+                    Email mail = e.getEmail();
+
+                    if(mail.getTesto() != null) {
+                        textArea2.setText(mail.getTesto());
+                    }
+
+                    incoming.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+        clientThread.start();
+    }
+
+
     @FXML
     public void initModel(DataModel model) {
         if (this.model != null) {
             throw new IllegalStateException("Model can only be initialized once");
         }
-        model.loadData();// inizializzo il model con alcune email per poterci lavorare.
         this.model = model;
-        listView.setItems(model.getEmailList());
+        model.loadData();
     }
-        /* model.emailList.addListener((obs,oldEmail,newEmail)-> {
-         if(newEmail == null)
-         listView.setItems(null);
-         else
-         listView.setItems(newEmail);
-        
-         });
-         */
-    
-
-    /*
-     public void start() {
-     Thread clientThread = new Thread(() -> {
-     try {
-     ServerSocket s = new ServerSocket(5000);
-
-     while(true) {
-     ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
-     EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
-     Email mail = e.getEmail();
-
-     textArea2.setText(mail.getTesto());
-     }
-     } catch (Exception e) {
-     e.printStackTrace();
-     }
-     });
-     clientThread.start();
-     }
-     */
 
     @FXML
     private void modifyList(ActionEvent event) {
@@ -190,7 +185,7 @@ public class ClientController implements Initializable, Serializable {
                 String time = cal.getTime().toString();
 
                 Email email = new Email(textFieldFrom.getText(), mittente, destinatari, object, text, time);
-                EmailManager emailHandler = new EmailManager(email, "SEND");
+                EmailManager emailHandler= new EmailManager(email,"SEND");
 
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(emailHandler);
@@ -205,15 +200,9 @@ public class ClientController implements Initializable, Serializable {
     }
     
     @FXML
-    public void replyMsg(ActionEvent event) {
-
+    public void replyMsg(ActionEvent event){
+        
+        
     }
-
-     @FXML
-    private void removeMsg(ActionEvent event) {
-        Email item = listView.getSelectionModel().getSelectedItem();
-        // listView.getItems().remove(item); //oggetto rimosso , solo da listview
-        model.getEmailList().remove(item); //oggetto rimosso dal model->si propaga sulla listview
-        EmailManager emailManager = new EmailManager(item, "REMOVE");
-    }
+    
 }

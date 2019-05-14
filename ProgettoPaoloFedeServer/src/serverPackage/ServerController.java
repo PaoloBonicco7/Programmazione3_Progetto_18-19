@@ -4,6 +4,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -100,9 +101,9 @@ public class ServerController implements Initializable {
                                 case "SEND":
                                     // TODO writeHandler
                                     //textArea.setText(e.getEmail().toString() + e.getAction());
-                                    /*
+                                    Socket s1 = null;
                                     try {
-                                        Socket s1 = new Socket("localhost", 5000); //localhost
+                                        s1 = new Socket("localhost", 5001); //localhost
 
                                         ObjectOutputStream out = new ObjectOutputStream(s1.getOutputStream());
                                         out.writeObject(e);
@@ -111,13 +112,13 @@ public class ServerController implements Initializable {
                                         e1.printStackTrace();
                                     } finally {
                                         try {
-                                            s.close();
+                                            s1.close();
                                         } catch (IOException e1) {
                                             e1.printStackTrace();
                                         }
                                     }
                                     break;
-                                    */
+
                                 case "REMOVE":
                                     // TODO removeHandler
                                     break;
