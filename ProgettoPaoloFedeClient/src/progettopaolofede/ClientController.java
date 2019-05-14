@@ -1,6 +1,7 @@
 package progettopaolofede;
 
 import java.io.*;
+import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -87,8 +89,6 @@ import javafx.scene.control.TextField;
 
 public class ClientController implements Initializable, Serializable {
 
-    public int i = 0;
-
     private DataModel model; //model del client
 
     private String Action; //rappresenta azione da eseguire
@@ -108,11 +108,36 @@ public class ClientController implements Initializable, Serializable {
     private Button newButton; //bottone new msg
     @FXML
     private Button testButton;
+    @FXML
+    private TextArea textArea2; // Dove arriva il mex dal server
+
+    Socket incoming = null;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
     }
+
+    /*
+    public void start() {
+        Thread clientThread = new Thread(() -> {
+            try {
+                ServerSocket s = new ServerSocket(5000);
+
+                while(true) {
+                    ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
+                    EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
+                    Email mail = e.getEmail();
+
+                    textArea2.setText(mail.getTesto());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+        clientThread.start();
+    }
+    */
 
     @FXML
     public void initModel(DataModel model) {
@@ -125,9 +150,8 @@ public class ClientController implements Initializable, Serializable {
 
     @FXML
     private void modifyList(ActionEvent event) {
-        //  Email e = new Email(0,"provo","provo","provo","provo","provo");
         Calendar cal = Calendar.getInstance();
-        Email email = new Email(0, textFieldFrom.getText(), new ArrayList<String>() {
+        Email email = new Email(textFieldFrom.getText(), textFieldFrom.getText(), new ArrayList<String>() {
             {
                 add(textFieldTo.getText());
             }
@@ -154,10 +178,8 @@ public class ClientController implements Initializable, Serializable {
 
                 String time = cal.getTime().toString();
 
-                Email email = new Email(i, mittente, destinatari, object, text, time);
-                EmailManager emailHandler= new EmailManager(email,"WRITE");
-
-                i++;
+                Email email = new Email(textFieldFrom.getText(), mittente, destinatari, object, text, time);
+                EmailManager emailHandler= new EmailManager(email,"SEND");
 
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(emailHandler);

@@ -1,18 +1,18 @@
 package comunication;
-//test committ
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Email implements Serializable {
 
-    private int ID;
+    private String ID;
     private String mittente;
     private ArrayList<String> destinatario;
     private String argomento;
     private String testo;
     private String data;
 
-    public Email(int ID, String mittente, ArrayList<String> destinatario, String argomento, String testo, String data) {
+    public Email(String ID, String mittente, ArrayList<String> destinatario, String argomento, String testo, String data) {
         this.ID = ID;
         this.mittente = mittente;
         this.destinatario = destinatario;
@@ -21,7 +21,7 @@ public class Email implements Serializable {
         this.data = data;
     }
 
-    public int getID() {
+    public String getID() {
         return ID;
     }
 
@@ -45,7 +45,7 @@ public class Email implements Serializable {
         return data;
     }
 
-    public void setID(int ID) {
+    public void setID(String ID) {
         this.ID = ID;
     }
 

@@ -4,7 +4,9 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 import com.google.gson.Gson;
@@ -33,20 +35,16 @@ public class ServerController implements Initializable {
 
     @FXML
     private void readJson() { // Lettura dal file Json
+        Map<String, Map<String, Email>> list;
         try {
-            HashMap<Integer, Email> list = FileEditor.loadFromJson();
-            System.out.println(list.toString());
-
-            //TODO   Bisogna riuscire a leggere più mail e cercare di capire come accedere ad un singolo campo della classe
-            // ad esempio se vogliamo solo il testo della mail ecc.
-            /*
-             * Adesso leggiamo un oggetto di tipo email dal file json, se però proviamo a mandare più
-             * email restituisce un errore perchè (penso) lui si aspetta un oggetto di tipo Email e invece si trova
-             * una cazzo di stringa senza senso lunghissima, ma nei porssimi giorni dovrei riuscire a sistemare anche
-             * questa cosa.
-             * */
-        } catch (Exception/*FileNotFoundException*/ e) {
+            list = FileEditor.loadFromJson();
+            Email e = (Email) list.get(0);
+            String s = e.getTesto();
+            textAreaMail.setText(s);
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
+        } catch (NullPointerException e1){
+            list = new HashMap();
         }
     }
 
@@ -63,23 +61,23 @@ public class ServerController implements Initializable {
 
                     ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
                     EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
+                    Email mail = e.getEmail();
+
+                    ArrayList<String> destinatario = mail.getDestinatario();
+                    String mittente = mail.getMittente();
 
                     Platform.runLater(() -> {
-
-                        textAreaJson.setText("Bello sto progetto mamma mia");
-
+                        //  Gestisco la ricezione della mail e la salvo nel posto "giusto"
                         if (e != null) {
                             try {
-                                HashMap<Integer, Email> map = new HashMap<>();
-                                map = FileEditor.loadFromJson();
-                                map.put(e.getEmail().getID(), e.getEmail());
+                                Map<String, Map<String, Email>> map = FileEditor.loadFromJson();
+                                map.get(mittente).put(String.valueOf(destinatario), mail);
                                 FileEditor.saveToJson(map);
                             } catch (IOException e1) {
                                 e1.printStackTrace();
                             }
 
                             String act = e.getAction();
-                            Email mail = e.getEmail();
 
                             String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
                             email = email + "\nOGGETTO: " + mail.getArgomento() + "\n" + mail.getTesto() + "\nData: " + mail.getData();
@@ -96,8 +94,24 @@ public class ServerController implements Initializable {
                                 case "SEND":
                                     // TODO writeHandler
                                     //textArea.setText(e.getEmail().toString() + e.getAction());
-                                    break;
+                                    /*
+                                    try {
+                                        Socket s1 = new Socket("localhost", 5000); //localhost
 
+                                        ObjectOutputStream out = new ObjectOutputStream(s1.getOutputStream());
+                                        out.writeObject(e);
+                                        out.close();
+                                    } catch (IOException e1) {
+                                        e1.printStackTrace();
+                                    } finally {
+                                        try {
+                                            s.close();
+                                        } catch (IOException e1) {
+                                            e1.printStackTrace();
+                                        }
+                                    }
+                                    break;
+                                    */
                                 case "REMOVE":
                                     // TODO removeHandler
                                     break;
@@ -136,13 +150,8 @@ public class ServerController implements Initializable {
         new Thread(run).start();
     }
 
-    @FXML
-    public void writeJson(){
-
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO
+        //  TODO
     }
 }

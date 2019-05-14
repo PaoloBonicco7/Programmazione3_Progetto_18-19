@@ -7,6 +7,7 @@ import comunication.Email;
 
 import java.io.*;
 import java.lang.reflect.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,7 +33,7 @@ public class FileEditor {
         }
     }
 
-    public static void saveToJson(Map<Integer, Email> list) throws IOException {
+    public static void saveToJson(Map<String, Map<String, Email>> list) throws IOException {
         Gson gson;
         newFile();
         try (Writer writer = new FileWriter("file.json")) {
@@ -42,17 +43,32 @@ public class FileEditor {
     }
 
     /**
-     * @return un arraylist che estrae i dati da un file.json
+     * @return un HashMap che estrae i dati da un file.json
      * @throws FileNotFoundException
      */
-    public static HashMap<Integer, Email> loadFromJson() throws FileNotFoundException {
+    public static Map<String, Map<String, Email>> loadFromJson() throws FileNotFoundException {
         Gson gson = new Gson();
 
         BufferedReader br = new BufferedReader(new FileReader("file.json"));
 
-        Type type = new TypeToken<HashMap<Integer, Email>>() {
+        Type type = new TypeToken<Map<String, Map<String, Email>>>() {
         }.getType();
 
-        return gson.fromJson(br, type);
+        Map<String, Map<String, Email>> map = gson.fromJson(br, type);
+
+        if(map != null){
+            return map;
+        } else {
+            map = new HashMap<>();
+            Map<String, Email> map2 = new HashMap<>();
+            map2.put("Paolo", null);
+            map2.put("Federico", null);
+            map2.put("Felice", null);
+
+            map.put("Paolo", map2);
+            map.put("Federico", map2);
+            map.put("Felice", map2);
+            return map;
+        }
     }
 }
