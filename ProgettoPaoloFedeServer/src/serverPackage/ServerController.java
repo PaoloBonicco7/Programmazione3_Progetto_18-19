@@ -4,13 +4,10 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
-
-import com.google.gson.Gson;
 import comunication.Email;
 import comunication.EmailManager;
 import javafx.application.Platform;
@@ -33,20 +30,15 @@ public class ServerController implements Initializable {
     private Button bottoneLeggi; //bottone che se cliccato fa leggere al server il file json
 
     Socket incoming = null;
-
     @FXML
-    private void readJson() { // Lettura dal file Json
-        Map<String, Map<String, Email>> list;
+    public void readJson(){
+        String s = null;
         try {
-            list = FileEditor.loadFromJson();
-            Email e = list.get("Paolo").get("Paolo");
-            String s = e.getTesto();
-            textAreaMail.setText(s);
+            s = FileEditor.loadFromJson().toString();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        } catch (NullPointerException e1){
-            list = new HashMap();
         }
+        textAreaJson.setText(s);
     }
 
     @FXML
@@ -83,6 +75,7 @@ public class ServerController implements Initializable {
                             String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
                             email = email + "\nOGGETTO: " + mail.getArgomento() + "\n" + mail.getTesto() + "\nData: " + mail.getData();
 
+                            textAreaMail.setText(email);
                             /*
                              *   WRITE = il server quando riceve scrive su json e poi va informato il client destinatario del msg (observable?)
                              *   WRITEALL= direi che possiamo usare solo write e aggiornare piu' client, no?
@@ -100,7 +93,6 @@ public class ServerController implements Initializable {
                             switch (act) {
                                 case "SEND":
                                     // TODO writeHandler
-                                    //textArea.setText(e.getEmail().toString() + e.getAction());
                                     Socket s1 = null;
                                     try {
                                         s1 = new Socket("localhost", 5001); //localhost
@@ -112,6 +104,7 @@ public class ServerController implements Initializable {
                                         e1.printStackTrace();
                                     } finally {
                                         try {
+                                            assert s1 != null;
                                             s1.close();
                                         } catch (IOException e1) {
                                             e1.printStackTrace();
@@ -135,8 +128,6 @@ public class ServerController implements Initializable {
                                     // TODO Inserire azioni di default
                                     // Ad esempio il salvataggio delle informazioni in json
                                     // o l'aggiornamento di una textArea
-
-                                    textAreaMail.setText(email);
                                     break;
                             }
                         }
@@ -144,14 +135,7 @@ public class ServerController implements Initializable {
                 }
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
-            } finally {
-                try {
-                    incoming.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
             }
-
         };
         new Thread(run).start();
     }

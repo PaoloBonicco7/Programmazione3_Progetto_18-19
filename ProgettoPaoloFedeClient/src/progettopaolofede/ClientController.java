@@ -65,7 +65,7 @@ public class ClientController implements Initializable, Serializable {
      public void start() {
          Thread clientThread = new Thread(() -> {
          try {
-             ServerSocket s = new ServerSocket(5000);
+             ServerSocket s = new ServerSocket(5001);
 
              while(true) {
                  incoming = s.accept();
