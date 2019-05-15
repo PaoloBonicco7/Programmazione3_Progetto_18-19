@@ -5,7 +5,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 import comunication.Email;
@@ -15,13 +14,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.ToggleButton;
 
 public class ServerController implements Initializable {
 
     @FXML
     private TextArea textAreaMail;
     @FXML
-    private TextArea textAreaJson;
+    private TextArea titleArea;
+    @FXML
+    private ToggleButton connectButton;
     @FXML
     private Button accept; //bottone per avviare connessione
     @FXML
@@ -38,19 +40,37 @@ public class ServerController implements Initializable {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        textAreaJson.setText(s);
+        textAreaMail.setText(s);
+    }
+
+    @FXML
+    public void writeJson(){
+
+    }
+
+    // Modifica il testo della textArea per indicare se il server è connesso o no
+    public void switcher(){
+        if(connectButton.isSelected()){
+            connectButton.setText("SWITCH OFF SERVER");
+        } else {
+            connectButton.setText("SWITCH ON SERVER");
+        }
     }
 
     @FXML
     private void handleConnection() { //handle del bottone connetti -> se clicchi si mette in attesa di ricevere connessione. -> VA TOLTO E GESTITO IN ALTRO MODO CONNESSIONE con THREADPOOL
+        switcher();
 
-        // L'ide me l'ha fatto cambiare con una lambda i runnable don't ask please
         Runnable run = () -> {
             try {
                 ServerSocket s = new ServerSocket(5000);
 
+                titleArea.setText("SERVER \nWaiting for connection");
+
                 while (true) {
                     incoming = s.accept(); // In attesa di connessione
+
+                    titleArea.setText("SERVER \nEstablished connection");
 
                     ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
                     EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
@@ -84,6 +104,7 @@ public class ServerController implements Initializable {
                              *   REPLY ALL = come reply ma a tutti
                              */
 
+                            //  Chiusura connessione
                             try {
                                 incoming.close();
                             } catch (IOException e1) {
