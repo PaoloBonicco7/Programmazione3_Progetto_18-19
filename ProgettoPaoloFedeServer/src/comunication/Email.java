@@ -12,6 +12,8 @@ public class Email implements Serializable {
     private String testo;
     private String data;
 
+    private static final long serialVersionUID = 5950169519310163575L;
+
     public Email(String ID, String mittente, ArrayList<String> destinatario, String argomento, String testo, String data) {
         this.ID = ID;
         this.mittente = mittente;
