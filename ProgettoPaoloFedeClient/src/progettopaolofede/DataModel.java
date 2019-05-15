@@ -34,7 +34,7 @@ public class DataModel implements Serializable{
         return emailList;
     }
 
-    public void modifyEmailList(Email e){
+    public void addEmail(Email e){
        // emailList.setAll(e);
         emailList.add(e);
     }

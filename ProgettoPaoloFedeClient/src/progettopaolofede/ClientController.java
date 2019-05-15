@@ -159,7 +159,7 @@ public class ClientController implements Initializable, Serializable {
 
     }
 
-    @FXML
+    @FXML //TODO
     private void removeMsg(ActionEvent event) {
         Email email = listView.getSelectionModel().getSelectedItem();
         // listView.getItems().remove(item); //oggetto rimosso , solo da listview
