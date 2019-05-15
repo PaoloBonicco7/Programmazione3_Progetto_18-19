@@ -7,7 +7,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.ResourceBundle;
-
 import comunication.Email;
 import comunication.EmailManager;
 import javafx.event.ActionEvent;
@@ -52,6 +51,7 @@ public class ClientController implements Initializable, Serializable {
     public void initialize(URL url, ResourceBundle rb) {
 
     }
+    
     @FXML
     public void initModel(DataModel model) {
         if (this.model != null) {
@@ -94,7 +94,7 @@ public class ClientController implements Initializable, Serializable {
                 add(textFieldTo.getText());
             }
         }, textFieldObject.getText(), textArea.getText(), cal.getTime().toString());
-        model.modifyEmailList(email);
+        model.addEmail(email);
     }
 
     @FXML
@@ -133,14 +133,21 @@ public class ClientController implements Initializable, Serializable {
     
     @FXML
     public void replyMsg(ActionEvent event) {
-
+        Email email = listView.getSelectionModel().getSelectedItem();
+        String argomento = email.getArgomento();
+        String testo = email.getTesto();
+        String mittente ="TODOMIttente";
+        textFieldObject.setText(argomento);
+        textFieldFrom.setText(mittente);
+        textArea.setText(testo);
     }
 
      @FXML
     private void removeMsg(ActionEvent event) {
-        Email item = listView.getSelectionModel().getSelectedItem();
+        Email email = listView.getSelectionModel().getSelectedItem();
         // listView.getItems().remove(item); //oggetto rimosso , solo da listview
-        model.getEmailList().remove(item); //oggetto rimosso dal model->si propaga sulla listview
-        EmailManager emailManager = new EmailManager(item, "REMOVE");
+        model.getEmailList().remove(email); //oggetto rimosso dal model->si propaga sulla listview
+        EmailManager emailManager = new EmailManager(email, "REMOVE");
+        //TODO -> inviare msg a server e fare eliminare a lui il msg dal json
     }
 }
