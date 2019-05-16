@@ -22,6 +22,8 @@ public class EmailManager implements Serializable {
     private Email email;
     private String action;
 
+    private static final long serialVersionUID = 5950169519310163575L;
+
     public EmailManager(Email email, String action) {
         this.email = email;
         this.action = action;

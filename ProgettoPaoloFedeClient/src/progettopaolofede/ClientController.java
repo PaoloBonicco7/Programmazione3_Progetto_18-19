@@ -96,10 +96,8 @@ public class ClientController implements Initializable, Serializable {
         try {
             s.close();
         } catch (IOException e) {
-
             e.printStackTrace();
         }
-
     }
 
     @FXML
@@ -115,21 +113,16 @@ public class ClientController implements Initializable, Serializable {
 
     @FXML
     private void sendMsg(ActionEvent event) {
-
         try {
             Socket s = new Socket("localhost", 5000); //localhost
             try {
+                //SETTAGGIO PARAMETRI EMAIL
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
-
-                String mittente = textFieldTo.getText();
-
+                String mittente = textFieldFrom.getText();
                 ArrayList<String> destinatari = new ArrayList<>();
-                destinatari.add(textFieldFrom.getText());
-
+                destinatari.add(textFieldTo.getText());
                 String object = textFieldObject.getText();
-
                 String text = textArea.getText();
-
                 String time = cal.getTime().toString();
 
                 Email email = new Email(textFieldFrom.getText(), mittente, destinatari, object, text, time);
@@ -153,21 +146,24 @@ public class ClientController implements Initializable, Serializable {
         String argomento = email.getArgomento();
         String testo = email.getTesto();
         String mittente = "TODOMIttente";
+
         textFieldObject.setText(argomento);
         textFieldFrom.setText(mittente);
         textArea.setText(testo);
-
     }
 
     @FXML //TODO
     private void removeMsg(ActionEvent event) {
+
         Email email = listView.getSelectionModel().getSelectedItem();
         // listView.getItems().remove(item); //oggetto rimosso , solo da listview
         model.getEmailList().remove(email); //oggetto rimosso dal model->si propaga sulla listview
 
+
         try {
             Socket s = connect();
             try {
+
                 ArrayList<String> dest = new ArrayList<String>(); //destinatari fasullo
                 dest.add("dest");
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
@@ -183,7 +179,7 @@ public class ClientController implements Initializable, Serializable {
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(emailManager);
                 out.close();
-
+                
             } finally {
                 disconnect(s);
             }

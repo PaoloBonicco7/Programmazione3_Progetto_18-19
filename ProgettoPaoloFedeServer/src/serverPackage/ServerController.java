@@ -64,7 +64,6 @@ public class ServerController implements Initializable {
         Runnable run = () -> {
             try {
                 ServerSocket s = new ServerSocket(5000);
-
                 titleArea.setText("SERVER \nWaiting for connection");
 
                 while (true) {
@@ -80,8 +79,9 @@ public class ServerController implements Initializable {
                     String mittente = mail.getMittente();
 
                     Platform.runLater(() -> {
-                        //  Gestisco la ricezione della mail e la salvo nel posto "giusto"
+                        //  Gestisco la ricezione della mail e la salvo nel posto "giusto" su json
                         if (e != null) {
+
                             try {
                                 Map<String, Map<String, Email>> map = FileEditor.loadFromJson();
                                 map.get(mittente).put(String.valueOf(destinatario), mail);
@@ -135,6 +135,7 @@ public class ServerController implements Initializable {
 
                                 case "REMOVE":
                                     // TODO removeHandler
+                                    System.out.println("HO RICEVUTO UNA MAIL CON REMOVE");
                                     break;
 
                                 case "REPLY":

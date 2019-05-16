@@ -11,34 +11,14 @@ import javafx.collections.ObservableList;
 public class DataModel implements Serializable{
 
     private ObservableList<Email> emailList = FXCollections.observableArrayList();
-    //oppure 
-  //  private final ObservableList<Email> emailList = FXCollections.observableArrayList(email
-  //          -> new Observable[]{email.IDProperty(), email.mittenteProperty(), email.destinatarioProperty(), email.argomentoProperty(), email.testoProperty(), email.dataProperty()});
-/*
-    private final ObjectProperty<Email> currentEmail = new SimpleObjectProperty<>(null);
-
-    public ObjectProperty<Email> currentEmailProperty() {
-        return currentEmail;
-    }
-
-    public final Email getCurrentEmail() {
-        return currentEmailProperty().get();
-    }
-
-    public final void setCurrentEmail(Email email) {
-        currentEmailProperty().set(email);
-    }
-*/
 
     public ObservableList<Email> getEmailList() {
         return emailList;
     }
 
     public void addEmail(Email e){
-       // emailList.setAll(e);
         emailList.add(e);
     }
-
 
     public void loadData() { //per avere dei msg iniziali
         emailList.setAll(
