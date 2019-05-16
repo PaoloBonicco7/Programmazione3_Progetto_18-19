@@ -164,20 +164,22 @@ public class ClientController implements Initializable, Serializable {
         Email email = listView.getSelectionModel().getSelectedItem();
         // listView.getItems().remove(item); //oggetto rimosso , solo da listview
         model.getEmailList().remove(email); //oggetto rimosso dal model->si propaga sulla listview
-        
-        Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
-        String id = "ID";
-        String mittente = email.getMittente();
-        ArrayList<String> destinatari = email.getDestinatario();
-        String object = email.getArgomento();
-        String text = email.getTesto();
-        String time = cal.getTime().toString();
-        Email e = new Email(id,mittente,destinatari,object,text,time);
-        EmailManager emailManager = new EmailManager(e,"REMOVE");
 
         try {
             Socket s = connect();
             try {
+                ArrayList<String> dest = new ArrayList<String>(); //destinatari fasullo
+                dest.add("dest");
+                Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
+                String time = cal.getTime().toString();
+                String id = "ID";
+                String mittente = email.getMittente();
+                ArrayList<String> destinatari = email.getDestinatario();//non usato xk serializ error
+                String object = email.getArgomento();
+                String text = email.getTesto();
+                Email e = new Email(id, mittente, dest, object, text, time); //usa dest e non destinatari
+                //Email e = new Email("id", "mittente", dest, "object", "text", "time");
+                EmailManager emailManager = new EmailManager(e, "REMOVE");
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(emailManager);
                 out.close();
