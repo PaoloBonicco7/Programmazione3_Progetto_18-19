@@ -1,0 +1,78 @@
+{
+  "Federico": {
+    "[Federico]": {
+      "ID": "Federico",
+      "mittente": "Paolo",
+      "destinatario": [
+        "Federico"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Tue May 14 14:29:31 CEST 2019"
+    },
+    "[Paolo]": {
+      "ID": "ID",
+      "mittente": "Federico",
+      "destinatario": [
+        "Paolo"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu May 16 12:10:19 CEST 2019"
+    },
+    "[dest]": {
+      "ID": "ID",
+      "mittente": "Federico",
+      "destinatario": [
+        "dest"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu May 16 12:00:01 CEST 2019"
+    }
+  },
+  "Paolo": {
+    "[Federico]": {
+      "ID": "Federico",
+      "mittente": "Paolo",
+      "destinatario": [
+        "Federico"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu May 16 11:37:00 CEST 2019"
+    },
+    "[Federicod]": {
+      "ID": "Federicod",
+      "mittente": "Paolo",
+      "destinatario": [
+        "Federicod"
+      ],
+      "argomento": "Oggetto98",
+      "testo": "bastardo",
+      "data": "Wed May 15 11:34:56 CEST 2019"
+    },
+    "[TODOMIttente]": {
+      "ID": "TODOMIttente",
+      "mittente": "Paolo",
+      "destinatario": [
+        "TODOMIttente"
+      ],
+      "argomento": "argomento1",
+      "testo": "testo1",
+      "data": "Wed May 15 12:58:06 CEST 2019"
+    }
+  },
+  "Felice": {
+    "[Federico]": {
+      "ID": "Federico",
+      "mittente": "Paolo",
+      "destinatario": [
+        "Federico"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Tue May 14 14:29:31 CEST 2019"
+    }
+  }
+}
