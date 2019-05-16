@@ -11,6 +11,7 @@ import comunication.Email;
 import comunication.EmailManager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -66,32 +67,37 @@ public class ClientController implements Initializable, Serializable {
     }
 
     public void start() {
-        /*
-        Thread clientThread = new Thread(() -> {
-          */
+
         Runnable run = () -> {
-        try {
+
+            try {
                 ServerSocket s = new ServerSocket(5001);
 
                 while (true) {
                     incoming = s.accept();
+                    Platform.runLater(() -> {
+                        try {
+                            ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
+                            EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
+                            Email mail = e.getEmail();
 
-                    ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
-                    EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
-                    Email mail = e.getEmail();
-                    model.addEmail(mail);
+                            model.addEmail(mail);
 
-                    textArea2.setText(mail.getTesto());
+                            textArea2.setText(mail.getTesto());
 
-                    incoming.close();
+                            incoming.close();
+                        } catch (IOException | ClassNotFoundException ex) {
+                            Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+
+                    });
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
         };
         new Thread(run).start();
-        
-        //clientThread.start();
+
     }
 
     private Socket connect() throws IOException {
@@ -165,27 +171,23 @@ public class ClientController implements Initializable, Serializable {
         // listView.getItems().remove(item); //oggetto rimosso , solo da listview
         model.getEmailList().remove(email); //oggetto rimosso dal model->si propaga sulla listview
 
-
         try {
             Socket s = connect();
             try {
 
-      //          ArrayList<String> dest = new ArrayList<String>(); //destinatari fasullo
-        //        dest.add("dest");
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
                 String time = cal.getTime().toString();
-                String id = "ID";
+                String id = "ID"; //todo
                 String mittente = email.getMittente();
-                ArrayList<String> destinatari = (ArrayList<String>)email.getDestinatario();//non usato xk serializ error
+                ArrayList<String> destinatari = (ArrayList<String>) email.getDestinatario();//non usato xk serializ error
                 String object = email.getArgomento();
                 String text = email.getTesto();
                 Email e = new Email(id, mittente, destinatari, object, text, time); //usa dest e non destinatari
-                //Email e = new Email("id", "mittente", dest, "object", "text", "time");
                 EmailManager emailManager = new EmailManager(e, "REMOVE");
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(emailManager);
                 out.close();
-                
+
             } finally {
                 disconnect(s);
             }
