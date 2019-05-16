@@ -66,8 +66,11 @@ public class ClientController implements Initializable, Serializable {
     }
 
     public void start() {
+        /*
         Thread clientThread = new Thread(() -> {
-            try {
+          */
+        Runnable run = () -> {
+        try {
                 ServerSocket s = new ServerSocket(5001);
 
                 while (true) {
@@ -76,6 +79,7 @@ public class ClientController implements Initializable, Serializable {
                     ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
                     EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
                     Email mail = e.getEmail();
+                    model.addEmail(mail);
 
                     textArea2.setText(mail.getTesto());
 
@@ -84,8 +88,10 @@ public class ClientController implements Initializable, Serializable {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-        });
-        clientThread.start();
+        };
+        new Thread(run).start();
+        
+        //clientThread.start();
     }
 
     private Socket connect() throws IOException {
@@ -164,16 +170,16 @@ public class ClientController implements Initializable, Serializable {
             Socket s = connect();
             try {
 
-                ArrayList<String> dest = new ArrayList<String>(); //destinatari fasullo
-                dest.add("dest");
+      //          ArrayList<String> dest = new ArrayList<String>(); //destinatari fasullo
+        //        dest.add("dest");
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
                 String time = cal.getTime().toString();
                 String id = "ID";
                 String mittente = email.getMittente();
-                ArrayList<String> destinatari = email.getDestinatario();//non usato xk serializ error
+                ArrayList<String> destinatari = (ArrayList<String>)email.getDestinatario();//non usato xk serializ error
                 String object = email.getArgomento();
                 String text = email.getTesto();
-                Email e = new Email(id, mittente, dest, object, text, time); //usa dest e non destinatari
+                Email e = new Email(id, mittente, destinatari, object, text, time); //usa dest e non destinatari
                 //Email e = new Email("id", "mittente", dest, "object", "text", "time");
                 EmailManager emailManager = new EmailManager(e, "REMOVE");
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
