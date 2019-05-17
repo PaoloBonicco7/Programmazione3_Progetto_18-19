@@ -1,0 +1,17 @@
+PROCEDURA PER INIZIALIZZARE UNA CARTELLA SU GIT:
+
+1.git init
+2.git add ProjectFolderName
+3.git commit -m "first commit"
+4.git remote add origin https://github.com/YourGithubUsername/RepositoryName.git
+5.git push -u origin master
+
+GESTIONE ERRORI:
+	4. Se "remote" da un errore dicendo che esiste già seguire questa procedura:
+		git remote rm origin
+		git remote add origin http....
+	5. Se push non funziona (perchè hai committato senza fare il pull penso)
+		allora puoi o forzare il push, perdendo dei commit probabilmente:
+			git push --force
+		oppure fai il merge (fondi insieme il tuo progetto nuovo con quello precendente non so secondo che logica)
+		e dopo di che fai il push
