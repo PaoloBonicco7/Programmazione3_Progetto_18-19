@@ -20,8 +20,9 @@ public class DataModel implements Serializable{
         emailList.add(e);
     }
 
-    public void loadData() { //per avere dei msg iniziali
-        emailList.setAll();
+    public void loadData(ArrayList<Email> mails) { //per avere dei msg iniziali
+        emailList.removeAll();
+        emailList.setAll(mails);
     }
 
 }

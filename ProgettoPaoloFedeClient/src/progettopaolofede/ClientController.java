@@ -1,15 +1,13 @@
 package progettopaolofede;
 
+import com.sun.security.ntlm.Server;
 import comunication.Email;
 import comunication.EmailManager;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
@@ -57,20 +55,56 @@ public class ClientController implements Initializable, Serializable {
 
     }
 
+    public ArrayList<Email> refresh(){
+        ServerSocket s = null;
+        ArrayList<Email> emails = null;
+        try {
+            s = new ServerSocket(5002);
+            incoming = s.accept();
+
+            ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
+            Map<String, Map<String, Email>> map = (Map<String, Map<String, Email>>) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
+            emails = new ArrayList<>();
+
+            for(Map.Entry<String, Map<String, Email>> entry : map.entrySet()) {
+                Map<String, Email> m = entry.getValue();
+                for(Map.Entry<String, Email> entry2 : m.entrySet()) {
+                    emails.add(entry2.getValue());
+                }
+            }
+
+            incoming.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                s.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return emails;
+        }
+    }
+
     @FXML
     public void initModel(DataModel model) {
         if (this.model != null) {
             throw new IllegalStateException("Model can only be initialized once");
         }
-        model.loadData();// inizializzo il model con alcune email per poterci lavorare.
+        Platform.runLater(() -> {
+            model.loadData(refresh());// inizializzo il model con alcune email per poterci lavorare.
+        });
         this.model = model;
         listView.setItems(model.getEmailList());
     }
 
     public void start() {
         Runnable run = () -> {
+            ServerSocket s = null;
             try {
-                ServerSocket s = new ServerSocket(5001);
+                s = new ServerSocket(5001);
                 while (true) {
                     incoming = s.accept();
                     Platform.runLater(() -> {
@@ -89,6 +123,12 @@ public class ClientController implements Initializable, Serializable {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+            } finally {
+                try {
+                    s.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         };
         new Thread(run).start();
