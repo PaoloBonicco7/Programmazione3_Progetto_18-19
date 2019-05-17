@@ -1,15 +1,13 @@
 package progettopaolofede;
 
+import com.sun.security.ntlm.Server;
 import comunication.Email;
 import comunication.EmailManager;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.ResourceBundle;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
@@ -51,10 +49,41 @@ public class ClientController implements Initializable, Serializable {
 
     Socket incoming = null;
     private int serverSocket = 5000;
+    public ArrayList<Email> emails = null;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+    }
 
+    public void refresh(){
+        ServerSocket s = null;
+        try {
+            s = new ServerSocket(5001);
+            incoming = s.accept();
+
+            ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
+            Map<String, Map<String, Email>> map = (Map<String, Map<String, Email>>) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
+            emails = new ArrayList<>();
+
+            for(Map.Entry<String, Map<String, Email>> entry : map.entrySet()) {
+                Map<String, Email> m = entry.getValue();
+                for(Map.Entry<String, Email> entry2 : m.entrySet()) {
+                    emails.add((Email) entry2.getValue());
+                }
+            }
+
+            incoming.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                s.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     @FXML
@@ -62,7 +91,8 @@ public class ClientController implements Initializable, Serializable {
         if (this.model != null) {
             throw new IllegalStateException("Model can only be initialized once");
         }
-        model.loadData();// inizializzo il model con alcune email per poterci lavorare.
+        refresh();
+        model.loadData(emails);// inizializzo il model con alcune email per poterci lavorare.
         this.model = model;
         listView.setItems(model.getEmailList());
     }

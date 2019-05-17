@@ -4,7 +4,9 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 import comunication.Email;
@@ -98,11 +100,39 @@ public class ServerController implements Initializable {
         }
     }
 
+    // Su porta 5001 mando a client lista mail, il client la riceve nel metodo initialize
+    public void refreshClient(){
+        Socket s = null;
+        try {
+            Map<String, Map<String, Email>> emails = FileEditor.loadFromJson();
+            s = new Socket("localhost", 5001); //localhost
+
+            ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
+            out.writeObject(emails);
+            out.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                s.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+        }
+    }
+
     @FXML
     private void handleConnection() { //handle del bottone connetti -> se clicchi si mette in attesa di ricevere connessione. -> VA TOLTO E GESTITO IN ALTRO MODO CONNESSIONE con THREADPOOL
         switcher();
 
+        refreshClient();
+
         Runnable run = () -> {
+            //  Server manda le mail contenute nel json al client
             try {
                 ServerSocket s = new ServerSocket(5000);
                 titleArea.setText("SERVER \nWaiting for connection");
@@ -164,6 +194,6 @@ public class ServerController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        //  TODO
+
     }
 }
