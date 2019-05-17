@@ -43,7 +43,6 @@ public class ServerController implements Initializable {
         textAreaMail.setText(s);
     }
 
-    @FXML
     public void writeJson(Email mail){
         ArrayList<String> destinatario = mail.getDestinatario();
         String mittente = mail.getMittente();
@@ -58,16 +57,35 @@ public class ServerController implements Initializable {
         }
     }
 
-    @FXML
     public void removeMail(Email mail){
         try {
             Map<String, Map<String, Email>> map = FileEditor.loadFromJson();
-            map.get(mail.getMittente()).remove(mail.getDestinatario() + "\n" + mail.getData());
+            String key = mail.getDestinatario() + "\n" + mail.getData();
+            map.get(mail.getMittente()).remove(key);
             FileEditor.saveToJson(map);
         } catch (FileNotFoundException e1) {
             e1.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    public void sendMail(EmailManager e){
+        Socket s1 = null;
+        try {
+            s1 = new Socket("localhost", 5001); //localhost
+            ObjectOutputStream out = new ObjectOutputStream(s1.getOutputStream());
+            out.writeObject(e);
+            out.close();
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        } finally {
+            try {
+                assert s1 != null;
+                s1.close();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         }
     }
 
@@ -91,69 +109,51 @@ public class ServerController implements Initializable {
 
                 while (true) {
                     incoming = s.accept(); // In attesa di connessione
-
                     titleArea.setText("SERVER \nEstablished connection");
 
                     ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
                     EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
                     Email mail = e.getEmail();
 
-                    Platform.runLater(() -> {
-                        //  Gestisco la ricezione della mail e la salvo nel posto "giusto" su json
-                        if (e != null) {
-                            writeJson(mail);
+                    //  Gestisco la ricezione della mail e la salvo nel posto "giusto" su json
+                    if (e != null) {
+                        writeJson(mail);
+                        String act = e.getAction();
+                        String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
+                        email = email + "\nOGGETTO: " + mail.getArgomento() + "\n" +
+                                mail.getTesto() + "\nData: " + mail.getData();
 
-                            String act = e.getAction();
-                            String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
-                            email = email + "\nOGGETTO: " + mail.getArgomento() + "\n" + mail.getTesto() + "\nData: " + mail.getData();
+                        textAreaMail.setText(email);
 
-                            textAreaMail.setText(email);
-                            //  Chiusura connessione
-                            try {
-                                incoming.close();
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
-                            }
-
-                            switch (act) {
-                                case "SEND":
-                                    // TODO writeHandler
-                                    Socket s1 = null;
-                                    try {
-                                        s1 = new Socket("localhost", 5001); //localhost
-
-                                        ObjectOutputStream out = new ObjectOutputStream(s1.getOutputStream());
-                                        out.writeObject(e);
-                                        out.close();
-                                    } catch (IOException e1) {
-                                        e1.printStackTrace();
-                                    } finally {
-                                        try {
-                                            assert s1 != null;
-                                            s1.close();
-                                        } catch (IOException e1) {
-                                            e1.printStackTrace();
-                                        }
-                                    }
-                                    break;
-                                case "REMOVE":
-                                    // TODO removeHandler
-                                    removeMail(mail);
-                                    break;
-                                case "REPLY":
-                                    // TODO replyHandler
-                                    break;
-                                case "REPLYALL":
-                                    // TODO replyAllHandler
-                                    break;
-                                default:
-                                    // TODO Inserire azioni di default
-                                    // Ad esempio il salvataggio delle informazioni in json
-                                    // o l'aggiornamento di una textArea
-                                    break;
-                            }
+                        //  Chiusura connessione
+                        try {
+                            incoming.close();
+                        } catch (IOException e1) {
+                            e1.printStackTrace();
                         }
-                    });
+
+                        switch (act) {
+                            case "SEND":
+                                // TODO writeHandler
+                                sendMail(e);
+                                break;
+                            case "REMOVE":
+                                // TODO removeHandler
+                                removeMail(mail);
+                                break;
+                            case "REPLY":
+                                // TODO replyHandler
+                                break;
+                            case "REPLYALL":
+                                // TODO replyAllHandler
+                                break;
+                            default:
+                                // TODO Inserire azioni di default
+                                // Ad esempio il salvataggio delle informazioni in json
+                                // o l'aggiornamento di una textArea
+                                break;
+                        }
+                    }
                 }
             } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();

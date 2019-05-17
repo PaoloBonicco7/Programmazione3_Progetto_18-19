@@ -68,12 +68,9 @@ public class ClientController implements Initializable, Serializable {
     }
 
     public void start() {
-
         Runnable run = () -> {
-
             try {
                 ServerSocket s = new ServerSocket(5001);
-
                 while (true) {
                     incoming = s.accept();
                     Platform.runLater(() -> {
@@ -83,14 +80,11 @@ public class ClientController implements Initializable, Serializable {
                             Email mail = e.getEmail();
 
                             model.addEmail(mail);
-
                             textArea2.setText(mail.getTesto());
-
                             incoming.close();
                         } catch (IOException | ClassNotFoundException ex) {
                             Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
                         }
-
                     });
                 }
             } catch (Exception e) {
@@ -98,7 +92,6 @@ public class ClientController implements Initializable, Serializable {
             }
         };
         new Thread(run).start();
-
     }
 
     private Socket connect() throws IOException {
