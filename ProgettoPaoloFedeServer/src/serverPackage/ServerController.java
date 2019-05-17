@@ -44,8 +44,31 @@ public class ServerController implements Initializable {
     }
 
     @FXML
-    public void writeJson(){
+    public void writeJson(Email mail){
+        ArrayList<String> destinatario = mail.getDestinatario();
+        String mittente = mail.getMittente();
+        String data = mail.getData();
+        try {
+            Map<String, Map<String, Email>> map = FileEditor.loadFromJson();
+            String key = destinatario + "\n" + data;
+            map.get(mittente).put(key, mail);
+            FileEditor.saveToJson(map);
+        } catch (IOException e1) {
+            e1.printStackTrace();
+        }
+    }
 
+    @FXML
+    public void removeMail(Email mail){
+        try {
+            Map<String, Map<String, Email>> map = FileEditor.loadFromJson();
+            map.get(mail.getMittente()).remove(mail.getDestinatario() + "\n" + mail.getData());
+            FileEditor.saveToJson(map);
+        } catch (FileNotFoundException e1) {
+            e1.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     // Modifica il testo della textArea per indicare se il server è connesso o no
@@ -75,35 +98,16 @@ public class ServerController implements Initializable {
                     EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
                     Email mail = e.getEmail();
 
-                    ArrayList<String> destinatario = mail.getDestinatario();
-                    String mittente = mail.getMittente();
-
                     Platform.runLater(() -> {
                         //  Gestisco la ricezione della mail e la salvo nel posto "giusto" su json
                         if (e != null) {
-
-                            try {
-                                Map<String, Map<String, Email>> map = FileEditor.loadFromJson();
-                                map.get(mittente).put(String.valueOf(destinatario), mail);
-                                FileEditor.saveToJson(map);
-                            } catch (IOException e1) {
-                                e1.printStackTrace();
-                            }
+                            writeJson(mail);
 
                             String act = e.getAction();
-
                             String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
                             email = email + "\nOGGETTO: " + mail.getArgomento() + "\n" + mail.getTesto() + "\nData: " + mail.getData();
 
                             textAreaMail.setText(email);
-                            /*
-                             *   SEND = il server quando riceve scrive su json e poi va informato il client destinatario del msg (observable?)
-                             *   WRITEALL= direi che possiamo usare solo write e aggiornare piu' client, no?
-                             *   REMOVE = il server riceve l'email, la cerca nel json e la rimuove
-                             *   REPLY = viene creato un oggetto email copiandolo da quelli che vede il cliente e lo spedice al mittente , server fa come write
-                             *   REPLY ALL = come reply ma a tutti
-                             */
-
                             //  Chiusura connessione
                             try {
                                 incoming.close();
@@ -132,20 +136,16 @@ public class ServerController implements Initializable {
                                         }
                                     }
                                     break;
-
                                 case "REMOVE":
                                     // TODO removeHandler
-                                    System.out.println("HO RICEVUTO UNA MAIL CON REMOVE");
+                                    removeMail(mail);
                                     break;
-
                                 case "REPLY":
                                     // TODO replyHandler
                                     break;
-
                                 case "REPLYALL":
                                     // TODO replyAllHandler
                                     break;
-
                                 default:
                                     // TODO Inserire azioni di default
                                     // Ad esempio il salvataggio delle informazioni in json

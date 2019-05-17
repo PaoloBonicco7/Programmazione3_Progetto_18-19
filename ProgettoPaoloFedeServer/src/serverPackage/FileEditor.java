@@ -7,7 +7,6 @@ import comunication.Email;
 
 import java.io.*;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,16 +58,19 @@ public class FileEditor {
         if(map != null){
             return map;
         } else {
-            map = new HashMap<>();
-            Map<String, Email> map2 = new HashMap<>();
-            map2.put("Paolo", null);
-            map2.put("Federico", null);
-            map2.put("Felice", null);
-
-            map.put("Paolo", map2);
-            map.put("Federico", map2);
-            map.put("Felice", map2);
-            return map;
+            return genMap();
         }
+    }
+
+    public static Map<String, Map<String, Email>> genMap(){
+        Map<String, Map<String, Email>> map = new HashMap<>();
+        Map<String, Email> map2 = new HashMap<>();
+
+        map2.put(null, null);
+
+        map.put("Paolo", map2);
+        map.put("Federico", map2);
+        map.put("Felice", map2);
+        return map;
     }
 }
