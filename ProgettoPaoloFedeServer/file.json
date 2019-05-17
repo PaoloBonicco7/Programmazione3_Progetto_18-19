@@ -11,14 +11,14 @@
       "data": "Tue May 14 14:29:31 CEST 2019"
     },
     "[Paolo]": {
-      "ID": "ID",
+      "ID": "Federico",
       "mittente": "Federico",
       "destinatario": [
         "Paolo"
       ],
       "argomento": "Oggetto",
-      "testo": "prova email",
-      "data": "Thu May 16 12:53:35 CEST 2019"
+      "testo": "Holaaasdasdas",
+      "data": "Fri May 17 09:34:52 CEST 2019"
     },
     "[dest]": {
       "ID": "ID",
@@ -29,6 +29,18 @@
       "argomento": "Oggetto",
       "testo": "Holaaa",
       "data": "Thu May 16 12:00:01 CEST 2019"
+    },
+    "[Paolo, Federico, Mail]": {
+      "ID": "Federico",
+      "mittente": "Federico",
+      "destinatario": [
+        "Paolo",
+        "Federico",
+        "Mail"
+      ],
+      "argomento": "Oggetto",
+      "testo": "messaggiocon doppio destinatari\t",
+      "data": "Fri May 17 09:46:13 CEST 2019"
     }
   },
   "Paolo": {
