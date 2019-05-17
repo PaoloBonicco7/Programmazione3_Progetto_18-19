@@ -49,16 +49,17 @@ public class ClientController implements Initializable, Serializable {
 
     Socket incoming = null;
     private int serverSocket = 5000;
-    public ArrayList<Email> emails = null;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+
     }
 
-    public void refresh(){
+    public ArrayList<Email> refresh(){
         ServerSocket s = null;
+        ArrayList<Email> emails = null;
         try {
-            s = new ServerSocket(5001);
+            s = new ServerSocket(5002);
             incoming = s.accept();
 
             ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
@@ -68,7 +69,7 @@ public class ClientController implements Initializable, Serializable {
             for(Map.Entry<String, Map<String, Email>> entry : map.entrySet()) {
                 Map<String, Email> m = entry.getValue();
                 for(Map.Entry<String, Email> entry2 : m.entrySet()) {
-                    emails.add((Email) entry2.getValue());
+                    emails.add(entry2.getValue());
                 }
             }
 
@@ -83,6 +84,7 @@ public class ClientController implements Initializable, Serializable {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            return emails;
         }
     }
 
@@ -91,16 +93,18 @@ public class ClientController implements Initializable, Serializable {
         if (this.model != null) {
             throw new IllegalStateException("Model can only be initialized once");
         }
-        refresh();
-        model.loadData(emails);// inizializzo il model con alcune email per poterci lavorare.
+        Platform.runLater(() -> {
+            model.loadData(refresh());// inizializzo il model con alcune email per poterci lavorare.
+        });
         this.model = model;
         listView.setItems(model.getEmailList());
     }
 
     public void start() {
         Runnable run = () -> {
+            ServerSocket s = null;
             try {
-                ServerSocket s = new ServerSocket(5001);
+                s = new ServerSocket(5001);
                 while (true) {
                     incoming = s.accept();
                     Platform.runLater(() -> {
@@ -119,6 +123,12 @@ public class ClientController implements Initializable, Serializable {
                 }
             } catch (Exception e) {
                 e.printStackTrace();
+            } finally {
+                try {
+                    s.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
         };
         new Thread(run).start();

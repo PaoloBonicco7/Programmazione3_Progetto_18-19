@@ -105,7 +105,7 @@ public class ServerController implements Initializable {
         Socket s = null;
         try {
             Map<String, Map<String, Email>> emails = FileEditor.loadFromJson();
-            s = new Socket("localhost", 5001); //localhost
+            s = new Socket("localhost", 5002); //localhost
 
             ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
             out.writeObject(emails);
