@@ -1,14 +1,15 @@
 package progettopaolofede;
 
+import comunication.Email;
+import comunication.EmailManager;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.ResourceBundle;
-import comunication.Email;
-import comunication.EmailManager;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.application.Platform;
@@ -124,15 +125,15 @@ public class ClientController implements Initializable, Serializable {
     }
 
     @FXML
-    private void sendMsg(ActionEvent event) {
+    private void sendMsg(ActionEvent event) {//TODO ID
         try {
             Socket s = new Socket("localhost", 5000); //localhost
             try {
-                //SETTAGGIO PARAMETRI EMAIL
+                  //SETTAGGIO PARAMETRI EMAIL
+                ArrayList<String> destinatari = new ArrayList<>();
+                destinatari.addAll(Arrays.asList(textFieldTo.getText().split(","))); //i destinatari son separati da ,
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
                 String mittente = textFieldFrom.getText();
-                ArrayList<String> destinatari = new ArrayList<>();
-                destinatari.add(textFieldTo.getText());
                 String object = textFieldObject.getText();
                 String text = textArea.getText();
                 String time = cal.getTime().toString();
@@ -153,7 +154,7 @@ public class ClientController implements Initializable, Serializable {
     }
 
     @FXML
-    private void replyMsg(ActionEvent event) {
+    private void replyMsg(ActionEvent event) {//TODO ID
         Email email = listView.getSelectionModel().getSelectedItem();
         String argomento = email.getArgomento();
         String testo = email.getTesto();
@@ -165,7 +166,7 @@ public class ClientController implements Initializable, Serializable {
     }
 
     @FXML //TODO
-    private void removeMsg(ActionEvent event) {
+    private void removeMsg(ActionEvent event) {//TODO ID
 
         Email email = listView.getSelectionModel().getSelectedItem();
         // listView.getItems().remove(item); //oggetto rimosso , solo da listview
@@ -198,7 +199,7 @@ public class ClientController implements Initializable, Serializable {
     }
 
     @FXML
-    private void replyAllmsg() {
+    private void replyAllmsg() {//TODO ID, DEST
         Email email = listView.getSelectionModel().getSelectedItem();
         String elencoDestinatari = "";
         String argomento = email.getArgomento();
