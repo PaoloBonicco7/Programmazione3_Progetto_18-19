@@ -129,16 +129,16 @@ public class ClientController implements Initializable, Serializable {
         try {
             Socket s = new Socket("localhost", 5000); //localhost
             try {
-                  //SETTAGGIO PARAMETRI EMAIL
+                //SETTAGGIO PARAMETRI EMAIL
                 ArrayList<String> destinatari = new ArrayList<>();
                 destinatari.addAll(Arrays.asList(textFieldTo.getText().split(","))); //i destinatari son separati da ,
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
+                String time = cal.getTime().toString();
                 String mittente = textFieldFrom.getText();
                 String object = textFieldObject.getText();
                 String text = textArea.getText();
-                String time = cal.getTime().toString();
 
-                Email email = new Email(textFieldFrom.getText(), mittente, destinatari, object, text, time);
+                Email email = new Email("ID", mittente, destinatari, object, text, time);
                 EmailManager emailHandler = new EmailManager(email, "SEND");
 
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
@@ -158,8 +158,8 @@ public class ClientController implements Initializable, Serializable {
         Email email = listView.getSelectionModel().getSelectedItem();
         String argomento = email.getArgomento();
         String testo = email.getTesto();
-        String mittente = "TODOMIttente";
-
+        String mittente = "me";
+        textFieldTo.setText("");
         textFieldObject.setText(argomento);
         textFieldFrom.setText(mittente);
         textArea.setText(testo);
@@ -176,8 +176,9 @@ public class ClientController implements Initializable, Serializable {
             Socket s = connect();
             try {
 
-                Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
-                String time = cal.getTime().toString();
+                // Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
+                //String time = cal.getTime().toString();
+                String time = email.getData();
                 String id = "ID"; //todo
                 String mittente = email.getMittente();
                 ArrayList<String> destinatari = (ArrayList<String>) email.getDestinatario();//non usato xk serializ error
