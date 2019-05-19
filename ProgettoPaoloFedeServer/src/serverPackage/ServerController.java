@@ -1,3 +1,14 @@
+
+/*
+ Server deve aprire PRIMa InputStreamObject, poi Output stream.
+ Nel server Il socket non va chiuso, la connessione in e out va chiusa solo nel finally=> NON SO Xk ma da reset conn
+
+ Il client invece apre
+ ASSSOLUTAMENTE aprire PRIMA ObjectOUT e poi ObjectInputStream altrimenti exception CONNECTION RESET" 
+     
+
+
+ */
 package serverPackage;
 
 import java.io.*;
@@ -33,9 +44,14 @@ public class ServerController implements Initializable {
     @FXML
     private Button bottoneLeggi; //bottone che se cliccato fa leggere al server il file json
 
+    //queste variabili sono messe qua per poterle usare nel blocco finally
     Socket incoming = null;
+    ServerSocket s = null;
+    ObjectOutputStream out = null;
+    ObjectInputStream in = null;
+
     @FXML
-    public void readJson(){
+    public void readJson() {
         String s = null;
         try {
             s = FileEditor.loadFromJson().toString();
@@ -45,7 +61,7 @@ public class ServerController implements Initializable {
         textAreaMail.setText(s);
     }
 
-    public void writeJson(Email mail){
+    public void writeJson(Email mail) {
         ArrayList<String> destinatario = mail.getDestinatario();
         String mittente = mail.getMittente();
         String data = mail.getData();
@@ -59,7 +75,7 @@ public class ServerController implements Initializable {
         }
     }
 
-    public void removeMail(Email mail){
+    public void removeMail(Email mail) {
         try {
             Map<String, Map<String, Email>> map = FileEditor.loadFromJson();
             String key = mail.getDestinatario() + "\n" + mail.getData();
@@ -72,7 +88,7 @@ public class ServerController implements Initializable {
         }
     }
 
-    public void sendMail(EmailManager e){
+    public void sendMail(EmailManager e) {
         Socket s1 = null;
         try {
             s1 = new Socket("localhost", 5001); //localhost
@@ -92,107 +108,136 @@ public class ServerController implements Initializable {
     }
 
     // Modifica il testo della textArea per indicare se il server è connesso o no
-    public void switcher(){
-        if(connectButton.isSelected()){
+    public void switcher() {
+        if (connectButton.isSelected()) {
             connectButton.setText("SWITCH OFF SERVER");
         } else {
             connectButton.setText("SWITCH ON SERVER");
         }
     }
+    /*
+     // Non serve PIU'
+    
+    
+     public void refreshClient() {
+     ObjectOutputStream out = null;
+     Socket s = null;
+     try {
+     Map<String, Map<String, Email>> emails = FileEditor.loadFromJson();
+     s = new Socket("localhost", 5002); //localhost
 
-    // Su porta 5001 mando a client lista mail, il client la riceve nel metodo initialize
-    public void refreshClient(){
-        Socket s = null;
-        try {
-            Map<String, Map<String, Email>> emails = FileEditor.loadFromJson();
-            s = new Socket("localhost", 5002); //localhost
+     out = new ObjectOutputStream(s.getOutputStream());
+     out.writeObject(emails);
+     out.flush();
 
-            ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
-            out.writeObject(emails);
-            out.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                s.close();
-            } catch (IOException e1) {
-                e1.printStackTrace();
-            }
-        }
-    }
+     } catch (FileNotFoundException e) {
+     e.printStackTrace();
+     } catch (UnknownHostException e) {
+     e.printStackTrace();
+     } catch (IOException e) {
+     e.printStackTrace();
+     } finally {
+     try {
+     out.close();
+     s.close();
+     System.out.println("CHIUSO out e Socket in ServerController.refreshClient()");
+     } catch (IOException e1) {
+     e1.printStackTrace();
+     }
+     }
+     }
+     */
 
     @FXML
     private void handleConnection() { //handle del bottone connetti -> se clicchi si mette in attesa di ricevere connessione. -> VA TOLTO E GESTITO IN ALTRO MODO CONNESSIONE con THREADPOOL
         switcher();
-
-        refreshClient();
-
         Runnable run = () -> {
             //  Server manda le mail contenute nel json al client
             try {
-                ServerSocket s = new ServerSocket(5000);
+                s = new ServerSocket(5000);
                 titleArea.setText("SERVER \nWaiting for connection");
 
                 while (true) {
+                    //    ObjectOutputStream out;
+                    //   ObjectInputStream in;
                     incoming = s.accept(); // In attesa di connessione
+                    in = new ObjectInputStream(incoming.getInputStream());
+                    Object receivedMsg = in.readObject();
                     titleArea.setText("SERVER \nEstablished connection");
+                    System.out.println("RICEVUTO OGGETTO, ORA CONTROLLO");
+                    if (receivedMsg instanceof String) { //se l'oggetto mandato è stringa => vuol dire che è il primo msg di conness tra client e server e allora popolo la listview
+                        String msg = (String) receivedMsg;
+                        out = new ObjectOutputStream(incoming.getOutputStream());
+                        Map<String, Map<String, Email>> emails;
+                        emails = FileEditor.loadFromJson();
+                        out.writeObject(emails);
+                        /*
+                         //non so per quale motivo ma se chiudo il server il programma mi da "connection reset." -> ok non lo chiudo
+                        
+                         in.close();
+                         out.close();
+                         incoming.close();
+                         */
+                    } else {
+                        EmailManager e = (EmailManager) receivedMsg;
+                        Email mail = e.getEmail();
+                        System.out.println("HO LETTO DA EMAIL");
 
-                    ObjectInputStream in = new ObjectInputStream(incoming.getInputStream());
-                    EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
-                    Email mail = e.getEmail();
+                        //  Gestisco la ricezione della mail e la salvo nel posto "giusto" su json
+                        if (e != null) {
+                            writeJson(mail);
+                            String act = e.getAction();
+                            String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
+                            email = email + "\nOGGETTO: " + mail.getArgomento() + "\n"
+                                    + mail.getTesto() + "\nData: " + mail.getData();
 
-                    //  Gestisco la ricezione della mail e la salvo nel posto "giusto" su json
-                    if (e != null) {
-                        writeJson(mail);
-                        String act = e.getAction();
-                        String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
-                        email = email + "\nOGGETTO: " + mail.getArgomento() + "\n" +
-                                mail.getTesto() + "\nData: " + mail.getData();
-
-                        textAreaMail.setText(email);
-
-                        //  Chiusura connessione
-                        try {
-                            incoming.close();
-                        } catch (IOException e1) {
-                            e1.printStackTrace();
-                        }
-
-                        switch (act) {
-                            case "SEND":
-                                // TODO writeHandler
-                                sendMail(e);
-                                break;
-                            case "REMOVE":
-                                // TODO removeHandler
-                                removeMail(mail);
-                                break;
-                            case "REPLY":
-                                // TODO replyHandler
-                                break;
-                            case "REPLYALL":
-                                // TODO replyAllHandler
-                                break;
-                            default:
-                                // TODO Inserire azioni di default
-                                // Ad esempio il salvataggio delle informazioni in json
-                                // o l'aggiornamento di una textArea
-                                break;
+                            textAreaMail.setText(email);
+//                        incoming.close();
+                            //  Chiusura connessione
+                            switch (act) {
+                                case "SEND":
+                                    // TODO writeHandler
+                                    sendMail(e);
+                                    break;
+                                case "REMOVE":
+                                    // TODO removeHandler
+                                    removeMail(mail);
+                                    break;
+                                case "REPLY":
+                                    // TODO replyHandler
+                                    break;
+                                case "REPLYALL":
+                                    // TODO replyAllHandler
+                                    break;
+                                default:
+                                    // TODO Inserire azioni di default
+                                    // Ad esempio il salvataggio delle informazioni in json
+                                    // o l'aggiornamento di una textArea
+                                    break;
+                            }
                         }
                     }
                 }
             } catch (IOException | ClassNotFoundException e) {
+                System.out.println("HO UNA CAZ DI ECCEZIONE fuori dal while");
                 e.printStackTrace();
+            } finally {
+                try {
+                    in.close();
+                    out.close();
+                    incoming.close();
+                    s.close();
+                } catch (IOException ex) {
+                    ex.printStackTrace();
+                }
             }
         };
-        new Thread(run).start();
+        new Thread(run)
+                .start();
     }
 
     @Override
+
     public void initialize(URL location, ResourceBundle resources) {
 
     }
