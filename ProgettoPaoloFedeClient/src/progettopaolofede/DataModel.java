@@ -7,7 +7,6 @@ import comunication.Email;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
-
 public class DataModel implements Serializable{
 
     private ObservableList<Email> emailList = FXCollections.observableArrayList();

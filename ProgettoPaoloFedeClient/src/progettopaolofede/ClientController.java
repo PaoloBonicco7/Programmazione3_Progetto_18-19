@@ -1,9 +1,7 @@
 package progettopaolofede;
 
-//import com.sun.security.ntlm.Server;
 import comunication.Email;
 import comunication.EmailManager;
-import comunication.User;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -24,7 +22,6 @@ public class ClientController implements Initializable, Serializable {
 
     private DataModel model; //model del client
 
-    private String Action; //rappresenta azione da eseguire
     @FXML
     private ListView<Email> listView;
     @FXML
@@ -36,17 +33,9 @@ public class ClientController implements Initializable, Serializable {
     @FXML
     private TextArea textArea; //campo testo Msg
     @FXML
-    private Button sendButton; //bottone invio msg
-    @FXML
-    private Button replyButton; //bottone reply msg
-    @FXML
-    private Button newButton; //bottone new msg
-    @FXML
-    private Button testButton;
-    @FXML
     private TextArea textArea2; // Dove arriva il mex dal server
     @FXML
-    private Button deleteButton;
+    private TextArea userTextArea;
 
     private int serverSocket = 5000;
     Socket incoming = null;
@@ -70,7 +59,6 @@ public class ClientController implements Initializable, Serializable {
      */
     public ArrayList<Email> refresh() {
         ArrayList<Email> emails = null;
-
         try {
 
             Socket s = new Socket("localhost", serverSocket); //localhost
@@ -104,6 +92,7 @@ public class ClientController implements Initializable, Serializable {
         }
         return emails;
     }
+
 //tengo il metodo qua sotto nel caso di futuri problemi con la mia implementazione di refresh.
     /* 
      public ArrayList<Email> refresh() {
@@ -147,18 +136,20 @@ public class ClientController implements Initializable, Serializable {
 
     @FXML
     public void initModel(DataModel model, String utente) {
-
         if (this.model != null) {
             throw new IllegalStateException("Model can only be initialized once");
         }
+        userTextArea.setText(utente);
         System.out.println("INVOCO METODO REFRESH()");
         ArrayList<Email> emails = refresh();
         model.loadData(emails);
         this.model = model;
         listView.setItems(model.getEmailList());
         System.out.println("Aggiornato la listVIew e il model");
+
     }
-//metodo del client che rimane in attesa di ricevere email dal server.
+
+    //metodo del client che rimane in attesa di ricevere email dal server.
 
     public void start() {
 

@@ -4,28 +4,22 @@
  Nel server Il socket non va chiuso, la connessione in e out va chiusa solo nel finally=> NON SO Xk ma da reset conn
 
  Il client invece apre
- ASSSOLUTAMENTE aprire PRIMA ObjectOUT e poi ObjectInputStream altrimenti exception CONNECTION RESET" 
-     
-
-
+ ASSSOLUTAMENTE aprire PRIMA ObjectOUT e poi ObjectInputStream altrimenti exception CONNECTION RESET"
  */
+
 package serverPackage;
 
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 import comunication.Email;
 import comunication.EmailManager;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.ToggleButton;
 
@@ -37,12 +31,6 @@ public class ServerController implements Initializable {
     private TextArea titleArea;
     @FXML
     private ToggleButton connectButton;
-    @FXML
-    private Button accept; //bottone per avviare connessione
-    @FXML
-    private Button bottoneScrivi; //bottone che se cliccato il server scrive su json
-    @FXML
-    private Button bottoneLeggi; //bottone che se cliccato fa leggere al server il file json
 
     //queste variabili sono messe qua per poterle usare nel blocco finally
     Socket incoming = null;
@@ -115,6 +103,7 @@ public class ServerController implements Initializable {
             connectButton.setText("SWITCH ON SERVER");
         }
     }
+
     /*
      // Non serve PIU'
     
@@ -158,8 +147,6 @@ public class ServerController implements Initializable {
                 titleArea.setText("SERVER \nWaiting for connection");
 
                 while (true) {
-                    //    ObjectOutputStream out;
-                    //   ObjectInputStream in;
                     incoming = s.accept(); // In attesa di connessione
                     in = new ObjectInputStream(incoming.getInputStream());
                     Object receivedMsg = in.readObject();
@@ -192,7 +179,8 @@ public class ServerController implements Initializable {
                                     + mail.getTesto() + "\nData: " + mail.getData();
 
                             textAreaMail.setText(email);
-//                        incoming.close();
+
+                            //incoming.close();
                             //  Chiusura connessione
                             switch (act) {
                                 case "SEND":
