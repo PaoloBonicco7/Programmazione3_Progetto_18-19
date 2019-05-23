@@ -6,9 +6,11 @@
  Il client invece apre
  ASSSOLUTAMENTE aprire PRIMA ObjectOUT e poi ObjectInputStream altrimenti exception CONNECTION RESET"
  */
-
 package serverPackage;
 
+import comunication.Email;
+import comunication.EmailManager;
+import comunication.User;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -16,8 +18,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.ResourceBundle;
-import comunication.Email;
-import comunication.EmailManager;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
@@ -138,17 +138,15 @@ public class ServerController implements Initializable {
      }
      }
      */
-
     //  Metodo che controlla se un utente si è già connesso
-    public boolean checkLogin(String mex){
-        if(!userLog.contains(mex)) {
+    public boolean checkLogin(String mex) {
+        if (!userLog.contains(mex)) {
             userLog.add(mex);
             return true;
         } else {
             return false;
         }
     }
-
 
     @FXML
     private void handleConnection() { //handle del bottone connetti -> se clicchi si mette in attesa di ricevere connessione. -> VA TOLTO E GESTITO IN ALTRO MODO CONNESSIONE con THREADPOOL
@@ -166,27 +164,23 @@ public class ServerController implements Initializable {
                     titleArea.setText("SERVER \nEstablished connection");
                     System.out.println("RICEVUTO OGGETTO, ORA CONTROLLO");
 
-                    if (receivedMsg instanceof String) { //se l'oggetto mandato è stringa => vuol dire che è il primo msg di conness tra client e server e allora popolo la listview
-                        String msg = (String) receivedMsg;
+                    if (receivedMsg instanceof String) { //controllo di login                           
+                        String msg = (String)receivedMsg;
                         out = new ObjectOutputStream(incoming.getOutputStream());
+                        out.writeObject(checkLogin(msg));
 
-                        if (msg.equals("LoadEmails")){
-                            Map<String, Map<String, Email>> emails;
-                            emails = FileEditor.loadFromJson();
-                            out.writeObject(emails);
-                        } else {
-                            out.writeObject(checkLogin(msg));
-                            /*
-                            if (checkLogin(msg)) {
-                                out.writeObject(true);
-                            } else { //Comunico al client che non si puà connettere
-                                System.out.println("Utente già loggato");
-                                textAreaMail.setText("L'utente " + msg + " è già loggato.");
-                                out.writeObject(false);
-                            }
-                            */
-                        }
-                    } else {
+                    } else if (receivedMsg instanceof User) {//caricamento dati utente
+                        out = new ObjectOutputStream(incoming.getOutputStream());
+                        User utente = (User) receivedMsg;
+                        String nomeUtente = utente.getId();
+                        System.out.println("STAMPO L'utente\n"+nomeUtente);
+                        //TODO SELEZIONE EMAIL CORRETTE DA MAP
+                        Map<String, Map<String, Email>> emails;
+                        emails = FileEditor.loadFromJson();
+                        emails.get(nomeUtente);
+                        out.writeObject(emails);
+
+                    } else {//gestione invio email
                         EmailManager e = (EmailManager) receivedMsg;
                         Email mail = e.getEmail();
                         System.out.println("HO LETTO DA EMAIL");
