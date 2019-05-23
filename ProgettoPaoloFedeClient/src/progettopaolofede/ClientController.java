@@ -38,7 +38,9 @@ public class ClientController implements Initializable, Serializable {
     private TextArea textArea2; // Dove arriva il mex dal server
     @FXML
     private TextArea userTextArea;
-
+    private User loggedUser;
+    private ArrayList<User> userList;
+      
     private int serverSocket = 5000;
     Socket incoming = null;
     ObjectInputStream in = null;
@@ -69,7 +71,7 @@ public class ClientController implements Initializable, Serializable {
      */
     public ArrayList<Email> refresh(User utente) {
         ArrayList<Email> emails = null;
-
+        loggedUser=utente;
         try {
             Socket s = new Socket("localhost", serverSocket); //localhost
             try {
@@ -102,10 +104,11 @@ public class ClientController implements Initializable, Serializable {
     }
 
     @FXML
-    public void initModel(DataModel model, String utente, User loggedUser ) {
+    public void initModel(DataModel model, String utente, User loggedUser,ArrayList<User> userList ) {
         if (this.model != null) {
             throw new IllegalStateException("Model can only be initialized once");
         }
+        this.userList=userList;
         userTextArea.setText(utente);
         System.out.println("INVOCO METODO REFRESH()");
         ArrayList<Email> emails = refresh(loggedUser);

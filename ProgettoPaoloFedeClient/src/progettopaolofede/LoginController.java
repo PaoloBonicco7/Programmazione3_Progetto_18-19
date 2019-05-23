@@ -26,7 +26,7 @@ public class LoginController {
     Socket incoming = null;
     ObjectInputStream in = null;
     ObjectOutputStream out = null;
-    ArrayList<User> listaUtenti; //passato come parametro a init-> è la lista utenti creata dal model
+    ArrayList<User> userList; //passato come parametro a init-> è la lista utenti creata dal model
     User loggedUser = null; //user associato all'account loggato
 
     @FXML
@@ -39,12 +39,12 @@ public class LoginController {
     Label loginLabel;
 
     @FXML
-    public void init(ArrayList<User> listaUtenti, Stage stage) {
-        this.listaUtenti = listaUtenti;
+    public void init(ArrayList<User> userList, Stage stage) {
+        this.userList = userList;
         this.stage = stage;
         ObservableList<String> list = FXCollections.observableArrayList();
         ArrayList<String> idUtente = new ArrayList<>();
-        for (User a : listaUtenti) {
+        for (User a : userList) {
             idUtente.add(a.toString());
         }
         list.addAll(idUtente);
@@ -83,9 +83,9 @@ public class LoginController {
     public void loginUser() throws IOException {
         loginLabel.setText("IN ATTESA DI CONNESSIONE CON IL SERVER.... WAIT\n");
         String utente = (String) choiceBox.getSelectionModel().getSelectedItem(); //downCast
-        for (int i = 0; i < listaUtenti.size(); i++) {
-            if (listaUtenti.get(i).getId().equals(utente)) { //controllo lista utenti e utente
-                loggedUser = listaUtenti.get(i);
+        for (int i = 0; i < userList.size(); i++) {
+            if (userList.get(i).getId().equals(utente)) { //controllo lista utenti e utente
+                loggedUser = userList.get(i);
             }
         }
         if (checkLogin(utente)) {
@@ -94,7 +94,7 @@ public class LoginController {
             root.setRight(sendLoader.load());
             ClientController clientController = sendLoader.getController();
             DataModel model = new DataModel();
-            clientController.initModel(model, utente, loggedUser);
+            clientController.initModel(model, utente, loggedUser,userList);
             clientController.start();   // THREAD CHE SI METTE IN ATTESA DI RICEVERE MAIL DAL SERVER
             Scene scene = new Scene(root);
             stage.setScene(scene);
