@@ -1,1 +1,0 @@
-1. Registare che un tente si è collegato in modo che lo stesso utente non si possa collegare due volte.

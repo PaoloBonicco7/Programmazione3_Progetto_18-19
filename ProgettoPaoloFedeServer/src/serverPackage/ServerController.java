@@ -106,38 +106,6 @@ public class ServerController implements Initializable {
         }
     }
 
-    /*
-     // Non serve PIU'
-    
-    
-     public void refreshClient() {
-     ObjectOutputStream out = null;
-     Socket s = null;
-     try {
-     Map<String, Map<String, Email>> emails = FileEditor.loadFromJson();
-     s = new Socket("localhost", 5002); //localhost
-
-     out = new ObjectOutputStream(s.getOutputStream());
-     out.writeObject(emails);
-     out.flush();
-
-     } catch (FileNotFoundException e) {
-     e.printStackTrace();
-     } catch (UnknownHostException e) {
-     e.printStackTrace();
-     } catch (IOException e) {
-     e.printStackTrace();
-     } finally {
-     try {
-     out.close();
-     s.close();
-     System.out.println("CHIUSO out e Socket in ServerController.refreshClient()");
-     } catch (IOException e1) {
-     e1.printStackTrace();
-     }
-     }
-     }
-     */
     //  Metodo che controlla se un utente si è già connesso
     public boolean checkLogin(String mex) {
         if (!userLog.contains(mex)) {
@@ -177,13 +145,11 @@ public class ServerController implements Initializable {
                         //TODO SELEZIONE EMAIL CORRETTE DA MAP
                         Map<String, Map<String, Email>> emails;
                         emails = FileEditor.loadFromJson();
-                        emails.get(nomeUtente);
-                        out.writeObject(emails);
+                        out.writeObject(emails.get(nomeUtente));
 
                     } else {//gestione invio email
                         EmailManager e = (EmailManager) receivedMsg;
                         Email mail = e.getEmail();
-                        System.out.println("HO LETTO DA EMAIL");
 
                         //  Gestisco la ricezione della mail e la salvo nel posto "giusto" su json
                         if (e != null) {

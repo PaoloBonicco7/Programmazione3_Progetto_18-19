@@ -68,9 +68,9 @@ public class FileEditor {
 
         map2.put(null, null);
 
-        map.put("Paolo", map2);
-        map.put("Federico", map2);
-        map.put("Felice", map2);
+        map.put("paolo@gmail.com", map2);
+        map.put("federico@gmail.com", map2);
+        map.put("andrea@gmail.com", map2);
         return map;
     }
 }
