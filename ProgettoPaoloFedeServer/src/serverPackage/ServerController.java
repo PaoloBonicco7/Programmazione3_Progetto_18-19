@@ -25,6 +25,8 @@ import javafx.scene.control.ToggleButton;
 
 public class ServerController implements Initializable {
 
+    private ArrayList<String> userLog = new ArrayList<>();
+
     @FXML
     private TextArea textAreaMail;
     @FXML
@@ -137,6 +139,17 @@ public class ServerController implements Initializable {
      }
      */
 
+    //  Metodo che controlla se un utente si è già connesso
+    public boolean checkLogin(String mex){
+        if(!userLog.contains(mex)) {
+            userLog.add(mex);
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
     @FXML
     private void handleConnection() { //handle del bottone connetti -> se clicchi si mette in attesa di ricevere connessione. -> VA TOLTO E GESTITO IN ALTRO MODO CONNESSIONE con THREADPOOL
         switcher();
@@ -152,19 +165,27 @@ public class ServerController implements Initializable {
                     Object receivedMsg = in.readObject();
                     titleArea.setText("SERVER \nEstablished connection");
                     System.out.println("RICEVUTO OGGETTO, ORA CONTROLLO");
+
                     if (receivedMsg instanceof String) { //se l'oggetto mandato è stringa => vuol dire che è il primo msg di conness tra client e server e allora popolo la listview
                         String msg = (String) receivedMsg;
                         out = new ObjectOutputStream(incoming.getOutputStream());
-                        Map<String, Map<String, Email>> emails;
-                        emails = FileEditor.loadFromJson();
-                        out.writeObject(emails);
-                        /*
-                         //non so per quale motivo ma se chiudo il server il programma mi da "connection reset." -> ok non lo chiudo
-                        
-                         in.close();
-                         out.close();
-                         incoming.close();
-                         */
+
+                        if (msg.equals("LoadEmails")){
+                            Map<String, Map<String, Email>> emails;
+                            emails = FileEditor.loadFromJson();
+                            out.writeObject(emails);
+                        } else {
+                            out.writeObject(checkLogin(msg));
+                            /*
+                            if (checkLogin(msg)) {
+                                out.writeObject(true);
+                            } else { //Comunico al client che non si puà connettere
+                                System.out.println("Utente già loggato");
+                                textAreaMail.setText("L'utente " + msg + " è già loggato.");
+                                out.writeObject(false);
+                            }
+                            */
+                        }
                     } else {
                         EmailManager e = (EmailManager) receivedMsg;
                         Email mail = e.getEmail();
@@ -220,13 +241,11 @@ public class ServerController implements Initializable {
                 }
             }
         };
-        new Thread(run)
-                .start();
+        new Thread(run).start();
     }
 
     @Override
-
     public void initialize(URL location, ResourceBundle resources) {
-
+        userLog.clear();
     }
 }

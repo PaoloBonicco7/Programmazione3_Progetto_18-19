@@ -59,13 +59,14 @@ public class ClientController implements Initializable, Serializable {
      */
     public ArrayList<Email> refresh() {
         ArrayList<Email> emails = null;
-        try {
 
+        try {
             Socket s = new Socket("localhost", serverSocket); //localhost
             try {
-                String loadData = new String("loadEmail");
+                String loadData = "LoadEmails"; //Gli passo l'utente così controlla se è già loggato
                 out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(loadData);
+
                 in = new ObjectInputStream(s.getInputStream());
                 Map<String, Map<String, Email>> map = (Map<String, Map<String, Email>>) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
                 emails = new ArrayList<>();
@@ -146,11 +147,9 @@ public class ClientController implements Initializable, Serializable {
         this.model = model;
         listView.setItems(model.getEmailList());
         System.out.println("Aggiornato la listVIew e il model");
-
     }
 
     //metodo del client che rimane in attesa di ricevere email dal server.
-
     public void start() {
 
         Runnable run = () -> {
@@ -198,7 +197,8 @@ public class ClientController implements Initializable, Serializable {
             e.printStackTrace();
         }
     }
-//METODO INUTILE, USATO IN FASE DI TESTING DI OBSERVABLE-LIST
+
+    //METODO INUTILE, USATO IN FASE DI TESTING DI OBSERVABLE-LIST
 
     @FXML
     private void modifyList(ActionEvent event) {

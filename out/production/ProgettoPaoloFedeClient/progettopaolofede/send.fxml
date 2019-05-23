@@ -6,11 +6,12 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="283.0" prefWidth="432.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="progettopaolofede.ClientController">
+<AnchorPane id="AnchorPane" prefHeight="440.0" prefWidth="607.0" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="progettopaolofede.ClientController">
     <children>
         <Button fx:id="newButton" layoutX="390.0" layoutY="45.0" mnemonicParsing="false" text="new" />
-        <Button fx:id="replyButton" layoutX="455.0" layoutY="45.0" mnemonicParsing="false" text="reply" onAction="#replyMsg" />
+        <Button fx:id="replyButton" layoutX="455.0" layoutY="45.0" mnemonicParsing="false" onAction="#replyMsg" text="reply" />
         <Button fx:id="replyAllButton" layoutX="520.0" layoutY="45.0" mnemonicParsing="false" text="reply all" />
         <TextArea fx:id="textArea" layoutX="266.0" layoutY="92.0" prefHeight="131.0" prefWidth="325.0" text="Holaaa" />
         <TextField fx:id="textFieldTo" layoutX="350.0" layoutY="235.0" prefHeight="25.0" prefWidth="241.0" text="Paolo" />
@@ -24,6 +25,10 @@
         <ListView fx:id="listView" layoutX="7.0" layoutY="45.0" prefHeight="150.0" prefWidth="200.0" />
         <Button fx:id="deleteButton" layoutX="70.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeMsg" text="delete" />
         <TextArea fx:id="textArea2" layoutX="7.0" layoutY="215.0" prefHeight="150.0" prefWidth="200.0" promptText="Hola" />
+      <TextArea fx:id="userTextArea" layoutX="144.0" layoutY="371.0" prefHeight="46.0" prefWidth="290.0">
+         <font>
+            <Font size="24.0" />
+         </font></TextArea>
      
     </children>
 </AnchorPane>
