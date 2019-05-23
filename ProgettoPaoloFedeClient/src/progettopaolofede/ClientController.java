@@ -78,13 +78,20 @@ public class ClientController implements Initializable, Serializable {
                 out.writeObject(utente); //loadData
 
                 in = new ObjectInputStream(s.getInputStream());
-                Map<String, Map<String, Email>> map = (Map<String, Map<String, Email>>) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
+                /*
+                Map<String, Email> map = Map<String, Email> in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
                 emails = new ArrayList<>();
                 for (Map.Entry<String, Map<String, Email>> entry : map.entrySet()) {
                     Map<String, Email> m = entry.getValue();
                     for (Map.Entry<String, Email> entry2 : m.entrySet()) {
                         emails.add(entry2.getValue());
                     }
+                }
+                */
+                Map<String, Email> map = (Map<String, Email>) in.readObject();
+                emails = new ArrayList<>();
+                for (Map.Entry<String, Email> entry2 : map.entrySet()) {
+                    emails.add(entry2.getValue());
                 }
             } finally {
                 try {
