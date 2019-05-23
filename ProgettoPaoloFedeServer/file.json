@@ -1,0 +1,102 @@
+{
+  "federico@gmail.com": {
+    "": {
+      "ID": "",
+      "mittente": "",
+      "destinatario": [],
+      "argomento": "",
+      "testo": "",
+      "data": ""
+    },
+    "[paolo@gmail.com]\nFri May 24 00:04:43 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "asdsadsa",
+      "data": "Fri May 24 00:04:43 CEST 2019"
+    },
+    "[paolo@gmail.com]\nFri May 24 00:04:48 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "como estas",
+      "data": "Fri May 24 00:04:48 CEST 2019"
+    },
+    "[paolo@gmail.com]\nFri May 24 00:04:52 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "fede",
+      "data": "Fri May 24 00:04:52 CEST 2019"
+    },
+    "[federico@gmail.com]\nFri May 24 00:05:07 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "federico@gmail.com"
+      ],
+      "argomento": "REPLY: Oggetto",
+      "testo": "",
+      "data": "Fri May 24 00:05:07 CEST 2019"
+    },
+    "[paolo@gmail.com]\nFri May 24 00:27:42 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Fri May 24 00:27:42 CEST 2019"
+    }
+  },
+  "andrea@gmail.com": {
+    "": {
+      "ID": "",
+      "mittente": "",
+      "destinatario": [],
+      "argomento": "",
+      "testo": "",
+      "data": ""
+    },
+    "[paolo@gmail.com]\nFri May 24 00:04:43 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "asdsadsa",
+      "data": "Fri May 24 00:04:43 CEST 2019"
+    }
+  },
+  "paolo@gmail.com": {
+    "": {
+      "ID": "",
+      "mittente": "",
+      "destinatario": [],
+      "argomento": "",
+      "testo": "",
+      "data": ""
+    },
+    "[paolo@gmail.com]\nFri May 24 00:04:43 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "asdsadsa",
+      "data": "Fri May 24 00:04:43 CEST 2019"
+    }
+  }
+}

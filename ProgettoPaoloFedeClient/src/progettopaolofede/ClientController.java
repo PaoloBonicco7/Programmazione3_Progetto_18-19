@@ -40,7 +40,7 @@ public class ClientController implements Initializable, Serializable {
     private TextArea userTextArea;
     private User loggedUser;
     private ArrayList<User> userList;
-      
+
     private int serverSocket = 5000;
     Socket incoming = null;
     ObjectInputStream in = null;
@@ -50,15 +50,15 @@ public class ClientController implements Initializable, Serializable {
     public void initialize(URL url, ResourceBundle rb) {
 
     }
-  /*
-    stage.setOnCloseRequest((WindowEvent event) -> { // proprietà della finestra, se clicco x per chiudere
-            disconnect(user);   
-            System.out.println("clossing");
-            closeSockets(); // chiudi tutti i socket e lo stage, cioè la finestra
-            stage.close();
-            System.exit(0); // esce il processo
-        });
-*/
+    /*
+     stage.setOnCloseRequest((WindowEvent event) -> { // proprietà della finestra, se clicco x per chiudere
+     disconnect(user);   
+     System.out.println("clossing");
+     closeSockets(); // chiudi tutti i socket e lo stage, cioè la finestra
+     stage.close();
+     System.exit(0); // esce il processo
+     });
+     */
     /*
      *Metodo che viene invocato in ClientController.initModel();
      *Restituisce la lista di email salvate nel json dal server per lo specifico utente che si collega
@@ -69,13 +69,14 @@ public class ClientController implements Initializable, Serializable {
      * //per ora legge a caso credo// e le reinvia al client. Qui il client le legge e le va aggiungere al model nel metodo 
      *initModel dove termina la chiamata di questo metodo che restituisce l'arraylist di email contenute nel json.
      */
+
     public ArrayList<Email> refresh(User utente) {
         ArrayList<Email> emails = null;
-        loggedUser=utente;
+        loggedUser = utente;
         try {
             Socket s = new Socket("localhost", serverSocket); //localhost
             try {
-              //  String loadData = "LoadEmails"; //Gli passo l'utente così controlla se è già loggato
+                //  String loadData = "LoadEmails"; //Gli passo l'utente così controlla se è già loggato
                 out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(utente); //loadData
 
@@ -104,18 +105,17 @@ public class ClientController implements Initializable, Serializable {
     }
 
     @FXML
-    public void initModel(DataModel model, String utente, User loggedUser,ArrayList<User> userList ) {
+    public void initModel(DataModel model, String utente, User loggedUser, ArrayList<User> userList) {
         if (this.model != null) {
             throw new IllegalStateException("Model can only be initialized once");
         }
-        this.userList=userList;
+        this.userList = userList;
         userTextArea.setText(utente);
-        System.out.println("INVOCO METODO REFRESH()");
         ArrayList<Email> emails = refresh(loggedUser);
         model.loadData(emails);
         this.model = model;
         listView.setItems(model.getEmailList());
-        System.out.println("Aggiornato la listVIew e il model");
+        textFieldFrom.setEditable(false);
     }
 
     //metodo del client che rimane in attesa di ricevere email dal server.
@@ -168,7 +168,6 @@ public class ClientController implements Initializable, Serializable {
     }
 
     //METODO INUTILE, USATO IN FASE DI TESTING DI OBSERVABLE-LIST
-
     @FXML
     private void modifyList(ActionEvent event) {
         Calendar cal = Calendar.getInstance();
@@ -193,7 +192,7 @@ public class ClientController implements Initializable, Serializable {
                 String mittente = textFieldFrom.getText();
                 String object = textFieldObject.getText();
                 String text = textArea.getText();
-                
+
                 Email email = new Email("ID", mittente, destinatari, object, text, time);
                 EmailManager emailHandler = new EmailManager(email, "SEND");
 
@@ -213,12 +212,12 @@ public class ClientController implements Initializable, Serializable {
     private void replyMsg(ActionEvent event) {//TODO ID
         Email email = listView.getSelectionModel().getSelectedItem();
         String argomento = email.getArgomento();
-        String testo = email.getTesto();
-        String mittente = "me";
-        textFieldTo.setText("");
-        textFieldObject.setText(argomento);
+        String mittente = loggedUser.getId();
+        String destinatario = email.getMittente(); //rispondo a chi mi ha inviato la email => 
+        textFieldTo.setText(destinatario);//prendo il campo mittente di chi mi ha inviato la mail e diventa il mio destinatario
+        textFieldObject.setText("REPLY: " + argomento);
         textFieldFrom.setText(mittente);
-        textArea.setText(testo);
+        textArea.setText("");
     }
 
     @FXML //TODO
@@ -252,22 +251,30 @@ public class ClientController implements Initializable, Serializable {
     }
 
     @FXML
-    private void replyAllmsg() {//TODO ID, DEST
+    private void replyAllmsg() {
         Email email = listView.getSelectionModel().getSelectedItem();
         String elencoDestinatari = "";
         String argomento = email.getArgomento();
-        String testo = email.getTesto();
-        String mittente = "TODOMIttente";
-        ArrayList<String> destinatari = new ArrayList<String>();
-        destinatari.add("destinatarioTODO"); //devo aggiungere tutti i destinatari qua dentro.
-        //todo
-        for (String a : destinatari) {
-            elencoDestinatari = elencoDestinatari + "," + a;
+        String mittente = loggedUser.getId();
+
+        for (User user : userList) {
+            if (!(user.getId().equals(mittente))) {//inserisco tutti destinatari escluso me
+                elencoDestinatari = elencoDestinatari+ "," + user.getId();
+            }
         }
         textFieldTo.setText(elencoDestinatari);//destinatari
         textFieldObject.setText(argomento);//Argomento msg
         textFieldFrom.setText(mittente);//mittente msg
-        textArea.setText(testo);//testo msg
+        textArea.setText("");//testo msg
+    }
+    
+    @FXML
+    private void newMsg(){
+        textFieldTo.setText("");
+        textFieldObject.setText("");
+        textFieldFrom.setText(loggedUser.getId());
+        textArea.setText("");
+        
     }
 
 }
