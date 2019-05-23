@@ -23,6 +23,15 @@ public class Email implements Serializable {
         this.data = data;
     }
 
+    public Email(){
+        this.ID = "";
+        this.mittente = "";
+        this.destinatario = new ArrayList<>();
+        this.argomento = "";
+        this.testo = "";
+        this.data = "";
+    }
+
     public String getID() {
         return ID;
     }

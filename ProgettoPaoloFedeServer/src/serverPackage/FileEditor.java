@@ -66,7 +66,7 @@ public class FileEditor {
         Map<String, Map<String, Email>> map = new HashMap<>();
         Map<String, Email> map2 = new HashMap<>();
 
-        map2.put(null, null);
+        map2.put("", new Email());
 
         map.put("paolo@gmail.com", map2);
         map.put("federico@gmail.com", map2);
