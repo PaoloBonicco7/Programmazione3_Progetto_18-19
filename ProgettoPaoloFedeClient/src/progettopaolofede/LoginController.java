@@ -26,6 +26,8 @@ public class LoginController {
     Socket incoming = null;
     ObjectInputStream in = null;
     ObjectOutputStream out = null;
+    ArrayList<User> listaUtenti; //passato come parametro a init-> è la lista utenti creata dal model
+    User loggedUser = null; //user associato all'account loggato
 
     @FXML
     ImageView image;
@@ -38,6 +40,7 @@ public class LoginController {
 
     @FXML
     public void init(ArrayList<User> listaUtenti, Stage stage) {
+        this.listaUtenti = listaUtenti;
         this.stage = stage;
         ObservableList<String> list = FXCollections.observableArrayList();
         ArrayList<String> idUtente = new ArrayList<>();
@@ -48,7 +51,7 @@ public class LoginController {
         choiceBox.setItems(list);
     }
 
-    public boolean checkLogin(String utente){
+    public boolean checkLogin(String utente) {
         //Chiedo al server se l'utente è già loggato
         Socket s = null;
         try {
@@ -80,16 +83,18 @@ public class LoginController {
     public void loginUser() throws IOException {
         loginLabel.setText("IN ATTESA DI CONNESSIONE CON IL SERVER.... WAIT\n");
         String utente = (String) choiceBox.getSelectionModel().getSelectedItem(); //downCast
-
-        if(checkLogin(utente)) {
+        for (int i = 0; i < listaUtenti.size(); i++) {
+            if (listaUtenti.get(i).getId().equals(utente)) { //controllo lista utenti e utente
+                loggedUser = listaUtenti.get(i);
+            }
+        }
+        if (checkLogin(utente)) {
             BorderPane root = new BorderPane();
             FXMLLoader sendLoader = new FXMLLoader(getClass().getResource("send.fxml"));
             root.setRight(sendLoader.load());
             ClientController clientController = sendLoader.getController();
-
             DataModel model = new DataModel();
-            clientController.initModel(model, utente);
-
+            clientController.initModel(model, utente, loggedUser);
             clientController.start();   // THREAD CHE SI METTE IN ATTESA DI RICEVERE MAIL DAL SERVER
             Scene scene = new Scene(root);
             stage.setScene(scene);

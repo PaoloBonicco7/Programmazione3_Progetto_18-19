@@ -2,6 +2,7 @@ package progettopaolofede;
 
 import comunication.Email;
 import comunication.EmailManager;
+import comunication.User;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
@@ -17,6 +18,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.WindowEvent;
 
 public class ClientController implements Initializable, Serializable {
 
@@ -46,7 +48,15 @@ public class ClientController implements Initializable, Serializable {
     public void initialize(URL url, ResourceBundle rb) {
 
     }
-
+  /*
+    stage.setOnCloseRequest((WindowEvent event) -> { // proprietà della finestra, se clicco x per chiudere
+            disconnect(user);   
+            System.out.println("clossing");
+            closeSockets(); // chiudi tutti i socket e lo stage, cioè la finestra
+            stage.close();
+            System.exit(0); // esce il processo
+        });
+*/
     /*
      *Metodo che viene invocato in ClientController.initModel();
      *Restituisce la lista di email salvate nel json dal server per lo specifico utente che si collega
@@ -57,15 +67,15 @@ public class ClientController implements Initializable, Serializable {
      * //per ora legge a caso credo// e le reinvia al client. Qui il client le legge e le va aggiungere al model nel metodo 
      *initModel dove termina la chiamata di questo metodo che restituisce l'arraylist di email contenute nel json.
      */
-    public ArrayList<Email> refresh() {
+    public ArrayList<Email> refresh(User utente) {
         ArrayList<Email> emails = null;
 
         try {
             Socket s = new Socket("localhost", serverSocket); //localhost
             try {
-                String loadData = "LoadEmails"; //Gli passo l'utente così controlla se è già loggato
+              //  String loadData = "LoadEmails"; //Gli passo l'utente così controlla se è già loggato
                 out = new ObjectOutputStream(s.getOutputStream());
-                out.writeObject(loadData);
+                out.writeObject(utente); //loadData
 
                 in = new ObjectInputStream(s.getInputStream());
                 Map<String, Map<String, Email>> map = (Map<String, Map<String, Email>>) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
@@ -136,13 +146,13 @@ public class ClientController implements Initializable, Serializable {
      */
 
     @FXML
-    public void initModel(DataModel model, String utente) {
+    public void initModel(DataModel model, String utente, User loggedUser ) {
         if (this.model != null) {
             throw new IllegalStateException("Model can only be initialized once");
         }
         userTextArea.setText(utente);
         System.out.println("INVOCO METODO REFRESH()");
-        ArrayList<Email> emails = refresh();
+        ArrayList<Email> emails = refresh(loggedUser);
         model.loadData(emails);
         this.model = model;
         listView.setItems(model.getEmailList());
