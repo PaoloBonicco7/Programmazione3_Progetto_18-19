@@ -137,17 +137,17 @@ public class ServerController implements Initializable {
                         out = new ObjectOutputStream(incoming.getOutputStream());
                         out.writeObject(checkLogin(msg));
 
-                    } else if (receivedMsg instanceof User) {//caricamento dati utente
+                    } else if (receivedMsg instanceof User) { //caricamento dati utente
                         out = new ObjectOutputStream(incoming.getOutputStream());
                         User utente = (User) receivedMsg;
                         String nomeUtente = utente.getId();
                         System.out.println("STAMPO L'utente\n"+nomeUtente);
                         //TODO SELEZIONE EMAIL CORRETTE DA MAP
-                        Map<String, Map<String, Email>> emails;
-                        emails = FileEditor.loadFromJson();
-                        out.writeObject(emails.get(nomeUtente));
+                        Map<String, Email> emails;
+                        emails = FileEditor.loadFromJson().get(nomeUtente);
+                        out.writeObject(emails);
 
-                    } else {//gestione invio email
+                    } else { //gestione invio email
                         EmailManager e = (EmailManager) receivedMsg;
                         Email mail = e.getEmail();
 

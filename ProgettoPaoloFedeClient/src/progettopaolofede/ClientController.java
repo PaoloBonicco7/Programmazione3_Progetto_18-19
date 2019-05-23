@@ -78,20 +78,10 @@ public class ClientController implements Initializable, Serializable {
                 out.writeObject(utente); //loadData
 
                 in = new ObjectInputStream(s.getInputStream());
-                /*
-                Map<String, Email> map = Map<String, Email> in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
-                emails = new ArrayList<>();
-                for (Map.Entry<String, Map<String, Email>> entry : map.entrySet()) {
-                    Map<String, Email> m = entry.getValue();
-                    for (Map.Entry<String, Email> entry2 : m.entrySet()) {
-                        emails.add(entry2.getValue());
-                    }
-                }
-                */
                 Map<String, Email> map = (Map<String, Email>) in.readObject();
                 emails = new ArrayList<>();
-                for (Map.Entry<String, Email> entry2 : map.entrySet()) {
-                    emails.add(entry2.getValue());
+                for (Map.Entry<String, Email> entry : map.entrySet()) {
+                    emails.add(entry.getValue());
                 }
             } finally {
                 try {
@@ -110,47 +100,6 @@ public class ClientController implements Initializable, Serializable {
         }
         return emails;
     }
-
-//tengo il metodo qua sotto nel caso di futuri problemi con la mia implementazione di refresh.
-    /* 
-     public ArrayList<Email> refresh() {
-     Socket incoming = null;
-     ServerSocket s = null;
-     ObjectInputStream in = null;
-
-     ArrayList<Email> emails = null;
-     try {
-     s = new ServerSocket(5002);
-     incoming = s.accept();
-
-     in = new ObjectInputStream(incoming.getInputStream());
-     Map<String, Map<String, Email>> map = (Map<String, Map<String, Email>>) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
-     emails = new ArrayList<>();
-
-     for (Map.Entry<String, Map<String, Email>> entry : map.entrySet()) {
-     Map<String, Email> m = entry.getValue();
-     for (Map.Entry<String, Email> entry2 : m.entrySet()) {
-     emails.add(entry2.getValue());
-     }
-     }
-
-     } catch (IOException e) {
-     e.printStackTrace();
-     } catch (ClassNotFoundException e) {
-     e.printStackTrace();
-     } finally {
-     try {
-     in.close(); //chiudo inputStream
-     incoming.close();//chiudo socket 
-     s.close(); //chiudo serverSocket
-     System.out.println("Chiuso inputStream in, Socketincoming e server Socket in refresh() clientController");
-     } catch (IOException e) {
-     e.printStackTrace();
-     }
-     return emails;
-     }
-     }
-     */
 
     @FXML
     public void initModel(DataModel model, String utente, User loggedUser ) {
