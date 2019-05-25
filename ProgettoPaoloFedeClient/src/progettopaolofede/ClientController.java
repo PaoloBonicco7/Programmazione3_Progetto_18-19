@@ -111,6 +111,7 @@ public class ClientController implements Initializable, Serializable {
         }
         this.userList = userList;
         userTextArea.setText(utente);
+        textFieldFrom.setText(utente);
         ArrayList<Email> emails = refresh(loggedUser);
         model.loadData(emails);
         this.model = model;

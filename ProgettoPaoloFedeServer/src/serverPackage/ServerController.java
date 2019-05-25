@@ -142,7 +142,6 @@ public class ServerController implements Initializable {
                         User utente = (User) receivedMsg;
                         String nomeUtente = utente.getId();
                         System.out.println("STAMPO L'utente\n"+nomeUtente);
-                        //TODO SELEZIONE EMAIL CORRETTE DA MAP
                         Map<String, Email> emails;
                         emails = FileEditor.loadFromJson().get(nomeUtente);
                         out.writeObject(emails);
