@@ -15,7 +15,7 @@ public class FileEditor {
     /**
      * Crea o controlla l'esistenza di un file json
      */
-    public static void newFile() {
+    public static synchronized void newFile() {
         String path = "file.json";
         try {
             File file = new File(path);
@@ -32,7 +32,7 @@ public class FileEditor {
         }
     }
 
-    public static void saveToJson(Map<String, Map<String, Email>> list) throws IOException {
+    public static synchronized void saveToJson(Map<String, Map<String, Email>> list) throws IOException {
         Gson gson;
         newFile();
         try (Writer writer = new FileWriter("file.json")) {
@@ -45,7 +45,7 @@ public class FileEditor {
      * @return un HashMap che estrae i dati da un file.json
      * @throws FileNotFoundException
      */
-    public static Map<String, Map<String, Email>> loadFromJson() throws FileNotFoundException {
+    public static synchronized Map<String, Map<String, Email>> loadFromJson() throws FileNotFoundException {
         Gson gson = new Gson();
         newFile();
         BufferedReader br = new BufferedReader(new FileReader("file.json"));
@@ -62,7 +62,7 @@ public class FileEditor {
         }
     }
 
-    public static Map<String, Map<String, Email>> genMap(){
+    public static synchronized Map<String, Map<String, Email>> genMap(){
         Map<String, Map<String, Email>> map = new HashMap<>();
         Map<String, Email> map2 = new HashMap<>();
 

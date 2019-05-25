@@ -16,6 +16,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -53,11 +54,12 @@ public class ServerController implements Initializable {
 
     public void writeJson(Email mail) {
         ArrayList<String> destinatario = mail.getDestinatario();
+        String dest = destinatario.get(0);
         String mittente = mail.getMittente();
         String data = mail.getData();
         try {
             Map<String, Map<String, Email>> map = FileEditor.loadFromJson();
-            String key = destinatario + "\n" + data;
+            String key = dest + "\n" + data;
             map.get(mittente).put(key, mail);
             FileEditor.saveToJson(map);
         } catch (IOException e1) {
@@ -141,7 +143,7 @@ public class ServerController implements Initializable {
                         out = new ObjectOutputStream(incoming.getOutputStream());
                         User utente = (User) receivedMsg;
                         String nomeUtente = utente.getId();
-                        System.out.println("STAMPO L'utente\n"+nomeUtente);
+                        System.out.println("STAMPO L'utente\n" + nomeUtente);
                         Map<String, Email> emails;
                         emails = FileEditor.loadFromJson().get(nomeUtente);
                         out.writeObject(emails);

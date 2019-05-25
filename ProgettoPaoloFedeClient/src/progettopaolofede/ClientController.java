@@ -76,7 +76,6 @@ public class ClientController implements Initializable, Serializable {
         try {
             Socket s = new Socket("localhost", serverSocket); //localhost
             try {
-                //  String loadData = "LoadEmails"; //Gli passo l'utente così controlla se è già loggato
                 out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(utente); //loadData
 

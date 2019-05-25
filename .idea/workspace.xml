@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4bcafdb0-2ce3-4211-a7d9-6125e6f2ecb3" name="Default Changelist" comment="">
+    <list default="true" id="4bcafdb0-2ce3-4211-a7d9-6125e6f2ecb3" name="Default Changelist" comment="Ora appena si apre il client vengono caricate solo le mail corrispondenti all'utente loggato. Il problema">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/ServerController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/ServerController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/send.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeClient/progettopaolofede/send.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/FileEditor.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/FileEditor.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +38,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1743">
-              <caret line="143" column="75" selection-start-line="143" selection-start-column="75" selection-end-line="143" selection-end-column="75" />
+            <state relative-caret-position="256">
+              <caret line="61" column="44" lean-forward="true" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,24 +50,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="69" selection-start-line="69" selection-end-line="69" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="113" column="36" selection-start-line="113" selection-start-column="36" selection-end-line="113" selection-end-column="36" />
+            <state relative-caret-position="704">
+              <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="83" column="43" lean-forward="true" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/file.json">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="28" column="16" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -75,6 +81,7 @@
       <find>read</find>
       <find>readJson</find>
       <find>loginUser</find>
+      <find>userTextArea</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -99,12 +106,12 @@
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/LoginController.java" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/MainClient.java" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/send.fxml" />
-        <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/comunication/Email.java" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/comunication/Email.java" />
+        <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java" />
+        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" />
         <option value="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" />
         <option value="$PROJECT_DIR$/file.json" />
-        <option value="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" />
       </list>
     </option>
   </component>
@@ -379,7 +386,7 @@
       <workItem from="1558527771260" duration="1307000" />
       <workItem from="1558593639461" duration="15914000" />
       <workItem from="1558785655364" duration="211000" />
-      <workItem from="1558801471223" duration="974000" />
+      <workItem from="1558801471223" duration="2536000" />
     </task>
     <task id="LOCAL-00001" summary="FIRST COMMIT PRIMA FA TUTTO SCHIFO">
       <created>1557495428384</created>
@@ -598,11 +605,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558616617734</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Ho aggiunto l'autoriempimento della casella &quot;from&quot; con l'utente loggato.">
+      <created>1558802531111</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1558802531111</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="93776000" />
+    <option name="totallyTimeSpent" value="95338000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -711,7 +725,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="PORCACCIO.&#10;Sono riuscito a stampare il json non tutto su una riga, come? aggiungendo &quot;.setPrettyPrinting()&quot; a &quot;Gson gson=new GsonBuilder().setPrettyPrinting().create();&quot; ninete sta cosa non cambia un cazzo ma almeno è figa ciao." />
     <MESSAGE value="JSON LETTURA COMPLETATA.&#10;Sono riuscito a leggere dal file json, banale e easy niente di complicato. Ora però la situa si complica un po' perchè:&#10;1. Dobbiamo implementare un thread che ogni tot sec va a salvare tutto sl file json (una sorta di backup in caso di guasti)&#10;2. Cambiare la struttura del file json e non farlo di HashMap&lt;Integer, Email&gt; ma farlo tipo HashMap&lt; U, HashMap&lt; U, Email&gt;&gt; dove U rappresenta la chiave dell'hashmap, ad esempio possiamo utilizzare gli utenti, 3 a caso tipo Paolo Federico e Felice che saranno poi i tre che utilizzeranno il client.&#10;Così che uno quando vuole leggere / mandare una mail lo fa grazie alla chiave che rappresenta un utente.&#10;Se non sono staro chiaro ricordati di chiedermelo meglio e te lo spiego." />
     <MESSAGE value="Ho aggiunto dei parametri alle textbox per testare l'invio della mail e non dover ogni volta inserire a mano dei parametri" />
     <MESSAGE value="Allora sono tornato al commit di ieri, ma non avevo pushato quindi magari non si vede manco il commit che ho fatto poco fa, comunque ho risolto. Ora una mail viene identificata dal mittente che l'ha mandata. A voce poi ti spiego il meccanismo perchè non è proprio immediato" />
@@ -736,7 +749,8 @@
     <MESSAGE value="Ora funzia meglio" />
     <MESSAGE value="Modifica inizializzazione json" />
     <MESSAGE value="Modifiche varie :))" />
-    <option name="LAST_COMMIT_MESSAGE" value="Modifiche varie :))" />
+    <MESSAGE value="Ho aggiunto l'autoriempimento della casella &quot;from&quot; con l'utente loggato." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ho aggiunto l'autoriempimento della casella &quot;from&quot; con l'utente loggato." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/desktop.ini">
@@ -846,26 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1743">
-          <caret line="143" column="75" selection-start-line="143" selection-start-column="75" selection-end-line="143" selection-end-column="75" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="69" selection-start-line="69" selection-end-line="69" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file.json">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/LoginController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1211">
@@ -875,8 +869,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="113" column="36" selection-start-line="113" selection-start-column="36" selection-end-line="113" selection-end-column="36" />
+        <state relative-caret-position="115">
+          <caret line="83" column="43" lean-forward="true" selection-start-line="83" selection-start-column="43" selection-end-line="83" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/FileEditor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="704">
+          <caret line="64" column="31" selection-start-line="64" selection-start-column="31" selection-end-line="64" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="61" column="44" lean-forward="true" selection-start-line="61" selection-start-column="44" selection-end-line="61" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="28" column="16" lean-forward="true" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
         </state>
       </provider>
     </entry>
