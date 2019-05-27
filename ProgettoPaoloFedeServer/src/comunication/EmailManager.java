@@ -1,32 +1,24 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package comunication;
 
 import java.io.Serializable;
 
-/**
- *
- * @author gniammo
- */
-//type of action:
-//1.SEND
-//2.REPLY
-//3.REPLYALL
-//4.REMOVE
 
 public class EmailManager implements Serializable {
     private Email email;
     private String action;
-
-    private static final long serialVersionUID = 5950169519310163575L;
+    private int port;
 
     public EmailManager(Email email, String action) {
         this.email = email;
         this.action = action;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 
     public Email getEmail() {

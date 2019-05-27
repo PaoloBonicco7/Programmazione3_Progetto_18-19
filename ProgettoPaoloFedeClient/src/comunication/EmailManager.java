@@ -2,21 +2,22 @@ package comunication;
 
 import java.io.Serializable;
 
-//type of action:
-    //1.SEND
-    //2.REPLY
-    //3.REPLYALL
-    //4.REMOVE
-
 public class EmailManager implements Serializable {
     private Email email;
     private String action;
-
-    private static final long serialVersionUID = 5950169519310163575L;
+    private int port;
 
     public EmailManager(Email email, String action) {
         this.email = email;
         this.action = action;
+    }
+
+    public int getPort() {
+        return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 
     public Email getEmail() {
@@ -34,9 +35,9 @@ public class EmailManager implements Serializable {
     public void setAction(String action) {
         this.action = action;
     }
-
     public String toString(){
         return "";
     }
+
 
 }

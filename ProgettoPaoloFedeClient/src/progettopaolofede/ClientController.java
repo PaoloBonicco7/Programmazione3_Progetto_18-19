@@ -7,6 +7,7 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -50,25 +51,30 @@ public class ClientController implements Initializable, Serializable {
     public void initialize(URL url, ResourceBundle rb) {
 
     }
+
     /*
-     stage.setOnCloseRequest((WindowEvent event) -> { // proprietà della finestra, se clicco x per chiudere
-     disconnect(user);   
-     System.out.println("clossing");
-     closeSockets(); // chiudi tutti i socket e lo stage, cioè la finestra
-     stage.close();
-     System.exit(0); // esce il processo
-     });
-     */
-    /*
-     *Metodo che viene invocato in ClientController.initModel();
-     *Restituisce la lista di email salvate nel json dal server per lo specifico utente che si collega
-     *Si collega al server attraverso il socket alla porta "serverSocket" e invia in output al server
-     *una stringa //ora casuale ma sarà il suo nome//, il server nel metodo HandleConnection quando ricevete
-     *un oggetto esegue un if , controlla che se è di tipo EmailManager esegue il normale metodo implementato
-     *quindi fa send/remove/ecc, se invece il tipo dell'oggetto inviato è "String", legge dal json le email salvate
-     * //per ora legge a caso credo// e le reinvia al client. Qui il client le legge e le va aggiungere al model nel metodo 
-     *initModel dove termina la chiamata di questo metodo che restituisce l'arraylist di email contenute nel json.
-     */
+    @FXML
+    public static void shoutdown() {
+        String logUser = loggedUser.getId();
+        Runnable run = () -> {
+            //  Server manda le mail contenute nel json al client
+            Socket s;
+            try {
+                s = new Socket("localhost", 5000);
+
+                String u = logUser + "\nd";
+                ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
+                out.writeObject();
+                out.close();
+
+            } catch (UnknownHostException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    */
 
     public ArrayList<Email> refresh(User utente) {
         ArrayList<Email> emails = null;
@@ -120,11 +126,10 @@ public class ClientController implements Initializable, Serializable {
 
     //metodo del client che rimane in attesa di ricevere email dal server.
     public void start() {
-
         Runnable run = () -> {
             ServerSocket s = null;
             try {
-                s = new ServerSocket(5001);
+                s = new ServerSocket(loggedUser.getPort());
                 while (true) {
                     incoming = s.accept();
                     Platform.runLater(() -> {
@@ -195,6 +200,7 @@ public class ClientController implements Initializable, Serializable {
 
                 Email email = new Email("ID", mittente, destinatari, object, text, time);
                 EmailManager emailHandler = new EmailManager(email, "SEND");
+                emailHandler.setPort(loggedUser.getPort());
 
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(emailHandler);

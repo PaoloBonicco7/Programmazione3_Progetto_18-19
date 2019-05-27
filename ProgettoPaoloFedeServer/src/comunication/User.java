@@ -9,14 +9,19 @@ public class User implements Serializable{
     
     public User(String id, int port) {
         this.id = id;
-        this.port=port;
+        this.port = port;
     }
 
     public String getId() {
         return id;
     }
+
     public int getPort(){
         return port;
+    }
+
+    public void setPort(int port) {
+        this.port = port;
     }
 
     public void setId(String id) {

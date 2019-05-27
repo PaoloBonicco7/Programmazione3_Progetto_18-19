@@ -10,6 +10,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.ResourceBundle;
+
+import comunication.UserModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
@@ -18,6 +20,8 @@ import javafx.scene.control.ToggleButton;
 public class ServerController implements Initializable {
 
     private ArrayList<String> userLog = new ArrayList<>();
+
+    UserModel users = new UserModel();
 
     @FXML
     private TextArea textAreaMail;
@@ -76,10 +80,10 @@ public class ServerController implements Initializable {
         }
     }
 
-    public void sendMail(EmailManager e) {
+    public void sendMail(EmailManager e, int port) {
         Socket s1 = null;
         try {
-            s1 = new Socket("localhost", 5001); //localhost
+            s1 = new Socket("localhost", port); //localhost
             ObjectOutputStream out = new ObjectOutputStream(s1.getOutputStream());
             out.writeObject(e);
             out.close();
@@ -114,6 +118,10 @@ public class ServerController implements Initializable {
         }
     }
 
+    public void disconectUser(String u){
+        userLog.remove(u);
+    }
+
     @FXML
     private void handleConnection() { //handle del bottone connetti -> se clicchi si mette in attesa di ricevere connessione. -> VA TOLTO E GESTITO IN ALTRO MODO CONNESSIONE con THREADPOOL
         switcher();
@@ -129,11 +137,22 @@ public class ServerController implements Initializable {
                     Object receivedMsg = in.readObject();
                     titleArea.setText("SERVER \nEstablished connection");
 
-                    if (receivedMsg instanceof String) { //controllo di login                           
-                        String msg = (String)receivedMsg;
-                        out = new ObjectOutputStream(incoming.getOutputStream());
-                        out.writeObject(checkLogin(msg));
+                    if (receivedMsg instanceof String) { //controllo di login
 
+                        if (true) {
+                            String msg = (String)receivedMsg;
+                            out = new ObjectOutputStream(incoming.getOutputStream());
+                            Boolean log = checkLogin(msg);
+                            if(log){
+                                textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + msg + " è loggato.");
+                            } else {
+                                textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + msg +
+                                        " ha provato ad accedere ma il server ha bloccato l'accesso.");
+                            }
+                            out.writeObject(log);
+                        } else {
+
+                        }
                     } else if (receivedMsg instanceof User) { //caricamento dati utente
                         out = new ObjectOutputStream(incoming.getOutputStream());
                         User utente = (User) receivedMsg;
@@ -141,6 +160,9 @@ public class ServerController implements Initializable {
 
                         Map<String, Email> emails = FileEditor.loadFromJson().get(nomeUtente);
                         out.writeObject(emails);
+
+                        textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + nomeUtente +
+                                " ha appena richiesto di scaricare la posta.");
 
                     } else { //gestione invio email
                         EmailManager e = (EmailManager) receivedMsg;
@@ -150,22 +172,52 @@ public class ServerController implements Initializable {
                         if (e != null) {
                             writeJson(mail);
                             String act = e.getAction();
+                            String userMit = mail.getMittente();
+                            ArrayList<String> userDest = mail.getDestinatario();
+
+                            /*
                             String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
                             email = email + "\nOGGETTO: " + mail.getArgomento() + "\n"
                                     + mail.getTesto() + "\nData: " + mail.getData();
+                            */
 
-                            textAreaMail.setText(email);
-
-                            //incoming.close();
-                            //  Chiusura connessione
                             switch (act) {
                                 case "SEND":
                                     // TODO writeHandler
-                                    sendMail(e);
+
+                                    ArrayList<User> list = users.getListaUtenti();
+                                    int port = 0;
+
+                                    for (String user : userDest) {
+                                        for (User u : list) {
+                                            if (u.getId().equals(user)) {
+                                                if (userLog.contains(u.getId())) {
+                                                    port = u.getPort();
+                                                    sendMail(e, port);
+                                                } else {
+                                                    textAreaMail.setText(textAreaMail.getText() + "\n" +
+                                                            "Utente non on-line, invio fallito. \nRiceverà la mail" +
+                                                            "appena sara online.");
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    // ERRORE NELLA PORTA
+                                    if(port == 0){
+                                        System.out.println("NON HO RICEVUTO LA PORTA");
+                                        textAreaMail.setText(textAreaMail.getText() + "\n" +
+                                                "ERRORE CON LA RICERCA DELLA PORTA");
+                                    }
+
+                                    textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + userMit +
+                                            " ha appena inviato una mail a " + userDest);
                                     break;
                                 case "REMOVE":
                                     // TODO removeHandler
                                     removeMail(mail);
+                                    textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + userDest +
+                                            " ha appena rimosso una mail dalla sua casella di posta");
                                     break;
                                 case "REPLY":
                                     // TODO replyHandler
@@ -175,8 +227,6 @@ public class ServerController implements Initializable {
                                     break;
                                 default:
                                     // TODO Inserire azioni di default
-                                    // Ad esempio il salvataggio delle informazioni in json
-                                    // o l'aggiornamento di una textArea
                                     break;
                             }
                         }
