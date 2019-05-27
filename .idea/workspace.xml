@@ -3,14 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="4bcafdb0-2ce3-4211-a7d9-6125e6f2ecb3" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/comunication/EmailManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/comunication/EmailManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/comunication/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/comunication/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/MainClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/MainClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/comunication/EmailManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/comunication/EmailManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/comunication/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/comunication/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ProgettoPaoloFedeServer/serverPackage/ServerController.class" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -29,20 +22,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/file.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="224">
-              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+            <state relative-caret-position="768">
+              <caret line="48" column="2" selection-start-line="48" selection-start-column="2" selection-end-line="48" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="111">
-              <caret line="210" column="37" selection-start-line="210" selection-start-column="37" selection-end-line="210" selection-end-column="37" />
+            <state relative-caret-position="367">
+              <caret line="199" column="82" selection-start-line="199" selection-start-column="82" selection-end-line="199" selection-end-column="82" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#3554#3555#0" expanded="true" />
@@ -70,7 +63,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-240">
+            <state relative-caret-position="-1488">
               <caret line="94" column="21" lean-forward="true" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
             </state>
           </provider>
@@ -216,7 +209,7 @@
     <property name="SearchEverywhereHistoryKey" value="loginUser&#9;PSI&#9;JAVA://progettopaolofede.LoginController#loginUser" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558969792900" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1558970843230" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Materiale Progetto Prog3/1_VecchioProgetto_ConProperty" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -233,7 +226,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="Application.MainClient">
     <configuration name="MainClient" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="progettopaolofede.MainClient" />
       <module name="ProgettoPaoloFedeClient" />
@@ -290,7 +283,7 @@
       <workItem from="1558593639461" duration="15914000" />
       <workItem from="1558785655364" duration="211000" />
       <workItem from="1558801471223" duration="3411000" />
-      <workItem from="1558960408802" duration="9188000" />
+      <workItem from="1558960408802" duration="10115000" />
     </task>
     <task id="LOCAL-00001" summary="FIRST COMMIT PRIMA FA TUTTO SCHIFO">
       <created>1557495428384</created>
@@ -530,11 +523,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558961214495</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Ho implementato la comunicazione tra server e client diversi, ora ogni client riceve solo le &quot;sue&quot; mail tramite la porta per loro configurata. Prima di inviare la mail e quindi di iniziare una connessione, il server controlla se l'utente è loggato e quindi controlla se il suo user è contenuto nell'array di utenti loggati, array che viene ripulito quando si spegne il server. Manca ancora l'implementazione del metodo che controlla quando un utente fa &quot;logout&quot;, ho già impostato il listener sulla chiusura della finestra client, bisogna fare la comunicazione con il server così che il server possa tenere traccia che un utente non è più online così da non mandargli la mail, che altrimenti darebbe errore di connessione. La mail verrà comunque salvata in json e quindi ricevuta appena il client loga.">
+      <created>1558970051351</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1558970051351</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="105401000" />
+    <option name="totallyTimeSpent" value="106328000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -558,7 +558,7 @@
       <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.2048583" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32924694" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49878544" visible="true" weight="0.32924694" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49878544" weight="0.32924694" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39929947" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -643,7 +643,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Allora sono tornato al commit di ieri, ma non avevo pushato quindi magari non si vede manco il commit che ho fatto poco fa, comunque ho risolto. Ora una mail viene identificata dal mittente che l'ha mandata. A voce poi ti spiego il meccanismo perchè non è proprio immediato" />
     <MESSAGE value="La lettura/scrittura su json è gestita dal file FileEditor.java, nel metodo loadFromJson() ho aggiungo delle righe di codice (un if) che controlla se la map è vuota, e nel caso lo fosse inizializza la mappa con una struttura basilare &quot;vuota&quot; ma che contiene le &quot;caselle&quot; di ogni utente, capirai meglio quando ti spiego poi il meccanismo con cui funziona la map di map." />
     <MESSAGE value="Ho provato ad instaurare la ricezione dei messaggi da server a client, cioè il client ha un metodo &quot;start&quot; che si avvia appena si avvia il client e si mette in attesa di ricevere messaggi, giustamente però leggendo gli oggetti in entrata non trova niente e mi da un nullPointer, ved di sistemarlo dopo la pappa ciaoo." />
     <MESSAGE value="CIAO FEDE." />
@@ -668,7 +667,8 @@
     <MESSAGE value="Ho aggiunto l'autoriempimento della casella &quot;from&quot; con l'utente loggato." />
     <MESSAGE value="Ora appena si apre il client vengono caricate solo le mail corrispondenti all'utente loggato. Altre spiegazioni sul gruppo ti mando una nota vocale" />
     <MESSAGE value="Ho modificato il modo in cui viene strutturato il file json, o meglio la mappa su cui si basa. Nello specifico ho &quot;invertito&quot; la procedura, ora la prima hashmap ha una key (la mail dell'utente) e ha salvate tutte le mail dell'utente." />
-    <option name="LAST_COMMIT_MESSAGE" value="Ho modificato il modo in cui viene strutturato il file json, o meglio la mappa su cui si basa. Nello specifico ho &quot;invertito&quot; la procedura, ora la prima hashmap ha una key (la mail dell'utente) e ha salvate tutte le mail dell'utente." />
+    <MESSAGE value="Ho implementato la comunicazione tra server e client diversi, ora ogni client riceve solo le &quot;sue&quot; mail tramite la porta per loro configurata. Prima di inviare la mail e quindi di iniziare una connessione, il server controlla se l'utente è loggato e quindi controlla se il suo user è contenuto nell'array di utenti loggati, array che viene ripulito quando si spegne il server. Manca ancora l'implementazione del metodo che controlla quando un utente fa &quot;logout&quot;, ho già impostato il listener sulla chiusura della finestra client, bisogna fare la comunicazione con il server così che il server possa tenere traccia che un utente non è più online così da non mandargli la mail, che altrimenti darebbe errore di connessione. La mail verrà comunque salvata in json e quindi ricevuta appena il client loga." />
+    <option name="LAST_COMMIT_MESSAGE" value="Ho implementato la comunicazione tra server e client diversi, ora ogni client riceve solo le &quot;sue&quot; mail tramite la porta per loro configurata. Prima di inviare la mail e quindi di iniziare una connessione, il server controlla se l'utente è loggato e quindi controlla se il suo user è contenuto nell'array di utenti loggati, array che viene ripulito quando si spegne il server. Manca ancora l'implementazione del metodo che controlla quando un utente fa &quot;logout&quot;, ho già impostato il listener sulla chiusura della finestra client, bisogna fare la comunicazione con il server così che il server possa tenere traccia che un utente non è più online così da non mandargli la mail, che altrimenti darebbe errore di connessione. La mail verrà comunque salvata in json e quindi ricevuta appena il client loga." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/desktop.ini">
@@ -805,13 +805,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-240">
-          <caret line="94" column="21" lean-forward="true" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/MainClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="347">
@@ -830,10 +823,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeClient/src/progettopaolofede/ClientController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1488">
+          <caret line="94" column="21" lean-forward="true" selection-start-line="94" selection-start-column="21" selection-end-line="94" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="768">
+          <caret line="48" column="2" selection-start-line="48" selection-start-column="2" selection-end-line="48" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ProgettoPaoloFedeServer/src/serverPackage/ServerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="111">
-          <caret line="210" column="37" selection-start-line="210" selection-start-column="37" selection-end-line="210" selection-end-column="37" />
+        <state relative-caret-position="367">
+          <caret line="199" column="82" selection-start-line="199" selection-start-column="82" selection-end-line="199" selection-end-column="82" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3554#3555#0" expanded="true" />
@@ -841,13 +848,6 @@
             <element signature="e#9860#9861#0" expanded="true" />
             <element signature="e#9891#9892#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
         </state>
       </provider>
     </entry>

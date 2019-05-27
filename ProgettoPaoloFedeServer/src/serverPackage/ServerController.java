@@ -196,8 +196,8 @@ public class ServerController implements Initializable {
                                                     sendMail(e, port);
                                                 } else {
                                                     textAreaMail.setText(textAreaMail.getText() + "\n" +
-                                                            "Utente non on-line, invio fallito. \nRiceverà la mail" +
-                                                            "appena sara online.");
+                                                            "L'utente " + u.getId() + " non on-line, invio fallito. " +
+                                                            "\nRiceverà la mail" + "appena sara online.");
                                                 }
                                             }
                                         }
