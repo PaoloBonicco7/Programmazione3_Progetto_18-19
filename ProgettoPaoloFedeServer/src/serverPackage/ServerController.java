@@ -1,11 +1,3 @@
-
-/*
- Server deve aprire PRIMa InputStreamObject, poi Output stream.
- Nel server Il socket non va chiuso, la connessione in e out va chiusa solo nel finally=> NON SO Xk ma da reset conn
-
- Il client invece apre
- ASSSOLUTAMENTE aprire PRIMA ObjectOUT e poi ObjectInputStream altrimenti exception CONNECTION RESET"
- */
 package serverPackage;
 
 import comunication.Email;
@@ -16,7 +8,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -59,8 +50,8 @@ public class ServerController implements Initializable {
         String data = mail.getData();
         try {
             Map<String, Map<String, Email>> map = FileEditor.loadFromJson();
-            String key = dest + "\n" + data;
-            map.get(mittente).put(key, mail);
+            String key = mittente + "\n" + data;
+            map.get(dest).put(key, mail);
             FileEditor.saveToJson(map);
         } catch (IOException e1) {
             e1.printStackTrace();
@@ -70,8 +61,13 @@ public class ServerController implements Initializable {
     public void removeMail(Email mail) {
         try {
             Map<String, Map<String, Email>> map = FileEditor.loadFromJson();
-            String key = mail.getDestinatario() + "\n" + mail.getData();
-            map.get(mail.getMittente()).remove(key);
+            ArrayList<String> destinatario = mail.getDestinatario();
+            String dest = destinatario.get(0);
+            String mittente = mail.getMittente();
+            String data = mail.getData();
+
+            String key = mittente + "\n" + data;
+            map.get(dest).remove(key);
             FileEditor.saveToJson(map);
         } catch (FileNotFoundException e1) {
             e1.printStackTrace();
@@ -132,7 +128,6 @@ public class ServerController implements Initializable {
                     in = new ObjectInputStream(incoming.getInputStream());
                     Object receivedMsg = in.readObject();
                     titleArea.setText("SERVER \nEstablished connection");
-                    System.out.println("RICEVUTO OGGETTO, ORA CONTROLLO");
 
                     if (receivedMsg instanceof String) { //controllo di login                           
                         String msg = (String)receivedMsg;
@@ -143,9 +138,8 @@ public class ServerController implements Initializable {
                         out = new ObjectOutputStream(incoming.getOutputStream());
                         User utente = (User) receivedMsg;
                         String nomeUtente = utente.getId();
-                        System.out.println("STAMPO L'utente\n" + nomeUtente);
-                        Map<String, Email> emails;
-                        emails = FileEditor.loadFromJson().get(nomeUtente);
+
+                        Map<String, Email> emails = FileEditor.loadFromJson().get(nomeUtente);
                         out.writeObject(emails);
 
                     } else { //gestione invio email
