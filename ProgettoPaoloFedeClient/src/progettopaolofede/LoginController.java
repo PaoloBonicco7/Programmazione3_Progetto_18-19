@@ -61,12 +61,8 @@ public class LoginController {
             in = new ObjectInputStream(s.getInputStream());
 
             return (Boolean) in.readObject();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (UnknownHostException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (ClassNotFoundException | IOException e) {
+            loginLabel.setText("Impossibile connettersi al server");
         } finally {
             try {
                 out.close();

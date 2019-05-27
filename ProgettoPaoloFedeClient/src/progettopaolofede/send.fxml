@@ -24,7 +24,7 @@
         <Label layoutX="288.0" layoutY="324.0" text="OBJECT" />
         <ListView fx:id="listView" layoutX="7.0" layoutY="45.0" prefHeight="150.0" prefWidth="200.0" />
         <Button fx:id="deleteButton" layoutX="70.0" layoutY="14.0" mnemonicParsing="false" onAction="#removeMsg" text="delete" />
-        <TextArea fx:id="textArea2" layoutX="7.0" layoutY="215.0" prefHeight="150.0" prefWidth="200.0" promptText="Hola" />
+        <TextArea fx:id="textArea2" layoutX="7.0" layoutY="215.0" prefHeight="150.0" prefWidth="200.0" />
       <TextArea fx:id="userTextArea" layoutX="144.0" layoutY="371.0" prefHeight="46.0" prefWidth="290.0">
          <font>
             <Font size="24.0" />

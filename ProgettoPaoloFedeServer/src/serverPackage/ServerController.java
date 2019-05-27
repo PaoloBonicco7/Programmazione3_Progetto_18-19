@@ -138,21 +138,17 @@ public class ServerController implements Initializable {
                     titleArea.setText("SERVER \nEstablished connection");
 
                     if (receivedMsg instanceof String) { //controllo di login
-
-                        if (true) {
-                            String msg = (String)receivedMsg;
-                            out = new ObjectOutputStream(incoming.getOutputStream());
-                            Boolean log = checkLogin(msg);
-                            if(log){
-                                textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + msg + " è loggato.");
-                            } else {
-                                textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + msg +
-                                        " ha provato ad accedere ma il server ha bloccato l'accesso.");
-                            }
-                            out.writeObject(log);
+                        String msg = (String)receivedMsg;
+                        out = new ObjectOutputStream(incoming.getOutputStream());
+                        Boolean log = checkLogin(msg);
+                        if(log){
+                            textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + msg + " è loggato.");
                         } else {
-
+                            textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + msg +
+                                    " ha provato ad accedere ma il server ha bloccato l'accesso.");
                         }
+                        out.writeObject(log);
+
                     } else if (receivedMsg instanceof User) { //caricamento dati utente
                         out = new ObjectOutputStream(incoming.getOutputStream());
                         User utente = (User) receivedMsg;
@@ -194,6 +190,9 @@ public class ServerController implements Initializable {
                                                 if (userLog.contains(u.getId())) {
                                                     port = u.getPort();
                                                     sendMail(e, port);
+
+                                                    textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente "
+                                                            + userMit +" ha appena inviato una mail a " + userDest);
                                                 } else {
                                                     textAreaMail.setText(textAreaMail.getText() + "\n" +
                                                             "L'utente " + u.getId() + " non on-line, invio fallito. " +
@@ -209,9 +208,6 @@ public class ServerController implements Initializable {
                                         textAreaMail.setText(textAreaMail.getText() + "\n" +
                                                 "ERRORE CON LA RICERCA DELLA PORTA");
                                     }
-
-                                    textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + userMit +
-                                            " ha appena inviato una mail a " + userDest);
                                     break;
                                 case "REMOVE":
                                     // TODO removeHandler

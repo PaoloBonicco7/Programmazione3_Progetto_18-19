@@ -7,7 +7,6 @@ import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
-import java.net.UnknownHostException;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -15,11 +14,9 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.stage.WindowEvent;
 
 public class ClientController implements Initializable, Serializable {
 
@@ -43,9 +40,9 @@ public class ClientController implements Initializable, Serializable {
     private ArrayList<User> userList;
 
     private int serverSocket = 5000;
-    Socket incoming = null;
-    ObjectInputStream in = null;
-    ObjectOutputStream out = null;
+    private Socket incoming = null;
+    private ObjectInputStream in = null;
+    private ObjectOutputStream out = null;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -76,7 +73,7 @@ public class ClientController implements Initializable, Serializable {
     }
     */
 
-    public ArrayList<Email> refresh(User utente) {
+    private ArrayList<Email> refresh(User utente) {
         ArrayList<Email> emails = null;
         loggedUser = utente;
         try {
@@ -103,14 +100,13 @@ public class ClientController implements Initializable, Serializable {
 
             }
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("ERRORE");
             e.printStackTrace();
         }
         return emails;
     }
 
     @FXML
-    public void initModel(DataModel model, String utente, User loggedUser, ArrayList<User> userList) {
+    void initModel(DataModel model, String utente, User loggedUser, ArrayList<User> userList) {
         if (this.model != null) {
             throw new IllegalStateException("Model can only be initialized once");
         }
@@ -125,7 +121,7 @@ public class ClientController implements Initializable, Serializable {
     }
 
     //metodo del client che rimane in attesa di ricevere email dal server.
-    public void start() {
+    void start() {
         Runnable run = () -> {
             ServerSocket s = null;
             try {
@@ -189,9 +185,7 @@ public class ClientController implements Initializable, Serializable {
         try {
             Socket s = connect(); //localhost,serversocket
             try {
-                //SETTAGGIO PARAMETRI EMAIL
-                ArrayList<String> destinatari = new ArrayList<>();
-                destinatari.addAll(Arrays.asList(textFieldTo.getText().split(","))); //i destinatari son separati da ,
+                ArrayList<String> destinatari = new ArrayList<>(Arrays.asList(textFieldTo.getText().split(",")));
                 Calendar cal = Calendar.getInstance(); //crea oggetto cal inizializzato all'ora e data corrente
                 String time = cal.getTime().toString();
                 String mittente = textFieldFrom.getText();
@@ -209,8 +203,7 @@ public class ClientController implements Initializable, Serializable {
                 disconnect(s);
             }
         } catch (IOException e) {
-            System.out.println("ERRORE");
-            e.printStackTrace();
+            textArea2.setText("Impossibile inviare mail, server offline");
         }
     }
 
