@@ -57,6 +57,16 @@
       "argomento": "Oggetto",
       "testo": "Holaaa",
       "data": "Fri May 24 00:27:42 CEST 2019"
+    },
+    "federico@gmail.com\nWed May 29 21:21:49 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "federico@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "ciao amico",
+      "data": "Wed May 29 21:21:49 CEST 2019"
     }
   },
   "andrea@gmail.com": {
@@ -97,6 +107,17 @@
       "argomento": "Oggetto",
       "testo": "asdsadsa",
       "data": "Fri May 24 00:04:43 CEST 2019"
+    },
+    "andrea@gmail.com\nWed May 29 21:28:23 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com",
+        "federico@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "asdsadsa",
+      "data": "Wed May 29 21:28:23 CEST 2019"
     }
   }
 }
