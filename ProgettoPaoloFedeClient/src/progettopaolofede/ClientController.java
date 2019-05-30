@@ -14,6 +14,8 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -130,10 +132,19 @@ public class ClientController implements Initializable, Serializable {
                     Platform.runLater(() -> {
                         try {
                             in = new ObjectInputStream(incoming.getInputStream());
-                            EmailManager e = (EmailManager) in.readObject(); // UPCAST perchè so che riceverò ogg EmailManager
-                            Email mail = e.getEmail();
-                            model.addEmail(mail);
-                            textArea2.setText(mail.getTesto());
+                            Object objectReceived = in.readObject();
+                            if (objectReceived instanceof String) { // il server mi ha segnalato un errore
+                                Alert alert = new Alert(AlertType.ERROR);
+                                alert.setTitle("Error Dialog");
+                                alert.setHeaderText("ERROR DIALOG:");
+                                alert.setContentText("" + objectReceived + "");
+                                alert.showAndWait();
+                            } else {
+                                EmailManager e = (EmailManager) objectReceived; // UPCAST perchè so che riceverò ogg EmailManager
+                                Email mail = e.getEmail();
+                                model.addEmail(mail);
+                                textArea2.setText(mail.getTesto());
+                            }
                         } catch (IOException | ClassNotFoundException ex) {
                             Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
                         }
@@ -143,7 +154,7 @@ public class ClientController implements Initializable, Serializable {
                 e.printStackTrace();
             } finally {
                 try {
-                    
+
                     in.close();
                     incoming.close();
                     s.close();
@@ -258,7 +269,7 @@ public class ClientController implements Initializable, Serializable {
 
         for (User user : userList) {
             if (!(user.getId().equals(mittente))) {//inserisco tutti destinatari escluso me
-                elencoDestinatari = elencoDestinatari + user.getId()+ ",";
+                elencoDestinatari = elencoDestinatari + user.getId() + ",";
             }
         }
         textFieldTo.setText(elencoDestinatari);//destinatari
@@ -294,7 +305,7 @@ public class ClientController implements Initializable, Serializable {
 
         for (User user : userList) {
             if (!(user.getId().equals(mittente))) {//inserisco tutti destinatari escluso me
-                elencoDestinatari = elencoDestinatari + user.getId() + "," ;
+                elencoDestinatari = elencoDestinatari + user.getId() + ",";
             }
         }
         textFieldFrom.setText(mittente);
