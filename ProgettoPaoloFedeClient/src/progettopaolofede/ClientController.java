@@ -143,10 +143,11 @@ public class ClientController implements Initializable, Serializable {
                 e.printStackTrace();
             } finally {
                 try {
+                    
                     in.close();
                     incoming.close();
                     s.close();
-                    System.out.println("chiuso , inpuntStream in , socket incoming e server socket in metodo Start client-controller");
+                    System.out.println(" FEDERICO CHIUSO chiuso , inpuntStream in , socket incoming e server socket in metodo Start client-controller");
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

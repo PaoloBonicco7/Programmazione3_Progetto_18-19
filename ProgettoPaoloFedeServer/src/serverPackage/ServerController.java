@@ -3,15 +3,15 @@ package serverPackage;
 import comunication.Email;
 import comunication.EmailManager;
 import comunication.User;
+import comunication.UserModel;
 import java.io.*;
+import java.net.ConnectException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.ResourceBundle;
-
-import comunication.UserModel;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
@@ -80,7 +80,7 @@ public class ServerController implements Initializable {
         }
     }
 
-    public void sendMail(EmailManager e, int port) {
+    public void sendMail(EmailManager e, int port) /*throws Exception*/ {
         Socket s1 = null;
         try {
             s1 = new Socket("localhost", port); //localhost
@@ -88,11 +88,16 @@ public class ServerController implements Initializable {
             out.writeObject(e);
             out.close();
         } catch (IOException e1) {
-            e1.printStackTrace();
+            System.out.println("client offline, non è poss inviare msg");
+            textAreaMail.setText(textAreaMail.getText() + "\n"
+                    + "L'utente non on-line, invio fallito. "
+                    + "\nRiceverà la mail" + "appena sara online.");
+
         } finally {
             try {
-                assert s1 != null;
-                s1.close();
+                if (s1 != null) {
+                    s1.close();
+                }
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -118,7 +123,7 @@ public class ServerController implements Initializable {
         }
     }
 
-    public void disconectUser(String u){
+    public void disconectUser(String u) {
         userLog.remove(u);
     }
 
@@ -138,14 +143,14 @@ public class ServerController implements Initializable {
                     titleArea.setText("SERVER \nEstablished connection");
 
                     if (receivedMsg instanceof String) { //controllo di login
-                        String msg = (String)receivedMsg;
+                        String msg = (String) receivedMsg;
                         out = new ObjectOutputStream(incoming.getOutputStream());
                         Boolean log = checkLogin(msg);
-                        if(log){
+                        if (log) {
                             textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + msg + " è loggato.");
                         } else {
-                            textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + msg +
-                                    " ha provato ad accedere ma il server ha bloccato l'accesso.");
+                            textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + msg
+                                    + " ha provato ad accedere ma il server ha bloccato l'accesso.");
                         }
                         out.writeObject(log);
 
@@ -157,8 +162,8 @@ public class ServerController implements Initializable {
                         Map<String, Email> emails = FileEditor.loadFromJson().get(nomeUtente);
                         out.writeObject(emails);
 
-                        textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + nomeUtente +
-                                " ha appena richiesto di scaricare la posta.");
+                        textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + nomeUtente
+                                + " ha appena richiesto di scaricare la posta.");
 
                     } else { //gestione invio email
                         EmailManager e = (EmailManager) receivedMsg;
@@ -172,11 +177,11 @@ public class ServerController implements Initializable {
                             ArrayList<String> userDest = mail.getDestinatario();
 
                             /*
-                            String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
-                            email = email + "\nOGGETTO: " + mail.getArgomento() + "\n"
-                                    + mail.getTesto() + "\nData: " + mail.getData();
-                            */
-
+                             String email = "DA: " + mail.getMittente() + " A " + mail.getDestinatario();
+                             email = email + "\nOGGETTO: " + mail.getArgomento() + "\n"
+                             + mail.getTesto() + "\nData: " + mail.getData();
+                             */
+                            //incoming.close();
                             switch (act) {
                                 case "SEND":
                                     // TODO writeHandler
@@ -186,34 +191,49 @@ public class ServerController implements Initializable {
 
                                     for (String user : userDest) {
                                         for (User u : list) {
-                                            if (u.getId().equals(user)) {
-                                                if (userLog.contains(u.getId())) {
-                                                    port = u.getPort();
-                                                    sendMail(e, port);
-
-                                                    textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente "
-                                                            + userMit +" ha appena inviato una mail a " + userDest);
-                                                } else {
-                                                    textAreaMail.setText(textAreaMail.getText() + "\n" +
-                                                            "L'utente " + u.getId() + " non on-line, invio fallito. " +
-                                                            "\nRiceverà la mail" + "appena sara online.");
+                                            if (u.getId().equals(user)) { //utente a cui inviare
+                                                //          try {
+                                                port = u.getPort();
+                                                sendMail(e, port);
+                                                textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente "
+                                                        + userMit + " ha appena inviato una mail a " + userDest);
+                                                // ERRORE NELLA PORTA
+                                                if (port == 0) {
+                                                    System.out.println("NON HO RICEVUTO LA PORTA");
+                                                    textAreaMail.setText(textAreaMail.getText() + "\n"
+                                                            + "ERRORE CON LA RICERCA DELLA PORTA");
                                                 }
+                                                //     } catch (Exception eee) {
+                                                //             eee.printStackTrace();
+//                                                textAreaMail.setText(textAreaMail.getText() + "\n"
+//                                                        + "L'utente " + u.getId() + " non on-line, invio fallito. "
+//                                                        + "\nRiceverà la mail" + "appena sara online.");
+                                                //  }
                                             }
+                                            /*
+                                             if (userLog.contains(u.getId())) {
+                                             port = u.getPort();
+                                             sendMail(e, port);
+
+                                             textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente "
+                                             + userMit + " ha appena inviato una mail a " + userDest);
+                                             } else {
+                                             textAreaMail.setText(textAreaMail.getText() + "\n"
+                                             + "L'utente " + u.getId() + " non on-line, invio fallito. "
+                                             + "\nRiceverà la mail" + "appena sara online.");
+                                             }
+                                                
+                                             */
                                         }
                                     }
 
-                                    // ERRORE NELLA PORTA
-                                    if(port == 0){
-                                        System.out.println("NON HO RICEVUTO LA PORTA");
-                                        textAreaMail.setText(textAreaMail.getText() + "\n" +
-                                                "ERRORE CON LA RICERCA DELLA PORTA");
-                                    }
                                     break;
+
                                 case "REMOVE":
                                     // TODO removeHandler
                                     removeMail(mail);
-                                    textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + userDest +
-                                            " ha appena rimosso una mail dalla sua casella di posta");
+                                    textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + userDest
+                                            + " ha appena rimosso una mail dalla sua casella di posta");
                                     break;
                                 case "REPLY":
                                     // TODO replyHandler
@@ -242,7 +262,8 @@ public class ServerController implements Initializable {
                 }
             }
         };
-        new Thread(run).start();
+        new Thread(run)
+                .start();
     }
 
     @Override
