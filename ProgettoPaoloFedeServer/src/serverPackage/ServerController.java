@@ -5,10 +5,7 @@ import comunication.EmailManager;
 import comunication.User;
 import comunication.UserModel;
 import java.io.*;
-import java.net.ConnectException;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.net.URL;
+import java.net.*;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.ResourceBundle;
@@ -127,6 +124,20 @@ public class ServerController implements Initializable {
         userLog.remove(u);
     }
 
+    public void userNonEsiste(String s, int port){
+        Socket s1;
+        try{
+            s1 = new Socket("localhost", port);
+            ObjectOutputStream out = new ObjectOutputStream(s1.getOutputStream());
+            out.writeObject("UTENTE NON REGISTRATO");
+            out.close();
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void handleConnection() { //handle del bottone connetti -> se clicchi si mette in attesa di ricevere connessione. -> VA TOLTO E GESTITO IN ALTRO MODO CONNESSIONE con THREADPOOL
         switcher();
@@ -192,7 +203,6 @@ public class ServerController implements Initializable {
                                     for (String user : userDest) {
                                         for (User u : list) {
                                             if (u.getId().equals(user)) { //utente a cui inviare
-                                                //          try {
                                                 port = u.getPort();
                                                 sendMail(e, port);
                                                 textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente "
@@ -203,28 +213,22 @@ public class ServerController implements Initializable {
                                                     textAreaMail.setText(textAreaMail.getText() + "\n"
                                                             + "ERRORE CON LA RICERCA DELLA PORTA");
                                                 }
-                                                //     } catch (Exception eee) {
-                                                //             eee.printStackTrace();
-//                                                textAreaMail.setText(textAreaMail.getText() + "\n"
-//                                                        + "L'utente " + u.getId() + " non on-line, invio fallito. "
-//                                                        + "\nRiceverà la mail" + "appena sara online.");
-                                                //  }
                                             }
-                                            /*
-                                             if (userLog.contains(u.getId())) {
-                                             port = u.getPort();
-                                             sendMail(e, port);
-
-                                             textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente "
-                                             + userMit + " ha appena inviato una mail a " + userDest);
-                                             } else {
-                                             textAreaMail.setText(textAreaMail.getText() + "\n"
-                                             + "L'utente " + u.getId() + " non on-line, invio fallito. "
-                                             + "\nRiceverà la mail" + "appena sara online.");
-                                             }
-                                                
-                                             */
                                         }
+                                    }
+
+                                    if (port == 0){
+                                        for (User u : list) {
+                                            if (u.getId().equals(mail.getMittente())) {
+                                                port = u.getPort();
+                                            }
+                                        }
+                                        if (port == 0){
+                                            System.out.println("PORCACCIODIO");
+                                        }
+                                        textAreaMail.setText(textAreaMail.getText() + "\n"
+                                                + "UTENTE NON REGISTATO");
+                                        userNonEsiste(mail.getMittente(), port); // comunica al client che non esiste il mittente
                                     }
 
                                     break;

@@ -74,6 +74,7 @@ public class ClientController implements Initializable, Serializable {
      }
      }
      */
+
     private ArrayList<Email> refresh(User utente) {
         ArrayList<Email> emails = null;
         loggedUser = utente;
