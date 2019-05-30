@@ -50,29 +50,28 @@ public class ClientController implements Initializable, Serializable {
     }
 
     /*
-    @FXML
-    public static void shoutdown() {
-        String logUser = loggedUser.getId();
-        Runnable run = () -> {
-            //  Server manda le mail contenute nel json al client
-            Socket s;
-            try {
-                s = new Socket("localhost", 5000);
+     @FXML
+     public static void shoutdown() {
+     String logUser = loggedUser.getId();
+     Runnable run = () -> {
+     //  Server manda le mail contenute nel json al client
+     Socket s;
+     try {
+     s = new Socket("localhost", 5000);
 
-                String u = logUser + "\nd";
-                ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
-                out.writeObject();
-                out.close();
+     String u = logUser + "\nd";
+     ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
+     out.writeObject();
+     out.close();
 
-            } catch (UnknownHostException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-    */
-
+     } catch (UnknownHostException e) {
+     e.printStackTrace();
+     } catch (IOException e) {
+     e.printStackTrace();
+     }
+     }
+     }
+     */
     private ArrayList<Email> refresh(User utente) {
         ArrayList<Email> emails = null;
         loggedUser = utente;
@@ -258,7 +257,7 @@ public class ClientController implements Initializable, Serializable {
 
         for (User user : userList) {
             if (!(user.getId().equals(mittente))) {//inserisco tutti destinatari escluso me
-                elencoDestinatari = elencoDestinatari+ "," + user.getId();
+                elencoDestinatari = elencoDestinatari + user.getId()+ ",";
             }
         }
         textFieldTo.setText(elencoDestinatari);//destinatari
@@ -266,14 +265,42 @@ public class ClientController implements Initializable, Serializable {
         textFieldFrom.setText(mittente);//mittente msg
         textArea.setText("");//testo msg
     }
-    
+
     @FXML
-    private void newMsg(){
+    private void newMsg() {
         textFieldTo.setText("");
         textFieldObject.setText("");
         textFieldFrom.setText(loggedUser.getId());
         textArea.setText("");
-        
+
+    }
+
+    @FXML
+    private void forward() {
+        Email email = listView.getSelectionModel().getSelectedItem();
+        textFieldFrom.setText(loggedUser.getId());
+        textFieldTo.setText(email.getMittente());
+        textFieldObject.setText(email.getArgomento());
+        textArea.setText(email.getTesto());
+
+    }
+
+    @FXML
+    private void forwardAll() {
+        Email email = listView.getSelectionModel().getSelectedItem();
+        String mittente = loggedUser.getId();
+        String elencoDestinatari = "";
+
+        for (User user : userList) {
+            if (!(user.getId().equals(mittente))) {//inserisco tutti destinatari escluso me
+                elencoDestinatari = elencoDestinatari + user.getId() + "," ;
+            }
+        }
+        textFieldFrom.setText(mittente);
+        textFieldObject.setText(email.getArgomento());
+        textArea.setText(email.getTesto());
+        textFieldTo.setText(elencoDestinatari);
+
     }
 
 }
