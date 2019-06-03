@@ -14,11 +14,13 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.util.Duration;
 
 public class ClientController implements Initializable, Serializable {
 
@@ -215,7 +217,16 @@ public class ClientController implements Initializable, Serializable {
                 disconnect(s);
             }
         } catch (IOException e) {
-            textArea2.setText("Impossibile inviare mail, server offline");
+            // Gestione perdita connessione
+            Platform.runLater(() -> {
+                Alert a = new Alert(Alert.AlertType.ERROR);
+                a.setTitle("ERROR");
+
+                a.setHeaderText("LOST CONNECTION");
+                a.setContentText("Riprovare piu tardi");
+
+                a.showAndWait();//dopo aver schiacciato ok verra eseguito il seguente metodo che mi riporterà al login
+            });
         }
     }
 
