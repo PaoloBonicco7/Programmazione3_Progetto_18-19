@@ -17,22 +17,19 @@ import javafx.scene.control.ToggleButton;
 public class ServerController implements Initializable {
 
     private ArrayList<String> userLog = new ArrayList<>();
-
-    UserModel users = new UserModel();
-
+    private UserModel users = new UserModel();
     @FXML
     private TextArea textAreaMail;
     @FXML
     private TextArea titleArea;
     @FXML
     private ToggleButton connectButton;
-
-    //queste variabili sono messe qua per poterle usare nel blocco finally
-    Socket incoming = null;
-    ServerSocket s = null;
-    Socket s1 = null;
-    ObjectOutputStream out = null;
-    ObjectInputStream in = null;
+    private Socket incoming = null;
+    private ServerSocket s = null;
+    private Socket s1 = null;
+    private ObjectOutputStream out = null;
+    private ObjectInputStream in = null;
+    private boolean online = true;
 
     public void readJson() {
         String s = null;
@@ -60,10 +57,10 @@ public class ServerController implements Initializable {
     }
 
     /*
-    * Remove an email from json file:
-    *   first write it on json (overwrite)
-    *   and than remove it from json.
-    * */
+     * Remove an email from json file:
+     *   first write it on json (overwrite)
+     *   and than remove it from json.
+     * */
     public void removeMail(Email mail) {
         writeJson(mail);
         try {
@@ -132,7 +129,7 @@ public class ServerController implements Initializable {
 
     }
 
-    private void sendHandler(EmailManager e){
+    private void sendHandler(EmailManager e) {
         Email mail = e.getEmail();
         String userMit = mail.getMittente();
         ArrayList<String> userDest = mail.getDestinatario();
@@ -144,8 +141,8 @@ public class ServerController implements Initializable {
                 if (u.getId().equals(user)) { //utente a cui inviare
                     port = u.getPort();
                     sendMail(e, port);
-                    textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " +
-                            userMit +" ha appena inviato una mail a " + userDest);
+                    textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente "
+                            + userMit + " ha appena inviato una mail a " + userDest);
                     // ERRORE NELLA PORTA
                     if (port == 0) {
                         System.out.println("NON HO RICEVUTO LA PORTA");
@@ -155,7 +152,7 @@ public class ServerController implements Initializable {
             }
         }
         //  Se il valore della porta è zero vuol dire che l'utente non è registrato
-        if (port == 0){
+        if (port == 0) {
             for (User u : list) {
                 if (u.getId().equals(mail.getMittente())) {
                     port = u.getPort();
@@ -247,9 +244,9 @@ public class ServerController implements Initializable {
         userLog.remove(u);
     }
 
-    public void userNonEsiste(String s, int port){
+    public void userNonEsiste(String s, int port) {
         Socket s1;
-        try{
+        try {
             s1 = new Socket("localhost", port);
             ObjectOutputStream out = new ObjectOutputStream(s1.getOutputStream());
             out.writeObject("UTENTE NON REGISTRATO");
@@ -267,10 +264,22 @@ public class ServerController implements Initializable {
     }
 
     /*
-    *   Metodo initialize, pulisce l'array degli utenti loggati all'avvio del server.
-    **/
+     *   Metodo initialize, pulisce l'array degli utenti loggati all'avvio del server.
+     **/
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         userLog.clear();
+    }
+
+    public void shutDown() {
+        try {
+            online=false;
+            s.close();
+            
+            
+        }catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("SHUTDOWN\n");
     }
 }

@@ -20,12 +20,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 public class ClientController implements Initializable, Serializable {
 
     private DataModel model; //model del client
-
+    private boolean online=true;
     @FXML
     private ListView<Email> listView;
     @FXML
@@ -40,6 +41,7 @@ public class ClientController implements Initializable, Serializable {
     private TextArea textArea2; // Dove arriva il mex dal server
     @FXML
     private TextArea userTextArea;
+
     private User loggedUser;
     private ArrayList<User> userList;
 
@@ -47,6 +49,7 @@ public class ClientController implements Initializable, Serializable {
     private Socket incoming = null;
     private ObjectInputStream in = null;
     private ObjectOutputStream out = null;
+    private ServerSocket ss = null;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -76,7 +79,6 @@ public class ClientController implements Initializable, Serializable {
      }
      }
      */
-
     private ArrayList<Email> refresh(User utente) {
         ArrayList<Email> emails = null;
         loggedUser = utente;
@@ -85,7 +87,6 @@ public class ClientController implements Initializable, Serializable {
             try {
                 out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(utente); //loadData
-
                 in = new ObjectInputStream(s.getInputStream());
                 Map<String, Email> map = (Map<String, Email>) in.readObject();
                 emails = new ArrayList<>();
@@ -114,6 +115,7 @@ public class ClientController implements Initializable, Serializable {
         if (this.model != null) {
             throw new IllegalStateException("Model can only be initialized once");
         }
+
         this.userList = userList;
         userTextArea.setText(utente);
         textFieldFrom.setText(utente);
@@ -127,11 +129,11 @@ public class ClientController implements Initializable, Serializable {
     //metodo del client che rimane in attesa di ricevere email dal server.
     void start() {
         Runnable run = () -> {
-            ServerSocket s = null;
+
             try {
-                s = new ServerSocket(loggedUser.getPort());
-                while (true) {
-                    incoming = s.accept();
+                ss = new ServerSocket(loggedUser.getPort());
+                while (online) {
+                    incoming = ss.accept();
                     Platform.runLater(() -> {
                         try {
                             in = new ObjectInputStream(incoming.getInputStream());
@@ -160,7 +162,7 @@ public class ClientController implements Initializable, Serializable {
 
                     in.close();
                     incoming.close();
-                    s.close();
+                    ss.close();
                     System.out.println(" FEDERICO CHIUSO chiuso , inpuntStream in , socket incoming e server socket in metodo Start client-controller");
                 } catch (IOException e) {
                     e.printStackTrace();
@@ -325,6 +327,17 @@ public class ClientController implements Initializable, Serializable {
         textArea.setText(email.getTesto());
         textFieldTo.setText(elencoDestinatari);
 
+    }
+
+    public void shutDown() {
+        try {
+            online=false;
+            ss.close();
+            System.out.println(" SET-ON-CLOSE");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println("SHUTDOWN CLIENT\n");
     }
 
 }

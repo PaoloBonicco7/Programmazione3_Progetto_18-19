@@ -107,6 +107,86 @@
       "argomento": "Oggetto",
       "testo": "Holaaa",
       "data": "Thu May 30 10:17:30 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 17:02:30 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "federico@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "como estas",
+      "data": "Thu Jul 18 17:02:30 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 17:21:10 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "federico@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "fede",
+      "data": "Thu Jul 18 17:21:10 CEST 2019"
+    },
+    "paolo@gmail.com\nThu Jul 18 17:36:57 CEST 2019": {
+      "ID": "ID",
+      "mittente": "paolo@gmail.com",
+      "destinatario": [
+        "federico@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "asdsadsa",
+      "data": "Thu Jul 18 17:36:57 CEST 2019"
+    },
+    "paolo@gmail.com\nThu Jul 18 17:37:30 CEST 2019": {
+      "ID": "ID",
+      "mittente": "paolo@gmail.com",
+      "destinatario": [
+        "federico@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "asdsadsa",
+      "data": "Thu Jul 18 17:37:30 CEST 2019"
+    },
+    "paolo@gmail.com\nThu Jul 18 17:37:31 CEST 2019": {
+      "ID": "ID",
+      "mittente": "paolo@gmail.com",
+      "destinatario": [
+        "federico@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "asdsadsa",
+      "data": "Thu Jul 18 17:37:31 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 17:40:38 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "federico@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "fede",
+      "data": "Thu Jul 18 17:40:38 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 17:40:39 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "federico@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "fede",
+      "data": "Thu Jul 18 17:40:39 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 17:40:40 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "federico@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "fede",
+      "data": "Thu Jul 18 17:40:40 CEST 2019"
     }
   },
   "andrea@gmail.com": {
@@ -127,26 +207,6 @@
       "argomento": "Oggetto",
       "testo": "asdsadsa",
       "data": "Fri May 24 00:04:43 CEST 2019"
-    },
-    "andrea@gmail.com\nThu May 30 09:57:37 CEST 2019": {
-      "ID": "ID",
-      "mittente": "andrea@gmail.com",
-      "destinatario": [
-        "andrea@gmail.com"
-      ],
-      "argomento": "Oggetto",
-      "testo": "Holaaa",
-      "data": "Thu May 30 09:57:37 CEST 2019"
-    },
-    "andrea@gmail.com\nThu May 30 09:57:41 CEST 2019": {
-      "ID": "ID",
-      "mittente": "andrea@gmail.com",
-      "destinatario": [
-        "andrea@gmail.com"
-      ],
-      "argomento": "Oggetto",
-      "testo": "Holaaa",
-      "data": "Thu May 30 09:57:41 CEST 2019"
     },
     "andrea@gmail.com\nThu May 30 09:57:42 CEST 2019": {
       "ID": "ID",
@@ -327,6 +387,96 @@
       "argomento": "Oggetto",
       "testo": "Holaaa",
       "data": "Thu May 30 10:17:52 CEST 2019"
+    },
+    "andrea@gmail.com\nThu May 30 10:35:38 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "andrea@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu May 30 10:35:38 CEST 2019"
+    },
+    "andrea@gmail.com\nThu May 30 10:35:39 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "andrea@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu May 30 10:35:39 CEST 2019"
+    },
+    "andrea@gmail.com\nThu May 30 10:35:40 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "andrea@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu May 30 10:35:40 CEST 2019"
+    },
+    "andrea@gmail.com\nThu May 30 10:35:41 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "andrea@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu May 30 10:35:41 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:07:08 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "andrea@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:07:08 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:08:03 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "andrea@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:08:03 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:08:09 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "andrea@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:08:09 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:08:16 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "andrea@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaaffff",
+      "data": "Thu Jul 18 17:08:16 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:36:06 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "andrea@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:36:06 CEST 2019"
     }
   },
   "paolo@gmail.com": {
@@ -348,27 +498,6 @@
       "testo": "asdsadsa",
       "data": "Fri May 24 00:04:43 CEST 2019"
     },
-    "andrea@gmail.com\nWed May 29 21:28:23 CEST 2019": {
-      "ID": "ID",
-      "mittente": "andrea@gmail.com",
-      "destinatario": [
-        "paolo@gmail.com",
-        "federico@gmail.com"
-      ],
-      "argomento": "Oggetto",
-      "testo": "asdsadsa",
-      "data": "Wed May 29 21:28:23 CEST 2019"
-    },
-    "paolo@gmail.com\nThu May 30 09:33:17 CEST 2019": {
-      "ID": "ID",
-      "mittente": "paolo@gmail.com",
-      "destinatario": [
-        "paolo@gmail.com"
-      ],
-      "argomento": "Oggetto",
-      "testo": "Holaaa",
-      "data": "Thu May 30 09:33:17 CEST 2019"
-    },
     "paolo@gmail.com\nThu May 30 09:33:21 CEST 2019": {
       "ID": "ID",
       "mittente": "paolo@gmail.com",
@@ -378,26 +507,6 @@
       "argomento": "Oggetto",
       "testo": "como estas",
       "data": "Thu May 30 09:33:21 CEST 2019"
-    },
-    "federico@gmail.com\nThu May 30 09:35:35 CEST 2019": {
-      "ID": "ID",
-      "mittente": "federico@gmail.com",
-      "destinatario": [
-        "paolo@gmail.com"
-      ],
-      "argomento": "Oggetto",
-      "testo": "Holaaa",
-      "data": "Thu May 30 09:35:35 CEST 2019"
-    },
-    "federico@gmail.com\nThu May 30 09:35:43 CEST 2019": {
-      "ID": "ID",
-      "mittente": "federico@gmail.com",
-      "destinatario": [
-        "paolo@gmail.com"
-      ],
-      "argomento": "Oggetto",
-      "testo": "fnkfds",
-      "data": "Thu May 30 09:35:43 CEST 2019"
     },
     "federico@gmail.com\nThu May 30 09:42:09 CEST 2019": {
       "ID": "ID",
@@ -529,7 +638,7 @@
       "testo": "Holaaa",
       "data": "Thu May 30 10:17:02 CEST 2019"
     },
-    "andrea@gmail.com\nThu May 30 10:17:03 CEST 2019": {
+    "andrea@gmail.com\nThu May 30 10:35:30 CEST 2019": {
       "ID": "ID",
       "mittente": "andrea@gmail.com",
       "destinatario": [
@@ -537,7 +646,395 @@
       ],
       "argomento": "Oggetto",
       "testo": "Holaaa",
-      "data": "Thu May 30 10:17:03 CEST 2019"
+      "data": "Thu May 30 10:35:30 CEST 2019"
+    },
+    "andrea@gmail.com\nThu May 30 10:35:31 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu May 30 10:35:31 CEST 2019"
+    },
+    "paolo@gmail.com\nTue Jul 16 15:26:38 CEST 2019": {
+      "ID": "ID",
+      "mittente": "paolo@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "fede",
+      "testo": "Ciao marco, io sto bene tu?\t",
+      "data": "Tue Jul 16 15:26:38 CEST 2019"
+    },
+    "paolo@gmail.com\nTue Jul 16 15:26:44 CEST 2019": {
+      "ID": "ID",
+      "mittente": "paolo@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "fede",
+      "testo": "Ciao marco, io sto bene tu?\t",
+      "data": "Tue Jul 16 15:26:44 CEST 2019"
+    },
+    "paolo@gmail.com\nTue Jul 16 15:26:46 CEST 2019": {
+      "ID": "ID",
+      "mittente": "paolo@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "fede",
+      "testo": "Ciao marco, io sto bene tuss?\t",
+      "data": "Tue Jul 16 15:26:46 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 16:49:34 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 16:49:34 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 16:49:59 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com",
+        "andrea@gmail.com"
+      ],
+      "argomento": "REPLY: Oggetto",
+      "testo": "ciao",
+      "data": "Thu Jul 18 16:49:59 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 16:50:03 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com",
+        "andrea@gmail.com"
+      ],
+      "argomento": "REPLY: Oggetto",
+      "testo": "ciao",
+      "data": "Thu Jul 18 16:50:03 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 16:50:04 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com",
+        "andrea@gmail.com"
+      ],
+      "argomento": "REPLY: Oggetto",
+      "testo": "ciao",
+      "data": "Thu Jul 18 16:50:04 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 16:53:23 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 16:53:23 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 16:54:10 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 16:54:10 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 16:54:22 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaad",
+      "data": "Thu Jul 18 16:54:22 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 16:54:26 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com",
+        "andrea@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "fede",
+      "data": "Thu Jul 18 16:54:26 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 16:55:22 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 16:55:22 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 16:55:23 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 16:55:23 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 16:55:24 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 16:55:24 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 16:55:26 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com",
+        "andrea@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "como estas",
+      "data": "Thu Jul 18 16:55:26 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 16:55:27 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com",
+        "andrea@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "como estas",
+      "data": "Thu Jul 18 16:55:27 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 17:01:10 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaaòò",
+      "data": "Thu Jul 18 17:01:10 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 17:02:27 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:02:27 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 17:02:33 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com",
+        "andrea@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "como estas",
+      "data": "Thu Jul 18 17:02:33 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:04:26 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:04:26 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:04:28 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:04:28 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:04:29 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:04:29 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:04:37 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:04:37 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:04:42 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:04:42 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:07:03 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com",
+        "federico@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:07:03 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:07:39 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:07:39 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:07:41 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:07:41 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:07:43 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:07:43 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:07:51 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:07:51 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:07:53 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:07:53 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:07:59 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:07:59 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 17:20:55 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:20:55 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 17:21:02 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaadas",
+      "data": "Thu Jul 18 17:21:02 CEST 2019"
+    },
+    "andrea@gmail.com\nThu Jul 18 17:34:48 CEST 2019": {
+      "ID": "ID",
+      "mittente": "andrea@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:34:48 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 17:38:44 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:38:44 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 17:38:46 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:38:46 CEST 2019"
+    },
+    "federico@gmail.com\nThu Jul 18 17:40:35 CEST 2019": {
+      "ID": "ID",
+      "mittente": "federico@gmail.com",
+      "destinatario": [
+        "paolo@gmail.com"
+      ],
+      "argomento": "Oggetto",
+      "testo": "Holaaa",
+      "data": "Thu Jul 18 17:40:35 CEST 2019"
     }
   }
 }

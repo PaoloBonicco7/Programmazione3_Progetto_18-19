@@ -30,7 +30,6 @@ public class MainClient extends Application {
         LoginController loginController = loginLoader.getController();
         loginController.init(listaUtenti, stage);//passo la lista di utenti x choiceBox e stage per creazione nuova finestra
         Scene scene = new Scene(root);
-
         stage.setScene(scene);
         stage.show();
 
@@ -38,13 +37,14 @@ public class MainClient extends Application {
         stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent event) {
-                ClientController.shoutdown();
+                ClientController.shutDown();
 
                 Platform.exit();
                 System.exit(0);
             }
         });
         */
+        
     }
 
     public static void main(String[] args) {
