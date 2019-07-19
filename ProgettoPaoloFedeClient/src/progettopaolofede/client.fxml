@@ -67,7 +67,7 @@
         </Button>
         <Label layoutY="64.0" text="Email List:" />
         <Label layoutX="3.0" layoutY="279.0" text="Selected email text:" />
-        <TextArea fx:id="selectedEmailText" layoutX="11.0" layoutY="300.0" prefHeight="194.0" prefWidth="256.0" />
+        <TextArea fx:id="selectedEmailText" editable="false" layoutX="11.0" layoutY="300.0" prefHeight="194.0" prefWidth="256.0" />
         <Separator layoutX="282.0" layoutY="1.0" orientation="VERTICAL" prefHeight="498.0" prefWidth="3.0" />
         <Label layoutX="3.0" layoutY="15.0" text="LoggedUser:" />
       <Label layoutX="315.0" layoutY="231.0" prefHeight="15.0" prefWidth="49.0" text="TEXT" />
