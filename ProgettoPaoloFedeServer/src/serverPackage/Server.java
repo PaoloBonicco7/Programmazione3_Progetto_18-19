@@ -16,7 +16,7 @@ public class Server extends Application {
     public void start(Stage stage) throws Exception {
         //  Parent root = FXMLLoader.load(getClass().getResource("server-progetto.fxml")); 
         BorderPane root = new BorderPane();
-        FXMLLoader serverLoader = new FXMLLoader(getClass().getResource("server-progetto.fxml"));
+        FXMLLoader serverLoader = new FXMLLoader(getClass().getResource("server.fxml"));
         root.setCenter(serverLoader.load());
 
         Scene scene = new Scene(root);

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.paint.*?>
 <?import java.lang.*?>
 <?import javafx.scene.control.*?>
@@ -15,46 +17,64 @@
 
 <AnchorPane id="AnchorPane" prefHeight="513.0" prefWidth="699.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="progettopaolofede.ClientController">
     <children>
+        <ImageView fitHeight="513.0" fitWidth="706.0" layoutX="-4.0" opacity="0.5" pickOnBounds="true">
+            <image>
+                <Image url="@backgroundclient.jpg" />
+            </image>
+        </ImageView>
         <Button fx:id="newButton" layoutX="307.0" layoutY="14.0" mnemonicParsing="false" onAction="#newMsg" prefHeight="25.0" prefWidth="59.0" text="new">
          <font>
             <Font size="11.0" />
-         </font></Button>
+         </font>
+        </Button>
         <Button fx:id="replyButton" layoutX="522.0" layoutY="14.0" mnemonicParsing="false" onAction="#replyMsg" prefHeight="25.0" prefWidth="59.0" text="reply">
-         <font>
-            <Font size="11.0" />
-         </font></Button>
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Button>
         <Button fx:id="replyAllButton" layoutX="519.0" layoutY="46.0" mnemonicParsing="false" onAction="#replyAllmsg" prefHeight="25.0" prefWidth="65.0" text="reply all">
-         <font>
-            <Font size="11.0" />
-         </font></Button>
-        <TextArea fx:id="textArea" layoutX="333.0" layoutY="231.0" prefHeight="204.0" prefWidth="264.0" />
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Button>
+        <TextArea fx:id="textArea" layoutX="315.0" layoutY="246.0" prefHeight="204.0" prefWidth="358.0" />
         <TextField fx:id="textFieldTo" layoutX="382.0" layoutY="94.0" prefHeight="25.0" prefWidth="241.0" text="" />
         <TextField fx:id="textFieldFrom" layoutX="382.0" layoutY="136.0" prefHeight="25.0" prefWidth="241.0" text="" />
         <TextField fx:id="textFieldObject" layoutX="382.0" layoutY="181.0" prefHeight="25.0" prefWidth="241.0" text="" />
-        <Button fx:id="sendButton" layoutX="559.0" layoutY="445.0" mnemonicParsing="false" onAction="#sendMsg" text="send" />
+        <Button fx:id="sendButton" layoutX="623.0" layoutY="463.0" mnemonicParsing="false" onAction="#sendMsg" text="send" />
         <Label layoutX="314.0" layoutY="99.0" text="TO" />
         <Label layoutX="314.0" layoutY="141.0" text="FROM" />
         <Label layoutX="312.0" layoutY="186.0" text="OBJECT" />
-        <ListView fx:id="listView" layoutX="1.0" layoutY="78.0" prefHeight="168.0" prefWidth="264.0" onMouseClicked="#showEmail" />
-        <Button fx:id="deleteButton" layoutX="309.0" layoutY="46.0" mnemonicParsing="false" onAction="#removeMsg" text="delete" />
+        <ListView fx:id="listView" layoutX="9.0" layoutY="78.0" onMouseClicked="#showEmail" prefHeight="168.0" prefWidth="256.0" />
+        <Button fx:id="deleteButton" layoutX="309.0" layoutY="46.0" mnemonicParsing="false" onAction="#removeMsg" prefHeight="22.0" prefWidth="59.0" text="delete">
+         <font>
+            <Font size="11.0" />
+         </font></Button>
         <TextArea fx:id="userTextArea" editable="false" layoutX="94.0" layoutY="10.0" prefHeight="25.0" prefWidth="149.0">
             <font>
                 <Font size="10.0" />
             </font>
         </TextArea>
         <Button layoutX="415.0" layoutY="46.0" mnemonicParsing="false" onAction="#forwardAll" prefHeight="25.0" prefWidth="77.0" text="forwardAll">
-         <font>
-            <Font size="11.0" />
-         </font></Button>
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Button>
         <Button layoutX="415.0" layoutY="14.0" mnemonicParsing="false" onAction="#forward" prefHeight="25.0" prefWidth="77.0" text="forward">
-         <font>
-            <Font size="11.0" />
-         </font></Button>
-      <Label layoutY="64.0" text="Email List:" />
-      <Label layoutX="3.0" layoutY="279.0" text="Selected email text:" />
-      <TextArea fx:id="selectedEmailText" layoutX="3.0" layoutY="300.0" prefHeight="194.0" prefWidth="264.0" />
-      <Separator layoutX="282.0" layoutY="1.0" orientation="VERTICAL" prefHeight="498.0" prefWidth="3.0" />
-      <Label layoutX="3.0" layoutY="15.0" text="LoggedUser:" />
+            <font>
+                <Font size="11.0" />
+            </font>
+        </Button>
+        <Label layoutY="64.0" text="Email List:" />
+        <Label layoutX="3.0" layoutY="279.0" text="Selected email text:" />
+        <TextArea fx:id="selectedEmailText" layoutX="11.0" layoutY="300.0" prefHeight="194.0" prefWidth="256.0" />
+        <Separator layoutX="282.0" layoutY="1.0" orientation="VERTICAL" prefHeight="498.0" prefWidth="3.0" />
+        <Label layoutX="3.0" layoutY="15.0" text="LoggedUser:" />
+      <Label layoutX="315.0" layoutY="231.0" prefHeight="15.0" prefWidth="49.0" text="TEXT" />
+     
+      
+
+      
      
     </children>
 </AnchorPane>

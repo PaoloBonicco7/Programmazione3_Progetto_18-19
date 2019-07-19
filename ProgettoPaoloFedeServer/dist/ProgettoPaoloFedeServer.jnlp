@@ -8,9 +8,9 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ProgettoPaoloFedeServer.jar" size="18070" download="eager" />
-    <jar href="lib/gson-2.2.2.jar" size="206696" download="eager" />
-    <jar href="lib/gson-2.6.2-javadoc.jar" size="272498" download="eager" />
+    <jar href="ProgettoPaoloFedeServer.jar" size="51970" download="eager" />
+    <jar href="lib/gson-2.2.2.jar" size="189285" download="eager" />
+    <jar href="lib/gson-2.6.2-javadoc.jar" size="272497" download="eager" />
   </resources>
 <security>
   <all-permissions/>
