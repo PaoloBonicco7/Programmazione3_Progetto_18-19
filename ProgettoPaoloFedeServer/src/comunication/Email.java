@@ -14,8 +14,7 @@ public class Email implements Serializable {
 
     private static final long serialVersionUID = 5950169519310163575L;
 
-    public Email(String ID, String mittente, ArrayList<String> destinatario, String argomento, String testo, String data) {
-        this.ID = ID;
+    public Email(String mittente, ArrayList<String> destinatario, String argomento, String testo, String data) {
         this.mittente = mittente;
         this.destinatario = destinatario;
         this.argomento = argomento;
@@ -23,7 +22,7 @@ public class Email implements Serializable {
         this.data = data;
     }
 
-    public Email(){
+    public Email() {
         this.ID = "";
         this.mittente = "";
         this.destinatario = new ArrayList<>();
@@ -81,13 +80,12 @@ public class Email implements Serializable {
     }
 
     public String toString() {
-        return getID() + " " + getMittente() + " " + getDestinatario() + " " + getArgomento() + " " + getTesto() + "" + getData();
+        //    return getID() + " " + getMittente() + " " + getDestinatario() + " " + getArgomento() + " " + getTesto() + "" + getData();
+        return "Mittente: "+getMittente() + " Object: " + getArgomento() + " Text: " + getTesto() + " Date: " + getData()  + " Dest: " + getDestinatario() + " Id: " + getID();
     }
 }
 
 //CLASSE EMAIL CON PROPERTIES
-
-
 //import java.util.ArrayList;
 //import java.util.List;
 //import javafx.beans.property.IntegerProperty;
@@ -101,123 +99,123 @@ public class Email implements Serializable {
  * @author gniammo
  */
 /*
-public class Email implements Serializable {
+ public class Email implements Serializable {
     
-//ID
-    private final IntegerProperty ID = new SimpleIntegerProperty();
+ //ID
+ private final IntegerProperty ID = new SimpleIntegerProperty();
 
-    public final IntegerProperty IDProperty() {
-        return this.ID;
-    }
+ public final IntegerProperty IDProperty() {
+ return this.ID;
+ }
 
-    public final int getID() {
-        return this.IDProperty().get();
-    }
+ public final int getID() {
+ return this.IDProperty().get();
+ }
 
-    public final void setID(final int ID) {
-        this.IDProperty().set(ID);
-    }
-//mittente
-    private final StringProperty mittente = new SimpleStringProperty();
+ public final void setID(final int ID) {
+ this.IDProperty().set(ID);
+ }
+ //mittente
+ private final StringProperty mittente = new SimpleStringProperty();
 
-    public final StringProperty mittenteProperty() {
-        return this.mittente;
-    }
+ public final StringProperty mittenteProperty() {
+ return this.mittente;
+ }
 
-    public final String getMittente() {
-        return this.mittenteProperty().get();
-    }
+ public final String getMittente() {
+ return this.mittenteProperty().get();
+ }
 
-    public final void setMittente(final String mittente) {
-        this.mittenteProperty().set(mittente);
-    }
+ public final void setMittente(final String mittente) {
+ this.mittenteProperty().set(mittente);
+ }
 
-    //TODO -> convertire String in ListProperty
-//    
-////destinatario
-//    private final ListProperty<String> destinatari = new SimpleListProperty<String>();
-//    
-//    public final ListProperty<String> destinatariProperty(){
-//        return this.destinatari;
-//    }
-//    public final List<String> getDestinatari(){
-//        return this.destinatariProperty().get();
-//    }
-//    public final void setDestinatari(ListProperty<String> destinatari){ //dubbio
-//        this.destinatariProperty().set(destinatari);
-//    }
+ //TODO -> convertire String in ListProperty
+ //    
+ ////destinatario
+ //    private final ListProperty<String> destinatari = new SimpleListProperty<String>();
+ //    
+ //    public final ListProperty<String> destinatariProperty(){
+ //        return this.destinatari;
+ //    }
+ //    public final List<String> getDestinatari(){
+ //        return this.destinatariProperty().get();
+ //    }
+ //    public final void setDestinatari(ListProperty<String> destinatari){ //dubbio
+ //        this.destinatariProperty().set(destinatari);
+ //    }
 
     
-//destinatario STRING
+ //destinatario STRING
     
-     private final StringProperty destinatario = new SimpleStringProperty();
+ private final StringProperty destinatario = new SimpleStringProperty();
 
-    public final StringProperty destinatarioProperty() {
-        return this.destinatario;
-    }
+ public final StringProperty destinatarioProperty() {
+ return this.destinatario;
+ }
 
-    public final String getDestinatario() {
-        return this.mittenteProperty().get();
-    }
+ public final String getDestinatario() {
+ return this.mittenteProperty().get();
+ }
 
-    public final void setDestinatario(final String destinatario) {
-        this.destinatarioProperty().set(destinatario);
-    }
+ public final void setDestinatario(final String destinatario) {
+ this.destinatarioProperty().set(destinatario);
+ }
     
-//argomento
-    private final StringProperty argomento = new SimpleStringProperty();
+ //argomento
+ private final StringProperty argomento = new SimpleStringProperty();
 
-    public final StringProperty argomentoProperty() {
-        return this.argomento;
-    }
+ public final StringProperty argomentoProperty() {
+ return this.argomento;
+ }
 
-    public final String getArgomento() {
-        return this.argomentoProperty().get();
-    }
+ public final String getArgomento() {
+ return this.argomentoProperty().get();
+ }
 
-    public final void setArgomento(final String argomento) {
-        this.argomentoProperty().set(argomento);
-    }
-//testo
-    private final StringProperty testo = new SimpleStringProperty();
+ public final void setArgomento(final String argomento) {
+ this.argomentoProperty().set(argomento);
+ }
+ //testo
+ private final StringProperty testo = new SimpleStringProperty();
 
-    public final StringProperty testoProperty() {
-        return this.testo;
-    }
+ public final StringProperty testoProperty() {
+ return this.testo;
+ }
 
-    public final String getTesto() {
-        return this.testoProperty().get();
-    }
+ public final String getTesto() {
+ return this.testoProperty().get();
+ }
 
-    public final void setTesto(final String testo) {
-        this.testoProperty().set(testo);
-    }
-//data
-    private final StringProperty data = new SimpleStringProperty();
+ public final void setTesto(final String testo) {
+ this.testoProperty().set(testo);
+ }
+ //data
+ private final StringProperty data = new SimpleStringProperty();
 
-    public final StringProperty dataProperty() {
-        return this.data;
-    }
+ public final StringProperty dataProperty() {
+ return this.data;
+ }
 
-    public final String getData() {
-        return this.dataProperty().get();
-    }
+ public final String getData() {
+ return this.dataProperty().get();
+ }
 
-    public final void setData(final String data) {
-        this.dataProperty().set(data);
-    }
-  //costruttore  
-    public Email(int ID, String mittente, String destinatario,String argomento, String testo, String data){
-        setID(ID);
-        setMittente(mittente);
-        setDestinatario(destinatario);
-        setArgomento(argomento);
-        setTesto(testo);
-        setData(data);
-    }
+ public final void setData(final String data) {
+ this.dataProperty().set(data);
+ }
+ //costruttore  
+ public Email(int ID, String mittente, String destinatario,String argomento, String testo, String data){
+ setID(ID);
+ setMittente(mittente);
+ setDestinatario(destinatario);
+ setArgomento(argomento);
+ setTesto(testo);
+ setData(data);
+ }
 
-    public String toString(){
-        return getID()+" "+getMittente()+" "+ getDestinatario()+" "+getArgomento()+" "+getTesto()+""+getData();
-    }
-}
-*/
+ public String toString(){
+ return getID()+" "+getMittente()+" "+ getDestinatario()+" "+getArgomento()+" "+getTesto()+""+getData();
+ }
+ }
+ */
