@@ -30,6 +30,8 @@ public class ServerController implements Initializable {
     private ObjectOutputStream out = null;
     private ObjectInputStream in = null;
     private boolean online = true;
+    private static String ID = "";
+    private static int id=0;
 
     public void readJson() {
         String s = null;
@@ -88,10 +90,10 @@ public class ServerController implements Initializable {
             out.writeObject(e);
             out.close();
         } catch (IOException e1) {
-           /* textAreaMail.setText(textAreaMail.getText() + "\n"
-                    + "Invio effettuato. L'utente destinatario non è attualmente offline. "
-                    + "\nRiceverà la mail" + "appena sara online.");
-            */
+            /* textAreaMail.setText(textAreaMail.getText() + "\n"
+             + "Invio effettuato. L'utente destinatario non è attualmente offline. "
+             + "\nRiceverà la mail" + "appena sara online.");
+             */
         } finally {
             try {
                 if (s1 != null) {
@@ -165,6 +167,9 @@ public class ServerController implements Initializable {
 
     private void mailBox(EmailManager e) throws IOException {
         Email mail = e.getEmail();
+        ID = Integer.toString (id);
+        id++;
+        mail.setID(ID);
         if (e != null) {
             String act = e.getAction();
             String userMit = mail.getMittente();
@@ -247,7 +252,7 @@ public class ServerController implements Initializable {
         try {
             s1 = new Socket("localhost", port);
             ObjectOutputStream out = new ObjectOutputStream(s1.getOutputStream());
-            out.writeObject("UTENTE NON REGISTRATO");
+            out.writeObject("UTENTE NON ESISTENTE");
             out.close();
         } catch (UnknownHostException e) {
             e.printStackTrace();
