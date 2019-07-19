@@ -88,11 +88,10 @@ public class ServerController implements Initializable {
             out.writeObject(e);
             out.close();
         } catch (IOException e1) {
-            System.out.println("client offline, non è poss inviare msg");
-            textAreaMail.setText(textAreaMail.getText() + "\n"
-                    + "L'utente non on-line, invio fallito. "
+           /* textAreaMail.setText(textAreaMail.getText() + "\n"
+                    + "Invio effettuato. L'utente destinatario non è attualmente offline. "
                     + "\nRiceverà la mail" + "appena sara online.");
-
+            */
         } finally {
             try {
                 if (s1 != null) {
@@ -170,7 +169,6 @@ public class ServerController implements Initializable {
             String act = e.getAction();
             String userMit = mail.getMittente();
             ArrayList<String> userDest = mail.getDestinatario();
-
             incoming.close();
             switch (act) {
                 case "SEND":
@@ -178,7 +176,7 @@ public class ServerController implements Initializable {
                     break;
                 case "REMOVE":
                     removeMail(mail);
-                    textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + userDest
+                    textAreaMail.setText(textAreaMail.getText() + "\n" + "L'utente " + e.getUtente()
                             + " ha appena rimosso una mail dalla sua casella di posta");
                     break;
             }
@@ -273,11 +271,10 @@ public class ServerController implements Initializable {
 
     public void shutDown() {
         try {
-            online=false;
+            online = false;
             s.close();
-            
-            
-        }catch (IOException e) {
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
         System.out.println("SHUTDOWN\n");

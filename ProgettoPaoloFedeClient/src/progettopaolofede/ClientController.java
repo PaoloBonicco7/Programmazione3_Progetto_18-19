@@ -26,7 +26,7 @@ import javafx.util.Duration;
 public class ClientController implements Initializable, Serializable {
 
     private DataModel model; //model del client
-    private boolean online=true;
+    private boolean online = true;
     @FXML
     private ListView<Email> listView;
     @FXML
@@ -38,7 +38,8 @@ public class ClientController implements Initializable, Serializable {
     @FXML
     private TextArea textArea; //campo testo Msg
     @FXML
-    private TextArea textArea2; // Dove arriva il mex dal server
+    private TextArea selectedEmailText;
+
     @FXML
     private TextArea userTextArea;
 
@@ -148,7 +149,7 @@ public class ClientController implements Initializable, Serializable {
                                 EmailManager e = (EmailManager) objectReceived; // UPCAST perchè so che riceverò ogg EmailManager
                                 Email mail = e.getEmail();
                                 model.addEmail(mail);
-                                textArea2.setText(mail.getTesto());
+
                             }
                         } catch (IOException | ClassNotFoundException ex) {
                             Logger.getLogger(ClientController.class.getName()).log(Level.SEVERE, null, ex);
@@ -184,18 +185,6 @@ public class ClientController implements Initializable, Serializable {
         }
     }
 
-    //METODO INUTILE, USATO IN FASE DI TESTING DI OBSERVABLE-LIST
-    @FXML
-    private void modifyList(ActionEvent event) {
-        Calendar cal = Calendar.getInstance();
-        Email email = new Email(textFieldFrom.getText(), textFieldFrom.getText(), new ArrayList<String>() {
-            {
-                add(textFieldTo.getText());
-            }
-        }, textFieldObject.getText(), textArea.getText(), cal.getTime().toString());
-        model.addEmail(email);
-    }
-
     @FXML
     private void sendMsg(ActionEvent event) {//TODO ID
         try {
@@ -223,7 +212,6 @@ public class ClientController implements Initializable, Serializable {
             Platform.runLater(() -> {
                 Alert a = new Alert(Alert.AlertType.ERROR);
                 a.setTitle("ERROR");
-
                 a.setHeaderText("LOST CONNECTION");
                 a.setContentText("Riprovare piu tardi");
 
@@ -261,6 +249,7 @@ public class ClientController implements Initializable, Serializable {
                 String text = email.getTesto();
                 Email e = new Email(id, mittente, destinatari, object, text, time); //usa dest e non destinatari
                 EmailManager emailManager = new EmailManager(e, "REMOVE");
+                emailManager.setUtente(textFieldFrom.getText());//setto l'utente che rimuove la email
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(emailManager);
                 out.close();
@@ -329,9 +318,17 @@ public class ClientController implements Initializable, Serializable {
 
     }
 
+    @FXML
+    private void showEmail() {
+        Email email = listView.getSelectionModel().getSelectedItem();
+        selectedEmailText.setText("Object: " + email.getArgomento() + "\n"
+                + "From: " + email.getMittente() + "\n"
+                + "Text: "+ email.getTesto());
+    }
+
     public void shutDown() {
         try {
-            online=false;
+            online = false;
             ss.close();
             System.out.println(" SET-ON-CLOSE");
         } catch (IOException e) {
@@ -339,5 +336,4 @@ public class ClientController implements Initializable, Serializable {
         }
         System.out.println("SHUTDOWN CLIENT\n");
     }
-
 }
