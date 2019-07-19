@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="ProgettoPaoloFedeClient.jar" size="497445" download="eager" />
+    <jar href="ProgettoPaoloFedeClient.jar" size="497483" download="eager" />
   </resources>
 <security>
   <all-permissions/>
