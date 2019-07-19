@@ -11,6 +11,7 @@ public class DataModel implements Serializable{
 
     private ObservableList<Email> emailList = FXCollections.observableArrayList();
 
+    
     public ObservableList<Email> getEmailList() {
         return emailList;
     }
