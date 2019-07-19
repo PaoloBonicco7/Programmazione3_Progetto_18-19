@@ -42,7 +42,7 @@ public class ClientController implements Initializable, Serializable {
 
     @FXML
     private TextArea userTextArea;
-
+    private String userName;
     private User loggedUser;
     private ArrayList<User> userList;
 
@@ -116,7 +116,7 @@ public class ClientController implements Initializable, Serializable {
         if (this.model != null) {
             throw new IllegalStateException("Model can only be initialized once");
         }
-
+        this.userName = utente;
         this.userList = userList;
         userTextArea.setText(utente);
         textFieldFrom.setText(utente);
@@ -142,13 +142,18 @@ public class ClientController implements Initializable, Serializable {
                             if (objectReceived instanceof String) { // il server mi ha segnalato un errore
                                 Alert alert = new Alert(AlertType.ERROR);
                                 alert.setTitle("Error Dialog");
-                                alert.setHeaderText("ERROR DIALOG:");
+                                alert.setHeaderText("INVIO FALLITO");
                                 alert.setContentText("" + objectReceived + "");
                                 alert.showAndWait();
                             } else {
                                 EmailManager e = (EmailManager) objectReceived; // UPCAST perchè so che riceverò ogg EmailManager
                                 Email mail = e.getEmail();
                                 model.addEmail(mail);
+                                Alert alert = new Alert(AlertType.INFORMATION);
+                                alert.setTitle(userName);
+                                alert.setHeaderText("Just received a new email");
+                                alert.setContentText("");
+                                alert.showAndWait();
 
                             }
                         } catch (IOException | ClassNotFoundException ex) {
@@ -196,14 +201,14 @@ public class ClientController implements Initializable, Serializable {
                 String mittente = textFieldFrom.getText();
                 String object = textFieldObject.getText();
                 String text = textArea.getText();
-
-                Email email = new Email("ID", mittente, destinatari, object, text, time);
+                Email email = new Email(mittente, destinatari, object, text, time);
                 EmailManager emailHandler = new EmailManager(email, "SEND");
                 emailHandler.setPort(loggedUser.getPort());
 
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
                 out.writeObject(emailHandler);
                 out.close();
+
             } finally {
                 disconnect(s);
             }
@@ -242,12 +247,11 @@ public class ClientController implements Initializable, Serializable {
             Socket s = connect();
             try {
                 String time = email.getData();
-                String id = "ID"; //todo
                 String mittente = email.getMittente();
                 ArrayList<String> destinatari = (ArrayList<String>) email.getDestinatario();//non usato xk serializ error
                 String object = email.getArgomento();
                 String text = email.getTesto();
-                Email e = new Email(id, mittente, destinatari, object, text, time); //usa dest e non destinatari
+                Email e = new Email(mittente, destinatari, object, text, time); //usa dest e non destinatari
                 EmailManager emailManager = new EmailManager(e, "REMOVE");
                 emailManager.setUtente(textFieldFrom.getText());//setto l'utente che rimuove la email
                 ObjectOutputStream out = new ObjectOutputStream(s.getOutputStream());
@@ -323,7 +327,7 @@ public class ClientController implements Initializable, Serializable {
         Email email = listView.getSelectionModel().getSelectedItem();
         selectedEmailText.setText("Object: " + email.getArgomento() + "\n"
                 + "From: " + email.getMittente() + "\n"
-                + "Text: "+ email.getTesto());
+                + "Text: " + email.getTesto());
     }
 
     public void shutDown() {
